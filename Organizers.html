@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NONO & CARLOS — International Booking EPK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { red: '#E34242', ink: '#0A0A0A', pale: '#FAFAFA' },
+          fontFamily: { sans: ['Poppins','sans-serif'] },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #FAFAFA; color: #0A0A0A; overflow-x: hidden; }
+    
+    #nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; transition: all .4s; }
+    #nav.scrolled { background: rgba(10,10,10,.95); backdrop-filter: blur(10px); padding: 1rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    
+    .slider-container { display: flex; gap: 1.5rem; overflow-x: auto; padding: 1rem 0 2rem; scrollbar-width: none; }
+    .slider-container::-webkit-scrollbar { display: none; }
+    
+    .event-card { 
+      flex: 0 0 240px;
+      height: 340px; 
+      background: #000; 
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .event-card img { width: 100%; height: 100%; object-fit: contain; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: all .8s ease-out; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="text-white font-bold tracking-widest text-[10px] uppercase">Nono <span class="text-red">&</span> Carlos</div>
+  <a href="index.html" class="text-white border border-white/20 px-4 py-2 text-[9px] uppercase font-bold hover:bg-red hover:border-red transition-all tracking-widest">Back to Portal</a>
+</nav>
+
+<section class="relative h-[60vh] bg-black flex flex-col justify-end p-8 pb-16">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50" 
+    src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4"></video>
+  <div class="relative z-10 max-w-6xl mx-auto w-full">
+    <p class="text-red text-[9px] tracking-[0.4em] uppercase mb-2">Electronic Press Kit</p>
+    <h1 class="text-white text-4xl md:text-6xl font-black uppercase leading-tight italic">International<br/>Bachata <span class="text-red">Artists</span></h1>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white border-b border-gray-50">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    
+    <div class="md:w-1/2 reveal">
+      <span class="text-red text-[10px] font-bold tracking-[0.3em] uppercase">Trayectoria</span>
+      <h2 class="text-3xl font-black mt-2 mb-6 leading-tight uppercase">Pasión por la<br/>Fusión Artística</h2>
+      <p class="text-gray-500 text-sm leading-relaxed mb-4">Nuestra propuesta nace de más de una década de baile y una sólida trayectoria internacional recorriendo escenarios como pareja profesional.</p>
+      <p class="text-gray-500 text-sm leading-relaxed">Unimos la esencia de la bachata con la fuerza de lo urbano y la fluidez del sensual y el bachazouk.</p>
+    </div>
+    
+    <!-- FOTO CORREGIDA -->
+    <div class="md:w-1/2 reveal flex justify-center">
+      <div class="relative w-full max-w-[300px] h-[380px] md:h-[420px] shadow-2xl rounded-lg overflow-hidden border-8 border-white">
+        <img src="https://i.imgur.com/qfAEP8J.jpeg" 
+             class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" 
+             alt="Nono & Carlos">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-ink text-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-10 reveal">
+      <span class="text-red text-[9px] font-bold tracking-[0.3em] uppercase">Featured Events</span>
+      <h2 class="text-2xl font-black mt-2 uppercase">On <span class="text-red italic">Stage</span></h2>
+      <div class="w-10 h-1 bg-red mt-4"></div>
+    </div>
+
+    <div class="slider-container reveal">
+      <div class="event-card"><img src="https://i.imgur.com/ltrvO7Y.jpeg" alt="Congreso 1"></div>
+      <div class="event-card"><img src="https://i.imgur.com/gE53ScC.jpeg" alt="Congreso 2"></div>
+      <div class="event-card"><img src="https://i.imgur.com/S8bUk0n.jpeg" alt="Congreso 3"></div>
+      <div class="event-card"><img src="https://i.imgur.com/6fzRAK7.jpeg" alt="Congreso 4"></div>
+    </div>
+    <p class="text-white/20 text-[8px] mt-2 uppercase tracking-widest text-center">← Desliza para explorar →</p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-[#FAFAFA]">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-xl font-black mb-12 uppercase text-center tracking-widest">Industry <span class="text-red italic">Reviews</span></h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="reveal bg-white p-8 rounded border border-gray-100 shadow-sm">
+        <p class="text-xs italic text-gray-500 mb-4">"Su conexión y musicalidad es emoción hecha movimiento. Una pareja imprescindible."</p>
+        <p class="text-[9
