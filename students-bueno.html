@@ -50,9 +50,9 @@
       padding: .8rem 2rem; border-radius: 4px;
       font-size: .8rem; font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase;
-      transition: background .2s, transform .2s, box-shadow .2s;
+      transition: background .2s, transform .2s;
     }
-    .btn-red:hover { background: #C42F2F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227,66,66,0.4); }
+    .btn-red:hover { background: #C42F2F; transform: translateY(-2px); }
 
     .btn-ghost {
       display: inline-block;
@@ -132,14 +132,14 @@
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 px-6 md:px-12 py-4">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-    <a href="#" class="nav-logo text-white text-xl font-semibold tracking-wide" style="text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
+    <a href="#" class="nav-logo text-white text-xl font-semibold tracking-wide" style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
       Nonoy<span style="color:#E34242">Carlos</span>
     </a>
 
     <div class="hidden md:flex items-center gap-8">
-      <a href="#about"        class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 2px 8px rgba(0,0,0,0.6);">Nosotros</a>
-      <a href="#testimonials" class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 2px 8px rgba(0,0,0,0.6);">Testimonios</a>
-      <a href="#pricing"      class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 2px 8px rgba(0,0,0,0.6);">Tarifas</a>
+      <a href="#about"        class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Nosotros</a>
+      <a href="#testimonials" class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Testimonios</a>
+      <a href="#pricing"      class="nav-link text-white text-sm font-medium transition-colors hover:text-passion" style="text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Tarifas</a>
       <a href="#contact"      class="btn-red text-xs">Contáctanos</a>
     </div>
 
@@ -158,47 +158,51 @@
 </nav>
 
 
-<section id="hero" class="relative w-full h-screen overflow-hidden bg-ink">
+<section id="hero" class="relative w-full h-screen bg-ink overflow-hidden">
   
-  <video
-    id="hero-video"
-    src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    class="absolute inset-0 w-full h-full object-cover object-center z-0">
-  </video>
-  
-  <div class="absolute inset-0 bg-black/40 md:bg-black/50 z-10"></div>
-
-  <div class="relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto mt-8 md:mt-0">
+  <div class="absolute inset-0 md:left-1/2 md:w-1/2 h-full z-0">
+    <video
+      id="hero-video"
+      src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-full object-cover">
+    </video>
     
-    <p class="text-white/80 text-xs md:text-sm font-semibold tracking-[.25em] uppercase mb-4" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
-       Urban Bachata · Sensual &amp; Bachazouk
-    </p>
-
-    <h1 class="text-white font-bold leading-tight mb-6 text-4xl md:text-6xl lg:text-7xl"
-        style="text-shadow: 0 4px 24px rgba(0,0,0,0.8);">
-      Lleva tu Bachata<br/>
-      <span style="color:#E34242; font-style:italic;">al siguiente nivel</span>
-    </h1>
-
-    <p class="text-white/95 font-light mb-10 leading-relaxed text-base md:text-xl max-w-2xl mx-auto"
-       style="text-shadow: 0 2px 12px rgba(0,0,0,0.8);">
-      Artistas y profesores de Barcelona certificados con una metodología profesional y cercana.
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="btn-red text-center">
-        Descúbrenos
-      </a>
-      <a href="#pricing" class="btn-ghost text-center bg-black/20 backdrop-blur-sm">
-        Nuestras tarifas
-      </a>
-    </div>
-
+    <div class="absolute inset-0 bg-ink/60 md:hidden"></div>
+    <div class="hidden md:block absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-ink to-transparent"></div>
   </div>
+
+  <div class="relative z-10 w-full h-full flex flex-col justify-end md:justify-center md:w-1/2 px-6 md:px-12 lg:px-20 pb-16 md:pb-0 pointer-events-none">
+    <div class="max-w-lg pointer-events-auto">
+      <p class="text-white/70 text-xs md:text-sm font-medium tracking-[.22em] uppercase mb-3">
+         Urban Bachata · Sensual &amp; Bachazouk
+      </p>
+
+      <h1 class="text-white font-bold leading-tight mb-4 text-4xl md:text-5xl lg:text-6xl"
+          style="text-shadow: 0 2px 18px rgba(0,0,0,.6);">
+        Lleva tu Bachata<br/>
+        <span style="color:#E34242; font-style:italic;">al siguiente nivel</span>
+      </h1>
+
+      <p class="text-white/90 font-light max-w-lg mb-8 leading-relaxed text-base md:text-lg"
+         style="text-shadow: 0 1px 8px rgba(0,0,0,.6);">
+        Artistas y profesores de Barcelona certificados con una metodología profesional y cercana.
+      </p>
+
+      <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+        <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="btn-red text-center shadow-lg">
+          Descúbrenos
+        </a>
+        <a href="#pricing" class="btn-ghost text-center bg-black/20">
+          Nuestras tarifas
+        </a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 
