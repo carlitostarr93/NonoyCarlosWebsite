@@ -96,13 +96,6 @@
       padding: .28rem .8rem; border-radius: 20px;
     }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-
     /* ── MOBILE MENU ── */
     #mob-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
     #mob-menu.open { max-height: 320px; opacity: 1; }
@@ -139,9 +132,9 @@
 </nav>
 
 
-<section id="hero" class="w-full flex flex-col-reverse md:flex-row bg-ink min-h-[calc(100vh-70px)] overflow-hidden">
+<section id="hero" class="w-full flex flex-col-reverse md:flex-row bg-ink min-h-[calc(100vh-70px)]">
   
-  <div class="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 md:py-8 z-10">
+  <div class="w-full md:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-16 z-10">
     <div class="max-w-lg mx-auto md:ml-auto md:mr-0 w-full text-left">
       <p class="text-white/70 text-xs md:text-sm font-medium tracking-[.22em] uppercase mb-4">
          Urban Bachata · Sensual &amp; Bachazouk
@@ -167,7 +160,7 @@
     </div>
   </div>
 
-  <div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-0 z-0">
+  <div class="w-full md:w-1/2 relative min-h-[400px] md:min-h-full z-0 overflow-hidden">
     <video
       id="hero-video"
       src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4"
@@ -188,7 +181,7 @@
 <section id="about" class="py-24 md:py-32 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-16 md:mb-24 reveal">
+    <div class="text-center mb-16 md:mb-24">
       <div class="red-bar"></div>
       <span class="section-label">Quiénes somos</span>
       <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5">
@@ -202,14 +195,14 @@
 
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
 
-      <div class="reveal d1 relative w-full aspect-square max-w-md mx-auto md:max-w-none">
+      <div class="relative w-full aspect-square max-w-md mx-auto md:max-w-none">
         <div class="absolute -top-4 -left-4 w-20 h-20 border-l-4 border-t-4 border-passion opacity-40 pointer-events-none"></div>
         <div class="absolute -bottom-4 -right-4 w-20 h-20 border-r-4 border-b-4 border-passion opacity-40 pointer-events-none"></div>
         
         <img src="https://i.imgur.com/qfAEP8J.jpeg" alt="Nonoy y Carlos Bachata" class="w-full h-full object-cover object-top rounded-md shadow-xl">
       </div>
 
-      <div class="reveal d2">
+      <div>
         <h3 class="text-3xl lg:text-4xl font-bold text-ink leading-snug mb-6">
           Nuestra Pasión por la Fusión <br/>
           <span class="font-light italic text-xl lg:text-2xl" style="color:#E34242;">una base sólida que fusiona estilos de forma elegante y fluida</span>
@@ -239,7 +232,7 @@
       </div>
     </div>
 
-    <div class="reveal mb-24">
+    <div class="mb-24">
       <p class="text-center section-label mb-8">Certificaciones Oficiales</p>
       <div class="flex flex-col md:flex-row flex-wrap justify-center gap-4 lg:gap-8">
         <div class="cert-badge">
@@ -267,7 +260,7 @@
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 lg:gap-10">
-      <div class="reveal d1 text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
+      <div class="text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
         <div class="w-14 h-14 rounded-full bg-passion/10 flex items-center justify-center mx-auto mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-passion" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
@@ -277,7 +270,7 @@
         <p class="text-muted text-sm leading-relaxed font-light">Programa estructurado y progresivo que garantiza avances reales desde el primer día.</p>
       </div>
       
-      <div class="reveal d2 text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
+      <div class="text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
         <div class="w-14 h-14 rounded-full bg-passion/10 flex items-center justify-center mx-auto mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-passion" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
@@ -287,7 +280,7 @@
         <p class="text-muted text-sm leading-relaxed font-light">Un ambiente cálido y familiar donde aprender es sinónimo de disfrutar sin presiones.</p>
       </div>
       
-      <div class="reveal d3 text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
+      <div class="text-center p-8 lg:p-10 rounded-xl bg-soft hover:shadow-lg transition-shadow">
         <div class="w-14 h-14 rounded-full bg-passion/10 flex items-center justify-center mx-auto mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-passion" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -305,7 +298,7 @@
 <section id="testimonials" class="py-24 md:py-32 px-6" style="background:#FAFAFA">
   <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-16 md:mb-20 reveal">
+    <div class="text-center mb-16 md:mb-20">
       <div class="red-bar"></div>
       <span class="section-label">Testimonios reales</span>
       <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight">
@@ -316,7 +309,7 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-      <div class="t-card reveal d1">
+      <div class="t-card">
         <div style="color:#E34242; font-size:1.25rem; letter-spacing:2px;" class="mb-2">★★★★★</div>
         <p class="text-muted text-xs mb-5 font-semibold uppercase tracking-widest">5 / 5 · Superprof</p>
         <p class="text-ink text-sm lg:text-base leading-relaxed mb-8 flex-grow italic">
@@ -331,7 +324,7 @@
         </div>
       </div>
 
-      <div class="t-card reveal d2">
+      <div class="t-card">
         <div style="color:#E34242; font-size:1.25rem; letter-spacing:2px;" class="mb-2">★★★★★</div>
         <p class="text-muted text-xs mb-5 font-semibold uppercase tracking-widest">5 / 5 · Superprof</p>
         <p class="text-ink text-sm lg:text-base leading-relaxed mb-8 flex-grow italic">
@@ -346,7 +339,7 @@
         </div>
       </div>
 
-      <div class="t-card reveal d3 md:col-span-2 lg:col-span-1">
+      <div class="t-card md:col-span-2 lg:col-span-1">
         <div style="color:#E34242; font-size:1.25rem; letter-spacing:2px;" class="mb-2">★★★★★</div>
         <p class="text-muted text-xs mb-5 font-semibold uppercase tracking-widest">5 / 5 · Superprof</p>
         <p class="text-ink text-sm lg:text-base leading-relaxed mb-8 flex-grow italic">
@@ -369,7 +362,7 @@
 <section id="pricing" class="py-24 md:py-32 px-6 bg-white">
   <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-16 md:mb-20 reveal">
+    <div class="text-center mb-16 md:mb-20">
       <div class="red-bar"></div>
       <span class="section-label">Tarifas</span>
       <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight mb-5">
@@ -382,7 +375,7 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
-      <div class="p-card reveal d1">
+      <div class="p-card">
         <p class="text-muted text-sm font-bold tracking-widest uppercase mb-6">Individual</p>
         <div class="flex items-end gap-1 mb-2">
           <span class="text-5xl lg:text-6xl font-bold text-ink">60</span>
@@ -398,7 +391,7 @@
         <a href="#contact" class="block w-full text-center py-3 border-2 border-passion text-passion text-sm font-bold tracking-widest uppercase rounded hover:bg-passion hover:text-white transition-colors mt-auto">Reservar</a>
       </div>
 
-      <div class="p-card reveal d2">
+      <div class="p-card">
         <p class="text-muted text-sm font-bold tracking-widest uppercase mb-6">Pareja</p>
         <div class="flex items-end gap-1 mb-2">
           <span class="text-5xl lg:text-6xl font-bold text-ink">90</span>
@@ -414,7 +407,7 @@
         <a href="#contact" class="block w-full text-center py-3 border-2 border-passion text-passion text-sm font-bold tracking-widest uppercase rounded hover:bg-passion hover:text-white transition-colors mt-auto">Reservar</a>
       </div>
 
-      <div class="p-card featured reveal d3 relative transform md:-translate-y-4 shadow-xl">
+      <div class="p-card featured relative transform md:-translate-y-4 shadow-xl">
         <span class="popular-badge absolute -top-3 right-5 md:right-8">Más popular</span>
         <p class="text-passion text-sm font-bold tracking-widest uppercase mb-6">Pack 5 horas</p>
         <div class="flex items-end gap-1 mb-2">
@@ -431,7 +424,7 @@
         <a href="#contact" class="block w-full text-center py-3 bg-passion text-white text-sm font-bold tracking-widest uppercase rounded hover:bg-passion-dk transition-colors mt-auto shadow-md">Empezar ahora</a>
       </div>
 
-      <div class="p-card reveal d4">
+      <div class="p-card">
         <p class="text-muted text-sm font-bold tracking-widest uppercase mb-6">Pack 10 horas</p>
         <div class="flex items-end gap-1 mb-2">
           <span class="text-5xl lg:text-6xl font-bold text-ink">500</span>
@@ -455,7 +448,7 @@
 <section id="contact" class="py-24 md:py-32 px-6" style="background:#FAFAFA">
   <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-16 md:mb-24 reveal">
+    <div class="text-center mb-16 md:mb-24">
       <div class="red-bar"></div>
       <span class="section-label">Contacto</span>
       <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -465,7 +458,7 @@
 
     <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-      <div class="reveal d1">
+      <div>
         <p class="text-muted text-base lg:text-lg font-light leading-relaxed mb-10">
           ¿Dudas sobre qué nivel es el tuyo? ¿Buscas clases para un evento especial? Escríbenos y te respondemos en menos de 24 horas.
         </p>
@@ -504,4 +497,82 @@
               </svg>
             </div>
             <div>
-              <p class="font-bold text-ink text-
+              <p class="font-bold text-ink text-base mb-1">Instagram</p>
+              <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank"
+                 class="text-muted text-base font-light hover:text-passion transition-colors">
+                @nonoycarlosbachata
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-10 md:p-14 lg:p-16 rounded-2xl border border-gray-100 shadow-[0_8px_40px_rgb(0,0,0,0.06)] text-center flex flex-col justify-center h-full">
+        <div class="w-20 h-20 mx-auto bg-passion/10 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-passion" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <h3 class="text-ink text-2xl font-bold mb-4">Escríbenos por Instagram</h3>
+        <p class="text-muted text-base font-light mb-10 leading-relaxed">La forma más rápida de reservar tu clase o resolver cualquier duda. Te contestaremos al momento.</p>
+        
+        <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="btn-red w-full text-center py-4 text-sm shadow-lg hover:shadow-passion/30">
+          Enviar Mensaje Directo
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer style="background:#1A1A1A" class="py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <a href="#" class="text-white text-2xl font-semibold tracking-wide">
+        Nonoy<span style="color:#E34242">Carlos</span>
+        <span class="font-light"> Bachata</span>
+      </a>
+      <div class="flex flex-wrap justify-center md:justify-end items-center gap-8">
+        <a href="#about"        class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Nosotros</a>
+        <a href="#testimonials" class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Testimonios</a>
+        <a href="#pricing"      class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Tarifas</a>
+        <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank"
+           class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Instagram</a>
+      </div>
+    </div>
+    <div class="border-t border-white/10 mt-12 pt-8 text-center">
+      <p class="text-white/25 text-xs font-light">© 2026 NonoyCarlos Bachata · Barcelona · Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* Mobile menu */
+  const hbg = document.getElementById('hamburger');
+  const mob = document.getElementById('mob-menu');
+  const io  = document.getElementById('ico-open');
+  const ic  = document.getElementById('ico-close');
+  hbg.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    io.classList.toggle('hidden', open);
+    ic.classList.toggle('hidden', !open);
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    io.classList.remove('hidden');
+    ic.classList.add('hidden');
+  }));
+
+  /* Video autoplay fallback */
+  const vid = document.getElementById('hero-video');
+  if (vid) {
+    vid.play().catch(() => {
+      vid.setAttribute('controls', '');
+    });
+  }
+</script>
+
+</body>
+</html>
