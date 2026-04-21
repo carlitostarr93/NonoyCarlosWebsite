@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>NONO & CARLOS — International Bachata Artists · Organizers</title>
+  <title>NONO & CARLOS — International Bachata Artists · Organizers</title>
   <meta name="description" content="Nono & Carlos — International Bachata Artists & Instructors based in Barcelona. Certified sensual bachata, bachazouk and urban fusion." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -359,13 +359,29 @@
       font-size: .88rem; font-weight: 300;
       line-height: 1.9; color: #555;
     }
-    .cert-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
-    .cert-pill {
-      font-size: .72rem; font-weight: 500;
-      padding: .4rem 1rem; border-radius: 100px;
-      border: 1px solid rgba(227,66,66,.25);
-      background: rgba(227,66,66,.07); color: var(--red);
+    
+    /* ─── CERTIFICACIONES ESTILO APPLE ─── */
+    .cert-badge {
+      border: 1px solid rgba(0,0,0,0.04);
+      border-radius: 20px; 
+      padding: 1rem 1.5rem;
+      background: #fff; 
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      display: flex; align-items: center; gap: .75rem;
+      width: 100%; justify-content: flex-start; text-align: left;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+      cursor: default;
     }
+    @media (min-width: 768px) { .cert-badge { width: auto; } }
+    
+    .cert-badge:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
+    }
+    .cert-title { font-size: .8rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: .65rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
+
     .stats-row {
       display: flex; gap: 2.5rem;
       margin-top: 2rem; padding-top: 2rem;
@@ -404,8 +420,8 @@
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 8px; padding: 2rem 1.75rem;
       background: #111;
-      transition: border-color .3s, transform .3s, box-shadow .3s;
       position: relative; overflow: hidden;
+      transition: border-color .3s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .off-card::before {
       content: '';
@@ -414,7 +430,11 @@
       transform: scaleX(0); transform-origin: left;
       transition: transform .35s ease;
     }
-    .off-card:hover { border-color: rgba(227,66,66,.25); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
+    .off-card:hover { 
+      border-color: rgba(227,66,66,.25); 
+      transform: translateY(-6px); 
+      box-shadow: 0 24px 48px rgba(0,0,0,.6); 
+    }
     .off-card:hover::before { transform: scaleX(1); }
 
     .off-card-num {
@@ -472,9 +492,12 @@
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 8px; padding: 2rem 1.75rem;
       background: #0d0d0d; position: relative;
-      transition: box-shadow .3s;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .test-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+    .test-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 8px 16px -4px rgba(0,0,0,0.6); 
+    }
     .test-quote {
       font-size: 3rem; line-height: 1;
       color: var(--red); opacity: .15;
@@ -545,9 +568,12 @@
       letter-spacing: .16em; text-transform: uppercase;
       padding: .9rem 2.25rem; border-radius: 3px;
       text-decoration: none;
-      transition: transform .2s, box-shadow .2s;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .ig-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.25); }
+    .ig-btn:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 8px 16px -4px rgba(0,0,0,0.2); 
+    }
     .ig-btn svg { width: 18px; height: 18px; }
 
     /* ─── FOOTER ──────────────────── */
@@ -587,9 +613,14 @@
       letter-spacing: .16em; text-transform: uppercase;
       padding: .85rem 2rem; border-radius: 3px;
       text-decoration: none;
-      transition: background .2s, transform .2s, box-shadow .2s;
+      transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .btn-primary:hover { background: var(--red-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(227,66,66,.35); }
+    .btn-primary:hover { 
+      background: var(--red); 
+      transform: translateY(-3px); 
+      box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); 
+    }
+    
     .btn-ghost-dark {
       display: inline-flex; align-items: center; gap: .6rem;
       border: 1.5px solid rgba(255,255,255,.35); color: rgba(255,255,255,.8);
@@ -597,13 +628,17 @@
       letter-spacing: .16em; text-transform: uppercase;
       padding: .83rem 2rem; border-radius: 3px;
       text-decoration: none;
-      transition: border-color .2s, background .2s, transform .2s;
+      transition: border-color .2s, background .2s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+    .btn-ghost-dark:hover { 
+      border-color: #fff; 
+      background: rgba(255,255,255,.08); 
+      transform: translateY(-2px); 
+    }
 
     /* ─── SCROLL REVEAL ───────────── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
@@ -612,15 +647,12 @@
     @keyframes fadeIn  { from { opacity:0; } to { opacity:1; } }
     @keyframes bounce  {
       0%,100% { transform: translateX(-50%) translateY(0); }
-      50%      { transform: translateX(-50%) translateY(6px); }
+      50%     { transform: translateX(-50%) translateY(6px); }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════
-     NAVBAR
-══════════════════════ -->
 <nav id="nav">
 <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
@@ -628,7 +660,6 @@
     <a href="#about-strip" class="nav-link">Nosotros</a>
     <a href="#offerings"   class="nav-link">Qué ofrecemos</a>
     <a href="organizers.html" class="nav-link">Organizers</a>
-    <!-- ✏️ EDITABLE: path to students page -->
     <a href="students.html" class="nav-pill">Estudiantes</a>
   </div>
 
@@ -637,7 +668,6 @@
   </button>
 </nav>
 
-<!-- Mobile full-screen menu -->
 <div id="mob-menu">
   <button class="mob-close" id="mob-close" aria-label="Cerrar">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -650,11 +680,7 @@
 </div>
 
 
-<!-- ══════════════════════
-     HERO
-══════════════════════ -->
 <section id="hero">
-  <!-- ✏️ EDITABLE: video URL -->
   <video id="hero-video" autoplay muted loop playsinline preload="auto"
     src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4">
   </video>
@@ -685,12 +711,8 @@
 </section>
 
 
-<!-- ══════════════════════
-     PATH SELECTION
-══════════════════════ -->
 <div id="paths">
 
-  <!-- ORGANIZERS -->
   <a href="organizers.html" class="path-card path-organizers">
     <div class="path-bg"></div>
     <div class="path-photo" style="background-image: url('https://i.imgur.com/qfAEP8J.jpeg');"></div>
@@ -715,10 +737,8 @@
     </div>
   </a>
 
-  <!-- Divider line -->
   <div class="path-divider"></div>
 
-  <!-- STUDENTS -->
   <a href="students.html" class="path-card path-students">
     <div class="path-bg"></div>
     <div class="path-photo" style="background-image: url('https://i.imgur.com/TjWkbIi.jpeg'); background-position: center 30%;"></div>
@@ -746,13 +766,9 @@
 </div>
 
 
-<!-- ══════════════════════
-     ABOUT STRIP
-══════════════════════ -->
 <section id="about-strip">
   <div class="about-strip-inner">
 
-    <!-- Photo -->
     <div class="about-strip-img reveal">
       <img
         src="https://i.imgur.com/qfAEP8J.jpeg"
@@ -761,7 +777,6 @@
       />
     </div>
 
-    <!-- Text -->
     <div class="reveal d2">
       <p class="about-text-tag">Quiénes somos</p>
       <h2 class="about-text-h">
@@ -775,11 +790,33 @@
       <p class="about-text-body">
         Basados en Barcelona y certificados por referentes mundiales del género, trasladamos un nivel de enseñanza de alto rendimiento adaptado a cada alumno — sea cual sea su punto de partida.
       </p>
-      <div class="cert-row">
-        <span class="cert-pill">🎓 Esencia Bachata</span>
-        <span class="cert-pill">🎓 Korke &amp; Judith</span>
-        <span class="cert-pill">🎓 Bachazouk</span>
+      
+      <div class="flex flex-col md:flex-row flex-wrap gap-4 mt-6">
+        <div class="cert-badge">
+          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <div>
+            <p class="cert-title">Esencia Bachata Method</p>
+            <p class="cert-sub">Certificación oficial</p>
+          </div>
+        </div>
+        
+        <div class="cert-badge">
+          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <div>
+            <p class="cert-title">Korke &amp; Judith</p>
+            <p class="cert-sub">Bachata Sensual lvl 1</p>
+          </div>
+        </div>
+        
+        <div class="cert-badge">
+          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <div>
+            <p class="cert-title">Bachazouk</p>
+            <p class="cert-sub">Masa &amp; Polina</p>
+          </div>
+        </div>
       </div>
+
       <div class="stats-row">
         <div>
           <div class="stat-num">10+</div>
@@ -800,9 +837,6 @@
 </section>
 
 
-<!-- ══════════════════════
-     OFFERINGS
-══════════════════════ -->
 <section id="offerings">
   <div class="offerings-inner">
 
@@ -814,7 +848,6 @@
 
     <div class="offerings-grid">
 
-      <!-- Show / Performance -->
       <div class="off-card reveal d1">
         <div class="off-card-num">01</div>
         <div class="off-card-icon">
@@ -829,7 +862,6 @@
         </a>
       </div>
 
-      <!-- Workshops -->
       <div class="off-card reveal d2">
         <div class="off-card-num">02</div>
         <div class="off-card-icon">
@@ -844,7 +876,6 @@
         </a>
       </div>
 
-      <!-- Private Classes -->
       <div class="off-card reveal d3">
         <div class="off-card-num">03</div>
         <div class="off-card-icon">
@@ -854,13 +885,11 @@
         </div>
         <div class="off-card-title">Clases Privadas</div>
         <div class="off-card-desc">Individual o en pareja, con metodología certificada y progresión real. Desde principiante hasta avanzado.</div>
-        <!-- ✏️ EDITABLE: link to students page -->
         <a href="students.html" class="off-card-link">
           Ver tarifas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <!-- Packs -->
       <div class="off-card reveal d4">
         <div class="off-card-num">04</div>
         <div class="off-card-icon">
@@ -880,9 +909,6 @@
 </section>
 
 
-<!-- ══════════════════════
-     TESTIMONIALS (mix)
-══════════════════════ -->
 <section id="testimonials">
   <div class="test-inner">
 
@@ -894,7 +920,6 @@
 
     <div class="test-grid">
 
-      <!-- Student -->
       <div class="test-card reveal d1">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
@@ -908,7 +933,6 @@
         </div>
       </div>
 
-      <!-- Organizer -->
       <div class="test-card reveal d2">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
@@ -922,7 +946,6 @@
         </div>
       </div>
 
-      <!-- Student -->
       <div class="test-card reveal d3">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
@@ -938,7 +961,6 @@
 
     </div>
 
-    <!-- CTA links to each page -->
     <div class="flex flex-wrap gap-4 justify-center mt-12 reveal">
       <a href="organizers.html" class="btn-ghost-dark">
         Ver EPK completo
@@ -954,9 +976,6 @@
 </section>
 
 
-<!-- ══════════════════════
-     INSTAGRAM CTA
-══════════════════════ -->
 <section id="ig-cta">
   <div class="ig-inner">
     <p class="ig-label">Síguenos</p>
@@ -965,7 +984,6 @@
       Videos, workshops, eventos y la vida detrás del escenario.<br/>
       Todo en nuestro Instagram.
     </p>
-    <!-- ✏️ EDITABLE: Instagram URL -->
     <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -978,14 +996,11 @@
 </section>
 
 
-<!-- ══════════════════════
-     FOOTER
-══════════════════════ -->
 <footer>
   <div class="foot-inner">
 
     <div>
-      <div class="foot-logo">Nonoy<span>Carlos</span> Bachata</div>
+      <div class="foot-logo">Nono <span>&</span> Carlos</div>
       <p class="foot-copy" style="margin-top:.4rem;">Barcelona · International Bachata Artists</p>
     </div>
 
@@ -993,13 +1008,11 @@
       <a href="#about-strip"    class="foot-link">Nosotros</a>
       <a href="#offerings"      class="foot-link">Qué ofrecemos</a>
       <a href="organizers.html" class="foot-link">Organizers</a>
-      <!-- ✏️ EDITABLE -->
       <a href="students.html"   class="foot-link">Estudiantes</a>
       <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="foot-link">Instagram</a>
     </nav>
 
     <div>
-      <!-- ✏️ EDITABLE: email -->
       <a href="mailto:hola@nonoycarlosbachata.com" class="foot-copy block hover:text-white/50 transition-colors">
         hola@nonoycarlosbachata.com
       </a>
@@ -1010,9 +1023,6 @@
 </footer>
 
 
-<!-- ══════════════════════
-     JAVASCRIPT
-══════════════════════ -->
 <script>
   /* Navbar scroll */
   const nav = document.getElementById('nav');
