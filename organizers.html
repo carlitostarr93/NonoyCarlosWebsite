@@ -193,7 +193,6 @@
       }
     }
 
-    /* Image container: Perfect square & aligned border */
     .about-img-wrap {
       position: relative;
       width: 100%;
@@ -464,22 +463,33 @@
       border-bottom: 1px solid rgba(227,66,66,.2);
     }
     
+    /* ─── TARJETAS ESTILO APPLE (Flotantes y Premium) ─── */
     .peer-card {
-      padding: 1.75rem 1.5rem; background: #fff;
-      border: 1px solid #EFEFEF; border-radius: 8px;
-      margin-bottom: 1.25rem; position: relative;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 2.25rem 2rem; 
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04); 
+      border-radius: 24px; /* Curva amplia Apple */
+      margin-bottom: 1.25rem; 
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03); /* Sombra base suave */
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
     }
     .org-card {
-      padding: 1.5rem; background: #fff;
-      border: 1px solid #EFEFEF; border-radius: 8px;
+      padding: 2rem; 
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04); 
+      border-radius: 24px; /* Curva amplia Apple */
       margin-bottom: 1.25rem;
       display: flex; gap: 1.25rem; align-items: flex-start;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03); /* Sombra base suave */
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
     }
+    
+    /* El efecto flotante real al pasar el ratón */
     .peer-card:hover, .org-card:hover { 
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.08); 
+      transform: translateY(-8px);
+      border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
     }
     
     .peer-quote-icon {
