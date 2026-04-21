@@ -32,7 +32,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; color: #1A1A1A; background: #fff; overflow-x: hidden; }
-
+/* ── NAVBAR LOGO ── */
+    .nav-logo {
+      font-size: .95rem; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase; color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #E34242; }
     /* ── BUTTONS ── */
     .btn-red {
       display: inline-flex; justify-content: center; align-items: center;
@@ -99,13 +105,21 @@
     /* ── MOBILE MENU ── */
     #mob-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
     #mob-menu.open { max-height: 320px; opacity: 1; }
+
+    /* ── NAVBAR LOGO ── */
+    .nav-logo {
+      font-size: .95rem; font-weight: 800;
+      letter-spacing: .18em; text-transform: uppercase; color: #fff;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #E34242; }
   </style>
 </head>
 <body>
 
 <nav id="navbar" class="sticky top-0 inset-x-0 z-50 px-6 md:px-12 py-4 bg-ink border-b border-white/10 shadow-md">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
-<nav id="nav">
+    
     <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
     <div class="hidden md:flex items-center gap-8">
