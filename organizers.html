@@ -72,7 +72,6 @@
       background: #000;
     }
 
-    /* ── Mobile: portrait 9:16-ish, fill screen height ── */
     @media (max-width: 767px) {
       #hero { height: 100svh; min-height: 580px; }
       #hero-video {
@@ -85,7 +84,6 @@
       }
     }
 
-    /* ── Tablet (768–1023): landscape/portrait mixed ── */
     @media (min-width: 768px) and (max-width: 1023px) {
       #hero { height: 100svh; min-height: 600px; }
       #hero-video {
@@ -98,7 +96,6 @@
       }
     }
 
-    /* ── Desktop (1024+): cinematic letterbox feel ── */
     @media (min-width: 1024px) {
       #hero { height: 100vh; min-height: 680px; }
       #hero-video {
@@ -196,30 +193,23 @@
       }
     }
 
-    /* Image container: shows full image, no cropping */
+    /* Image container: Perfect square & aligned border */
     .about-img-wrap {
       position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    /* Red offset frame — desktop only */
-    @media(min-width:768px) {
-      .about-img-wrap::before {
-        content: '';
-        position: absolute;
-        top: -10px; right: -10px;
-        width: 100%; height: 100%;
-        border: 2px solid var(--red);
-        border-radius: 6px; z-index: 0;
-      }
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 480px;
+      margin: 0 auto;
     }
     .about-img-wrap img {
-      position: relative; z-index: 1;
-      width: 100%;
-      max-height: 560px;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
       display: block;
+      border: 2px solid var(--red);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
     .about-text p {
@@ -242,17 +232,12 @@
     #events { background: var(--ink); }
     #events .sec-title { color: #fff; }
 
-    /*
-      Adaptive slider: cards have a fixed HEIGHT, images scale to fit
-      within that height maintaining their natural ratio — no cropping,
-      no stretching. Width adapts to each image's natural ratio.
-    */
     .slider-track {
       display: flex;
       gap: 1.25rem;
       overflow-x: auto;
       padding-bottom: 1.25rem;
-      align-items: stretch;      /* cards same height */
+      align-items: stretch;
       scrollbar-width: thin;
       scrollbar-color: var(--red) rgba(255,255,255,.06);
       cursor: grab;
@@ -268,19 +253,17 @@
       background: #1a1a1a;
       border: 1px solid rgba(255,255,255,.07);
       display: flex; flex-direction: column;
-      transition: transform .35s cubic-bezier(.25,.46,.45,.94),
-                  box-shadow .35s ease;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94), box-shadow .35s ease;
       cursor: pointer;
-      width: auto;           /* width driven by content */
+      width: auto;
     }
     .event-card:hover {
       transform: scale(1.03) translateY(-5px);
       box-shadow: 0 24px 60px rgba(227,66,66,.2), 0 8px 24px rgba(0,0,0,.5);
     }
 
-    /* Image wrapper: fixed height, width = auto (image drives width) */
     .event-img-box {
-      height: 360px;          /* all cards same height */
+      height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -291,9 +274,9 @@
 
     .event-img-box img {
       height: 100%;
-      width: auto;            /* natural width — no crop */
-      max-width: 300px;       /* prevent ultra-wide landscape images from being too wide */
-      object-fit: contain;    /* full image visible */
+      width: auto;
+      max-width: 300px;
+      object-fit: contain;
       display: block;
       transition: transform .5s ease;
     }
@@ -317,7 +300,6 @@
     #producto { background: #111; }
     #producto .sec-title { color: #fff; }
 
-    /* Tab navigation */
     .prod-tabs {
       display: flex; gap: 0;
       border-bottom: 1px solid rgba(255,255,255,.1);
@@ -341,11 +323,9 @@
     .prod-tab:hover { color: rgba(255,255,255,.7); }
     .prod-tab.active { color: var(--red); border-bottom-color: var(--red); }
 
-    /* Panels */
     .prod-panel { display: none; }
     .prod-panel.active { display: block; animation: fadeIn .4s ease; }
 
-    /* Photo carousel */
     .photo-carousel {
       position: relative;
       border-radius: 10px; overflow: hidden;
@@ -362,7 +342,7 @@
     .carousel-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    /* Placeholder slide */
+    
     .carousel-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -384,7 +364,6 @@
       padding: .3rem .9rem; border-radius: 20px;
     }
 
-    /* Dots */
     .carousel-dots {
       display: flex; justify-content: center; gap: .5rem;
       margin-top: 1.25rem;
@@ -410,7 +389,6 @@
     .c-arrow:hover { background: var(--red); border-color: var(--red); }
     .c-arrow svg { width: 16px; height: 16px; }
 
-    /* Video embed */
     .video-embed-wrap {
       position: relative; border-radius: 10px; overflow: hidden;
       aspect-ratio: 16/9; background: #0d0d0d;
@@ -419,7 +397,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: none;
     }
-    /* Video placeholder */
+    
     .video-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -445,7 +423,6 @@
       padding: .3rem .9rem; border-radius: 20px;
     }
 
-    /* Panel meta */
     .prod-meta {
       margin-top: 2rem;
       display: grid; grid-template-columns: 1fr;
@@ -486,13 +463,25 @@
       padding-bottom: .75rem;
       border-bottom: 1px solid rgba(227,66,66,.2);
     }
+    
     .peer-card {
       padding: 1.75rem 1.5rem; background: #fff;
       border: 1px solid #EFEFEF; border-radius: 8px;
       margin-bottom: 1.25rem; position: relative;
-      transition: box-shadow .25s;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .peer-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+    .org-card {
+      padding: 1.5rem; background: #fff;
+      border: 1px solid #EFEFEF; border-radius: 8px;
+      margin-bottom: 1.25rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .peer-card:hover, .org-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.08); 
+    }
+    
     .peer-quote-icon {
       font-size: 3.5rem; line-height: 1;
       color: var(--red); opacity: .12;
@@ -514,14 +503,6 @@
     .peer-name { font-size: .82rem; font-weight: 600; color: var(--ink); }
     .peer-role { font-size: .7rem; font-weight: 300; color: #6B6B6B; }
 
-    .org-card {
-      padding: 1.5rem; background: #fff;
-      border: 1px solid #EFEFEF; border-radius: 8px;
-      margin-bottom: 1.25rem;
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      transition: box-shadow .25s;
-    }
-    .org-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); }
     .org-logo {
       width: 52px; height: 52px; flex-shrink: 0;
       border-radius: 6px; background: #F0F0F0;
@@ -574,6 +555,7 @@
       box-shadow: 0 0 0 3px rgba(227,66,66,.1);
     }
     textarea.f-input { resize: vertical; min-height: 130px; }
+    
     .btn-submit {
       margin-top: 1.5rem; background: var(--red); color: #fff;
       border: none; border-radius: 4px; padding: 1rem 2.5rem;
@@ -581,10 +563,15 @@
       font-size: .78rem; font-weight: 700;
       letter-spacing: .14em; text-transform: uppercase;
       cursor: pointer;
-      transition: background .2s, transform .2s, box-shadow .2s;
       display: inline-flex; align-items: center; gap: .6rem;
+      transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .btn-submit:hover { background: var(--red-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(227,66,66,.35); }
+    .btn-submit:hover { 
+      background: var(--red); 
+      transform: translateY(-3px); 
+      box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); 
+    }
+    
     #form-success-epk { display: none; }
     #form-success-epk.show { display: flex; }
 
@@ -605,9 +592,16 @@
     .foot-logo span { color: var(--red); }
     .foot-copy { font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.22); }
 
-    /* ─── SCROLL REVEAL ──────────────────────── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    /* ─── SCROLL REVEAL PREMIUM ─── */
+    .reveal { 
+      opacity: 0; 
+      transform: translateY(35px); 
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    .reveal.in { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
@@ -684,7 +678,7 @@
       Instructors
     </h1>
     <p class="hero-sub">
-      Profesores de Bachata en Barcelona, ​​especializada en bachata fusión urbana, conocidos por sus clases accesibles, su estilo único y su fuerte presencia social en festivales.
+      Profesores de Bachata en Barcelona, especializada en bachata fusión urbana, conocidos por sus clases accesibles, su estilo único y su fuerte presencia social en festivales.
 Una sola pasión: la bachata.
     </p>
     <div class="hero-scroll">
@@ -1266,7 +1260,6 @@ Una sola pasión: la bachata.
   });
 
   /* ── Booking form (simulated) ──────────────── */
-  /* ✏️ Connect to Formspree / EmailJS / your backend here */
   document.getElementById('epk-form').addEventListener('submit', e => {
     e.preventDefault();
     const ev  = document.getElementById('ep-event').value.trim();
@@ -1333,7 +1326,6 @@ Una sola pasión: la bachata.
         d.classList.toggle('active', i === c.current)
       );
     }
-    // Reset auto timer
     if (c.timer) { clearInterval(c.timer); c.timer = setInterval(() => moveCarousel(id, 1), 3500); }
   }
 
