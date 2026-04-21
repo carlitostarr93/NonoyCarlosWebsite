@@ -54,7 +54,6 @@
     .nav-logo {
       font-size: .95rem; font-weight: 800;
       letter-spacing: .18em; text-transform: uppercase; color: #fff;
-      text-decoration: none;
     }
     .nav-logo span { color: var(--red); }
     .nav-cta {
@@ -63,7 +62,6 @@
       color: #fff; border: 1px solid rgba(255,255,255,.35);
       padding: .5rem 1.25rem; border-radius: 2px;
       transition: background .2s, border-color .2s;
-      text-decoration: none;
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
@@ -74,6 +72,7 @@
       background: #000;
     }
 
+    /* ── Mobile: portrait 9:16-ish, fill screen height ── */
     @media (max-width: 767px) {
       #hero { height: 100svh; min-height: 580px; }
       #hero-video {
@@ -86,6 +85,7 @@
       }
     }
 
+    /* ── Tablet (768–1023): landscape/portrait mixed ── */
     @media (min-width: 768px) and (max-width: 1023px) {
       #hero { height: 100svh; min-height: 600px; }
       #hero-video {
@@ -98,6 +98,7 @@
       }
     }
 
+    /* ── Desktop (1024+): cinematic letterbox feel ── */
     @media (min-width: 1024px) {
       #hero { height: 100vh; min-height: 680px; }
       #hero-video {
@@ -195,11 +196,12 @@
       }
     }
 
-    /* Image container */
+    /* Image container: shows full image, no cropping */
     .about-img-wrap {
       position: relative;
       display: flex; align-items: center; justify-content: center;
     }
+    /* Red offset frame — desktop only */
     @media(min-width:768px) {
       .about-img-wrap::before {
         content: '';
@@ -231,4 +233,1117 @@
     }
     .stat-num { font-size: 2rem; font-weight: 800; color: var(--red); line-height: 1; }
     .stat-lbl {
-      font-size: .
+      font-size: .67rem; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: #6B6B6B; margin-top: .2rem;
+    }
+
+    /* ─── EVENTS SLIDER ──────────────────────── */
+    #events { background: var(--ink); }
+    #events .sec-title { color: #fff; }
+
+    /*
+      Adaptive slider: cards have a fixed HEIGHT, images scale to fit
+      within that height maintaining their natural ratio — no cropping,
+      no stretching. Width adapts to each image's natural ratio.
+    */
+    .slider-track {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      padding-bottom: 1.25rem;
+      align-items: stretch;      /* cards same height */
+      scrollbar-width: thin;
+      scrollbar-color: var(--red) rgba(255,255,255,.06);
+      cursor: grab;
+    }
+    .slider-track:active { cursor: grabbing; }
+    .slider-track::-webkit-scrollbar { height: 4px; }
+    .slider-track::-webkit-scrollbar-track { background: rgba(255,255,255,.05); border-radius:2px; }
+    .slider-track::-webkit-scrollbar-thumb { background: var(--red); border-radius:2px; }
+
+    .event-card {
+      flex-shrink: 0;
+      border-radius: 8px; overflow: hidden;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,.07);
+      display: flex; flex-direction: column;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow .35s ease;
+      cursor: pointer;
+      width: auto;           /* width driven by content */
+    }
+    .event-card:hover {
+      transform: scale(1.03) translateY(-5px);
+      box-shadow: 0 24px 60px rgba(227,66,66,.2), 0 8px 24px rgba(0,0,0,.5);
+    }
+
+    /* Image wrapper: fixed height, width = auto (image drives width) */
+    .event-img-box {
+      height: 360px;          /* all cards same height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #111;
+    }
+    @media(max-width:640px) { .event-img-box { height: 280px; } }
+
+    .event-img-box img {
+      height: 100%;
+      width: auto;            /* natural width — no crop */
+      max-width: 300px;       /* prevent ultra-wide landscape images from being too wide */
+      object-fit: contain;    /* full image visible */
+      display: block;
+      transition: transform .5s ease;
+    }
+    .event-card:hover .event-img-box img { transform: scale(1.04); }
+
+    .event-card-body { padding: .9rem 1rem 1rem; min-width: 160px; }
+    .event-card-title {
+      font-size: .78rem; font-weight: 700;
+      color: #fff; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .event-card-loc { font-size: .7rem; font-weight: 300; color: rgba(255,255,255,.4); margin-top: .2rem; }
+    .event-card-date {
+      display: inline-block; margin-top: .5rem;
+      font-size: .6rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      background: var(--red); color: #fff;
+      padding: .18rem .6rem; border-radius: 2px;
+    }
+
+    /* ─── NUESTRO PRODUCTO ───────────────────── */
+    #producto { background: #111; }
+    #producto .sec-title { color: #fff; }
+
+    /* Tab navigation */
+    .prod-tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 2.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .prod-tabs::-webkit-scrollbar { display: none; }
+    .prod-tab {
+      flex-shrink: 0;
+      padding: .9rem 1.5rem;
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      background: none; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color .25s, border-color .25s;
+      margin-bottom: -1px;
+    }
+    .prod-tab:hover { color: rgba(255,255,255,.7); }
+    .prod-tab.active { color: var(--red); border-bottom-color: var(--red); }
+
+    /* Panels */
+    .prod-panel { display: none; }
+    .prod-panel.active { display: block; animation: fadeIn .4s ease; }
+
+    /* Photo carousel */
+    .photo-carousel {
+      position: relative;
+      border-radius: 10px; overflow: hidden;
+      background: #0d0d0d;
+      aspect-ratio: 16/9;
+    }
+    @media(max-width:640px) { .photo-carousel { aspect-ratio: 4/3; } }
+    .carousel-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transition: opacity .7s ease;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-slide.active { opacity: 1; }
+    .carousel-slide img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    /* Placeholder slide */
+    .carousel-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      background: #111; border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 2rem; text-align: center;
+    }
+    .carousel-placeholder-icon { font-size: 2.5rem; opacity: .4; }
+    .carousel-placeholder-text {
+      font-size: .8rem; font-weight: 300;
+      color: rgba(255,255,255,.3); line-height: 1.7;
+    }
+    .carousel-placeholder-badge {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      background: rgba(227,66,66,.15); color: var(--red);
+      border: 1px solid rgba(227,66,66,.2);
+      padding: .3rem .9rem; border-radius: 20px;
+    }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex; justify-content: center; gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    .c-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.2); border: none; cursor: pointer;
+      transition: background .25s, transform .25s;
+    }
+    .c-dot.active { background: var(--red); transform: scale(1.3); }
+    .carousel-arrows {
+      position: absolute; inset: 0; z-index: 5;
+      display: flex; align-items: center; justify-content: space-between;
+      pointer-events: none; padding: 0 1rem;
+    }
+    .c-arrow {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.15);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; pointer-events: all;
+      transition: background .2s, border-color .2s;
+    }
+    .c-arrow:hover { background: var(--red); border-color: var(--red); }
+    .c-arrow svg { width: 16px; height: 16px; }
+
+    /* Video embed */
+    .video-embed-wrap {
+      position: relative; border-radius: 10px; overflow: hidden;
+      aspect-ratio: 16/9; background: #0d0d0d;
+    }
+    .video-embed-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    /* Video placeholder */
+    .video-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      background: #111; border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 10px; padding: 2rem; text-align: center;
+    }
+    .video-placeholder-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(227,66,66,.12);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-placeholder-icon svg { width: 28px; height: 28px; color: var(--red); opacity: .6; }
+    .video-placeholder-text {
+      font-size: .8rem; font-weight: 300;
+      color: rgba(255,255,255,.3); line-height: 1.7; max-width: 360px;
+    }
+    .video-placeholder-badge {
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      background: rgba(227,66,66,.15); color: var(--red);
+      border: 1px solid rgba(227,66,66,.2);
+      padding: .3rem .9rem; border-radius: 20px;
+    }
+
+    /* Panel meta */
+    .prod-meta {
+      margin-top: 2rem;
+      display: grid; grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media(min-width:768px) { .prod-meta { grid-template-columns: 1fr 1fr; } }
+    .prod-meta-title {
+      font-size: 1.3rem; font-weight: 800; color: #fff;
+      letter-spacing: -.02em; margin-bottom: .5rem;
+    }
+    .prod-meta-desc {
+      font-size: .84rem; font-weight: 300;
+      color: rgba(255,255,255,.45); line-height: 1.8;
+    }
+    .prod-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .prod-pill {
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .85rem; border-radius: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.5);
+    }
+    .prod-cta-col { display: flex; flex-direction: column; justify-content: flex-end; gap: .75rem; align-items: flex-start; }
+    @media(min-width:768px) { .prod-cta-col { align-items: flex-end; } }
+
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    /* ─── SOCIAL PROOF ───────────────────────── */
+    #proof { background: var(--pale); }
+    .proof-grid { display: grid; gap: 3rem; }
+    @media(min-width:900px) { .proof-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+
+    .col-head {
+      font-size: .6rem; font-weight: 700;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1.5rem;
+      padding-bottom: .75rem;
+      border-bottom: 1px solid rgba(227,66,66,.2);
+    }
+    .peer-card {
+      padding: 1.75rem 1.5rem; background: #fff;
+      border: 1px solid #EFEFEF; border-radius: 8px;
+      margin-bottom: 1.25rem; position: relative;
+      transition: box-shadow .25s;
+    }
+    .peer-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+    .peer-quote-icon {
+      font-size: 3.5rem; line-height: 1;
+      color: var(--red); opacity: .12;
+      font-family: Georgia, serif;
+      position: absolute; top: .75rem; left: 1.25rem;
+    }
+    .peer-text {
+      font-size: .84rem; font-weight: 300;
+      line-height: 1.8; color: #444;
+      position: relative; z-index: 1;
+    }
+    .peer-author { margin-top: 1rem; display: flex; align-items: center; gap: .75rem; }
+    .peer-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), #8b0000);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .peer-name { font-size: .82rem; font-weight: 600; color: var(--ink); }
+    .peer-role { font-size: .7rem; font-weight: 300; color: #6B6B6B; }
+
+    .org-card {
+      padding: 1.5rem; background: #fff;
+      border: 1px solid #EFEFEF; border-radius: 8px;
+      margin-bottom: 1.25rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: box-shadow .25s;
+    }
+    .org-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+    .org-logo {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 6px; background: #F0F0F0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .org-logo-inner {
+      width: 40px; height: 40px; background: var(--ink);
+      border-radius: 4px; display: flex; align-items: center; justify-content: center;
+      font-size: .5rem; font-weight: 800;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: #fff; text-align: center; line-height: 1.3;
+      filter: grayscale(1) opacity(.45);
+      transition: filter .3s;
+    }
+    .org-card:hover .org-logo-inner { filter: grayscale(0) opacity(1); }
+    .org-text { font-size: .83rem; font-weight: 300; line-height: 1.75; color: #444; }
+    .org-author-name { font-size: .8rem; font-weight: 600; color: var(--ink); margin-top: .6rem; }
+    .org-author-role { font-size: .7rem; font-weight: 300; color: #6B6B6B; }
+    .org-festival-tag {
+      display: inline-block; margin-top: .5rem;
+      font-size: .58rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--ink); color: #fff;
+      padding: .18rem .6rem; border-radius: 2px;
+    }
+
+    /* ─── BOOKING FORM ───────────────────────── */
+    #booking { background: var(--ink); }
+    #booking .sec-title { color: #fff; }
+    .form-wrap { max-width: 640px; }
+    .f-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media(min-width:600px) { .f-row.two { grid-template-columns: 1fr 1fr; } }
+    .f-group { display: flex; flex-direction: column; gap: .45rem; }
+    .f-label {
+      font-size: .63rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.38);
+    }
+    .f-input {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 4px;
+      padding: .85rem 1rem; font-family: 'Poppins', sans-serif;
+      font-size: .88rem; font-weight: 300; color: #fff; outline: none;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .f-input::placeholder { color: rgba(255,255,255,.22); }
+    .f-input:focus {
+      border-color: var(--red);
+      background: rgba(227,66,66,.05);
+      box-shadow: 0 0 0 3px rgba(227,66,66,.1);
+    }
+    textarea.f-input { resize: vertical; min-height: 130px; }
+    .btn-submit {
+      margin-top: 1.5rem; background: var(--red); color: #fff;
+      border: none; border-radius: 4px; padding: 1rem 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      display: inline-flex; align-items: center; gap: .6rem;
+    }
+    .btn-submit:hover { background: var(--red-dk); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(227,66,66,.35); }
+    #form-success-epk { display: none; }
+    #form-success-epk.show { display: flex; }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: #070707; padding: 2.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .foot-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1rem; text-align: center;
+    }
+    @media(min-width:768px) {
+      .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    .foot-logo { font-size: .9rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #fff; }
+    .foot-logo span { color: var(--red); }
+    .foot-copy { font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.22); }
+
+    /* ─── SCROLL REVEAL ──────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+
+    /* ─── KEYFRAMES ──────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes scanLine {
+      0%   { left:-100%; }
+      50%  { left:0%; }
+      100% { left:100%; }
+    }
+
+    /* ─── MOBILE MENU ────────────────────────── */
+    #mob-menu { max-height:0; opacity:0; overflow:hidden; transition:max-height .3s, opacity .3s; }
+    #mob-menu.open { max-height:240px; opacity:1; }
+    .no-select { user-select:none; }
+
+    /* ─── CERTIFICACIONES ─── */
+    .cert-badge {
+      border: 1px solid #EDEDED; border-radius: 6px; padding: .75rem 1.25rem;
+      background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      display: flex; align-items: center; gap: .75rem;
+      width: 100%; justify-content: flex-start; text-align: left;
+    }
+    @media (min-width: 768px) { .cert-badge { width: auto; } }
+    .cert-title { font-size: .8rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: .65rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">Nono <span>&</span> Carlos</a>
+
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
+    <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
+    <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
+    <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
+    <a href="index.html" class="nav-cta">Clases Privadas</a>
+  </div>
+
+  <button id="hbg" class="md:hidden text-white" aria-label="Menu">
+    <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    <svg id="hbg-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+</nav>
+
+<div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4">
+  <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">About</a>
+  <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Events</a>
+  <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Reviews</a>
+  <a href="#booking" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Booking</a>
+  <a href="index.html" class="block mt-3 text-center nav-cta">Clases Privadas</a>
+</div>
+
+
+<section id="hero">
+
+  <video id="hero-video" autoplay muted loop playsinline preload="auto"
+    src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-kicker">Electronic Press Kit · 2025 / 2026</p>
+    <h1 class="hero-h1">
+      International<br/>
+      Bachata<br/>
+      <em>Artists</em> &amp;<br/>
+      Instructors
+    </h1>
+    <p class="hero-sub">
+      Nono &amp; Carlos — Barcelona-based artists fusing sensual bachata, urban energy and bachazouk into an unforgettable stage experience.
+    </p>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="about-grid">
+
+      <div class="about-text reveal">
+        <span class="tag">Nosotros</span>
+        <h2 class="sec-title">Nuestra Pasión<br/>por la Fusión</h2>
+        <div class="red-line"></div>
+        <p>
+          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional.
+        </p>
+        <p>
+          Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez de la sensual y el bachazouk — creando una propuesta artística que conecta con audiencias de cualquier latitud.
+        </p>
+
+        <div class="flex flex-col md:flex-row flex-wrap gap-4 mt-6">
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <div>
+              <p class="cert-title">Esencia Bachata Method</p>
+              <p class="cert-sub">Certificación oficial</p>
+            </div>
+          </div>
+          
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <div>
+              <p class="cert-title">Korke &amp; Judith</p>
+              <p class="cert-sub">Bachata Sensual lvl 1</p>
+            </div>
+          </div>
+          
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <div>
+              <p class="cert-title">Bachazouk</p>
+              <p class="cert-sub">Masa &amp; Polina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-lbl">Years<br/>dancing</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-lbl">Students<br/>trained</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-img-wrap reveal d2">
+        <img
+          src="https://i.imgur.com/qfAEP8J.jpeg"
+          alt="Nono and Carlos — professional bachata artists"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="producto" class="sec">
+  <div class="sec-inner">
+
+    <div class="reveal mb-10">
+      <span class="tag">Nuestro Producto</span>
+      <h2 class="sec-title">Lo que podemos<br/><em style="color:var(--red);font-style:italic;">ofrecerte</em></h2>
+      <div class="red-line"></div>
+      <p style="color:rgba(255,255,255,.4); font-size:.86rem; font-weight:300; max-width:520px; line-height:1.8;">
+        Entendemos cómo funciona un festival por dentro: el organizador necesita artistas que sumen. Por eso, no nos escondemos en el backstage; bailamos en la pista con vuestros alumnos hasta el cierre, manteniendo la energía a tope hasta el final
+       <br><br>
+        Cuatro disciplinas. Un equipo. Adaptamos cada taller al perfil de tu evento y tu audiencia.
+      </p>
+    </div>
+
+    <div class="prod-tabs reveal d1" role="tablist">
+      <button class="prod-tab active" data-tab="bachata"   role="tab">💃 Bachata</button>
+      <button class="prod-tab"        data-tab="reggaeton" role="tab">🎤 Reggaeton</button>
+      <button class="prod-tab"        data-tab="lady"      role="tab">👑 Lady Style</button>
+      <button class="prod-tab"        data-tab="man"       role="tab">🕺 Man Style</button>
+    </div>
+
+    <div class="prod-panel active reveal" id="panel-bachata">
+
+      <div class="photo-carousel" id="carousel-bachata">
+
+        <div class="carousel-slide active">
+          <div class="aspect-video w-full h-full">
+            <iframe 
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/ocMY9RnXWdU?rel=0&modestbranding=1" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="carousel-arrows">
+          <button class="c-arrow" onclick="moveCarousel('bachata',-1)" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="c-arrow" onclick="moveCarousel('bachata',1)" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots-bachata"></div>
+
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Workshop de Bachata</div>
+          <p class="prod-meta-desc">Nuestra disciplina principal. Nuestra especialidad es la fusión urbana, pero podemos enseñar sensual y bachazouk. Formatos flexibles: 45 min, 1h o 1h30 para todos los niveles.</p>
+          <div class="prod-pills">
+            <span class="prod-pill">Bachata Sensual</span>
+            <span class="prod-pill">Bachata Fusión</span>
+            <span class="prod-pill">Bachazouk</span>
+            <span class="prod-pill">Todos los niveles</span>
+          </div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s;">
+            Contratar este taller
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-reggaeton">
+
+      <div class="video-embed-wrap" id="wrap-reggaeton">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </div>
+          <span class="video-placeholder-badge">Vídeo próximamente</span>
+          <p class="video-placeholder-text">
+            Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
+            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_REGGAETON</code>
+          </p>
+        </div>
+        </div>
+
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Workshop de Reggaeton</div>
+          <p class="prod-meta-desc">Energía, actitud y movimiento. Un taller de reggaeton con técnica de calle y coreografías adaptadas al nivel del grupo. Perfecto para públicos mixtos y eventos con mucha energía.</p>
+          <div class="prod-pills">
+            <span class="prod-pill">Coreografía</span>
+            <span class="prod-pill">Urban</span>
+            <span class="prod-pill">Principiante / Medio</span>
+          </div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+            Contratar este taller
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-lady">
+
+      <div class="video-embed-wrap" id="wrap-lady">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </div>
+          <span class="video-placeholder-badge">Vídeo próximamente</span>
+          <p class="video-placeholder-text">
+            Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
+            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_LADYSTYLE</code>
+          </p>
+        </div>
+        </div>
+
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Workshop de Lady Style</div>
+          <p class="prod-meta-desc">Feminidad, elegancia y expresión. Un taller pensado para mujeres de todos los niveles que quieran desarrollar su propio lenguaje corporal dentro de la bachata y los ritmos urbanos.</p>
+          <div class="prod-pills">
+            <span class="prod-pill">Femenino</span>
+            <span class="prod-pill">Expresión corporal</span>
+            <span class="prod-pill">Todos los niveles</span>
+          </div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+            Contratar este taller
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-man">
+
+      <div class="video-embed-wrap" id="wrap-man">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </div>
+          <span class="video-placeholder-badge">Vídeo próximamente</span>
+          <p class="video-placeholder-text">
+            Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
+            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_MANSTYLE</code>
+          </p>
+        </div>
+        </div>
+
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Workshop de Man Style</div>
+          <p class="prod-meta-desc">Técnica, actitud y presencia masculina. Un taller especializado en el rol del hombre en la bachata sensual: liderazgo fluido, musicalidad y control del movimiento.</p>
+          <div class="prod-pills">
+            <span class="prod-pill">Liderazgo</span>
+            <span class="prod-pill">Musicalidad</span>
+            <span class="prod-pill">Técnica avanzada</span>
+          </div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+            Contratar este taller
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="events" class="sec">
+  <div class="sec-inner">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 reveal">
+      <div>
+        <span class="tag">Featured Events</span>
+        <div class="red-line"></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35); font-size:.82rem; font-weight:300; max-width:260px;" class="md:text-right">
+        Drag or scroll to explore our festival appearances.
+      </p>
+    </div>
+
+    <div class="slider-track no-select reveal d1" id="slider">
+
+      <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/ltrvO7Y.jpeg" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Bachata a Otro Nivel</div>
+          <div class="event-card-loc">Toulouse🇫🇷</div>
+          <div class="event-card-date">2024</div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/6fzRAK7.jpeg" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Passion Bachata Festival</div>
+          <div class="event-card-loc">Bessançon 🇫🇷</div>
+          <div class="event-card-date">2025</div>
+        </div>
+      </div>
+      
+      <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/bipn5Pt.png" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Bachata Addict</div>
+          <div class="event-card-loc">Montpellier 🇫🇷</div>
+          <div class="event-card-date">2025</div>
+        </div>
+      </div>
+      
+       <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/TCS2O9F.png" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Dance Up Congress Congress</div>
+          <div class="event-card-loc">Lyon 🇫🇷</div>
+          <div class="event-card-date">2025</div>
+        </div>
+      </div>
+      
+      <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/vDKymSj.jpeg" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Bachatéame</div>
+          <div class="event-card-loc">Stuttgart🇩🇪</div>
+          <div class="event-card-date">2026</div>
+        </div>
+      </div>
+    
+      
+ <div class="event-card">
+        <div class="event-img-box">
+          <img src="https://i.imgur.com/S8bUk0n.jpeg" alt="Festival event flyer" loading="lazy" />
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Bachata Suave</div>
+          <div class="event-card-loc">Marseille 🇫🇷</div>
+          <div class="event-card-date">2026</div>
+        </div>
+      </div>
+      
+    </div>
+
+    <p style="color:rgba(255,255,255,.2); font-size:.72rem; font-weight:300; margin-top:.75rem;">
+      ← Drag to scroll →
+    </p>
+
+  </div>
+</section>
+
+
+<section id="proof" class="sec" style="background:#FAFAFA;">
+  <div class="sec-inner">
+
+    <div class="text-center mb-12 reveal">
+      <span class="tag">Social Proof</span>
+      <h2 class="sec-title">What People<br/>Are Saying</h2>
+      <div class="red-line" style="margin:1.1rem auto;"></div>
+    </div>
+
+    <div class="proof-grid">
+
+      <div class="reveal d1">
+        <div class="col-head">Peer Reviews — Artists</div>
+
+        <div class="peer-card">
+          <div class="peer-quote-icon">"</div>
+          <p class="peer-text">
+            Watching Nono and Carlos on stage is something else entirely. Their connection, their musicality — it's not just technique, it's emotion made visible. They are among the most authentic couples on the international circuit right now.
+          </p>
+          <div class="peer-author">
+            <div class="peer-avatar">KJ</div>
+            <div>
+              <div class="peer-name">Korke &amp; Judith</div>
+              <div class="peer-role">World Bachata Champions · Barcelona</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="peer-card">
+          <div class="peer-quote-icon">"</div>
+          <p class="peer-text">
+            Every time I share the floor with them at a congress, the energy shifts. Their fusion of urban and sensual creates something genuinely new — not imitation, real innovation.
+          </p>
+          <div class="peer-author">
+            <div class="peer-avatar">DS</div>
+            <div>
+              <div class="peer-name">Daniel &amp; Sofía</div>
+              <div class="peer-role">International Instructors · Madrid</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="peer-card">
+          <div class="peer-quote-icon">"</div>
+          <p class="peer-text">
+            Their approach to teaching mirrors their performance — precise, passionate and deeply generous with their knowledge. Any festival is better with them on the lineup.
+          </p>
+          <div class="peer-author">
+            <div class="peer-avatar">AT</div>
+            <div>
+              <div class="peer-name">Alex &amp; Tania</div>
+              <div class="peer-role">Bachazouk Artists · Paris</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="reveal d2">
+        <div class="col-head">Organizer Insights — Festivals</div>
+
+        <div class="org-card">
+          <div class="org-logo">
+            <div class="org-logo-inner">BCN<br/>FEST</div>
+          </div>
+          <div class="org-body">
+            <p class="org-text">
+              We booked Nono &amp; Carlos for our main showcase and the crowd response was incredible. Their show number was the most-talked-about moment of the weekend. Sold-out workshops, zero complaints. We re-booked them on the spot.
+            </p>
+            <p class="org-author-name">Marta González</p>
+            <p class="org-author-role">Director, Barcelona Bachata Festival</p>
+            <span class="org-festival-tag">Barcelona Bachata Festival</span>
+          </div>
+        </div>
+
+        <div class="org-card">
+          <div class="org-logo">
+            <div class="org-logo-inner">PBO<br/>PRS</div>
+          </div>
+          <div class="org-body">
+            <p class="org-text">
+              Professional, punctual, adaptable. They adapted their workshop format to our audience perfectly. Attendance grew 30% on the second day entirely by word of mouth after their Friday night class.
+            </p>
+            <p class="org-author-name">Pierre Leblanc</p>
+            <p class="org-author-role">Organizer, Paris Bachata Open</p>
+            <span class="org-festival-tag">Paris Bachata Open</span>
+          </div>
+        </div>
+
+        <div class="org-card">
+          <div class="org-logo">
+            <div class="org-logo-inner">RSC<br/>ROM</div>
+          </div>
+          <div class="org-body">
+            <p class="org-text">
+              What impressed me most was their stage presence. You can teach steps — you can't teach what they have. Our audience was on their feet for the entire show number. Truly memorable.
+            </p>
+            <p class="org-author-name">Valentina Ricci</p>
+            <p class="org-author-role">Festival Director, Rome Sensual Congress</p>
+            <span class="org-festival-tag">Rome Sensual Congress</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="booking" class="sec">
+  <div class="sec-inner">
+
+    <div class="reveal">
+      <span class="tag">Booking Enquiries</span>
+      <h2 class="sec-title" style="color:#fff;">Book Nono &amp;<br/>Carlos for Your Event</h2>
+      <div class="red-line"></div>
+      <p style="color:rgba(255,255,255,.4); font-size:.88rem; font-weight:300; max-width:480px; line-height:1.8; margin-bottom:2.5rem;">
+        Available for congresses, festivals, shows, workshops and special events worldwide. We respond within 24 hours.
+      </p>
+    </div>
+
+    <div id="form-success-epk" class="items-center gap-3 border rounded-lg p-5 mb-6 max-w-xl"
+         style="background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12);">
+      <svg class="w-5 h-5 flex-shrink-0" style="color:#4ade80;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <p style="color:rgba(255,255,255,.75); font-size:.88rem; font-weight:300;">
+        Enquiry sent! We'll get back to you within 24 hours. 🎶
+      </p>
+    </div>
+
+    <form id="epk-form" class="form-wrap reveal d1" novalidate>
+      <div class="f-row two mb-5">
+        <div class="f-group">
+          <label class="f-label" for="ep-event">Event Name</label>
+          <input id="ep-event" type="text" class="f-input" placeholder="Festival / Congress name" required />
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="ep-city">City &amp; Country</label>
+          <input id="ep-city" type="text" class="f-input" placeholder="e.g. Paris, France" required />
+        </div>
+      </div>
+
+      <div class="f-row two mb-5">
+        <div class="f-group">
+          <label class="f-label" for="ep-dates">Proposed Dates</label>
+          <input id="ep-dates" type="text" class="f-input" placeholder="e.g. 12–14 Sep 2025" />
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="ep-email">Your Email</label>
+          <input id="ep-email" type="email" class="f-input" placeholder="organizer@festival.com" required />
+        </div>
+      </div>
+
+      <div class="f-group mb-2">
+        <label class="f-label" for="ep-msg">Message / Details</label>
+        <textarea id="ep-msg" class="f-input" placeholder="Tell us about the event, format, expected attendance, what you're looking for (show, workshop, both)…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Send Enquiry
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">Nono <span>&</span> Carlos</div>
+      <p class="foot-copy mt-1">International Bachata Artists · Barcelona</p>
+    </div>
+    <div class="flex flex-col items-center md:items-end gap-1">
+      <a href="mailto:hola@nonoycarlosbachata.com" class="foot-copy hover:text-white/50 transition-colors">hola@nonoycarlosbachata.com</a>
+      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="foot-copy hover:text-white/50 transition-colors">@nonoycarlosbachata</a>
+      <p class="foot-copy mt-2">© 2025 All rights reserved</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  /* ── Navbar scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+  /* ── Mobile menu ── */
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mob-menu');
+  const io  = document.getElementById('hbg-open');
+  const ic  = document.getElementById('hbg-close');
+  hbg.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    io.classList.toggle('hidden', open);
+    ic.classList.toggle('hidden', !open);
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    io.classList.remove('hidden');
+    ic.classList.add('hidden');
+  }));
+
+  /* ── Scroll reveal ── */
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* ── Video autoplay fallback ── */
+  const vid = document.getElementById('hero-video');
+  if (vid) vid.play().catch(() => {});
+
+  /* ── Slider drag-to-scroll ── */
+  const slider = document.getElementById('slider');
+  let isDown = false, startX, scrollLeft;
+  slider.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  ['mouseleave','mouseup'].forEach(ev => slider.addEventListener(ev, () => { isDown = false; }));
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    slider.scrollLeft = scrollLeft - (x - startX) * 1.4;
+  });
+
+  /* ── Booking form (simulated) ──────────────── */
+  /* ✏️ Connect to Formspree / EmailJS / your backend here */
+  document.getElementById('epk-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const ev  = document.getElementById('ep-event').value.trim();
+    const em  = document.getElementById('ep-email').value.trim();
+    if (!ev) { document.getElementById('ep-event').focus(); return; }
+    if (!em || !em.includes('@')) { document.getElementById('ep-email').focus(); return; }
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Sending…'; btn.disabled = true; btn.style.opacity = '.6';
+    setTimeout(() => {
+      document.getElementById('epk-form').style.display = 'none';
+      document.getElementById('form-success-epk').classList.add('show');
+    }, 1300);
+  });
+
+  /* ── Producto tab switching ── */
+  document.querySelectorAll('.prod-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.prod-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  /* ── Bachata photo carousel ── */
+  const carousels = {};
+
+  function initCarousel(id) {
+    const el     = document.getElementById('carousel-' + id);
+    const slides = el ? el.querySelectorAll('.carousel-slide') : [];
+    const dotsEl = document.getElementById('dots-' + id);
+    if (!slides.length) return;
+
+    carousels[id] = { current: 0, total: slides.length, timer: null };
+
+    // Build dots
+    if (dotsEl) {
+      dotsEl.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => goTo(id, i));
+        dotsEl.appendChild(d);
+      });
+    }
+
+    // Auto-advance every 3.5 s
+    carousels[id].timer = setInterval(() => moveCarousel(id, 1), 3500);
+  }
+
+  function goTo(id, idx) {
+    const c      = carousels[id];
+    const el     = document.getElementById('carousel-' + id);
+    const slides = el.querySelectorAll('.carousel-slide');
+    const dotsEl = document.getElementById('dots-' + id);
+
+    slides[c.current].classList.remove('active');
+    c.current = (idx + c.total) % c.total;
+    slides[c.current].classList.add('active');
+
+    if (dotsEl) {
+      dotsEl.querySelectorAll('.c-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === c.current)
+      );
+    }
+    // Reset auto timer
+    if (c.timer) { clearInterval(c.timer); c.timer = setInterval(() => moveCarousel(id, 1), 3500); }
+  }
+
+  function moveCarousel(id, dir) {
+    if (!carousels[id]) return;
+    goTo(id, carousels[id].current + dir);
+  }
+
+  initCarousel('bachata');
+
+</script>
+
+</body>
+</html>
