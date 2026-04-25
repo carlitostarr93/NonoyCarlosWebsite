@@ -93,7 +93,9 @@
     }
     #hero-video {
       position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center center; opacity: .4; pointer-events: none;
+      object-fit: cover; 
+      object-position: center 10%; /* CORRECCIÓN: Fija el encuadre arriba para que se vean las caras */
+      opacity: .4; pointer-events: none;
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
@@ -202,7 +204,31 @@
       padding: .35rem 1rem; border-radius: 20px;
     }
 
-    /* ── TESTIMONIAL BADGE ── */
+    /* ── TESTIMONIAL CARDS (RESTORED) ── */
+    .t-card {
+      display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden;
+    }
+    .test-quote {
+      font-size: 3.5rem; line-height: 1;
+      color: var(--red); opacity: .15;
+      font-family: Georgia, serif;
+      position: absolute; top: 1rem; left: 1.5rem;
+      pointer-events: none;
+    }
+    .test-stars { color: var(--red); font-size: 1rem; letter-spacing: 2px; margin-bottom: .75rem; }
+    .test-text {
+      font-size: 0.95rem; font-weight: 300;
+      line-height: 1.8; color: #444; 
+      position: relative; z-index: 1;
+      flex-grow: 1;
+    }
+    .test-author { 
+      margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.05); 
+      display: flex; align-items: center; gap: .75rem; 
+    }
+    .test-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    .test-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
+
     .badge-student {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
       font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
@@ -411,46 +437,49 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
       <div class="card-premium t-card reveal">
-        <div style="color:var(--red); font-size:1.25rem; letter-spacing:2px;" class="mb-4">★★★★★</div>
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
         <div class="mb-6"><span class="badge-student">Alumna · Superprof</span></div>
-        <p class="text-ink font-light leading-relaxed mb-8 flex-grow italic" style="font-size: 0.95rem;">
+        <p class="test-text italic">
           "Carlos es un profesor excelente. Sabe adaptarse perfectamente a mi nivel y explica de forma muy clara y cercana. Cada clase aprendo algo nuevo y siempre salgo con más ganas de bailar. ¡Muy recomendable!"
         </p>
-        <div class="flex items-center gap-4 pt-5 border-t border-gray-100 mt-auto">
+        <div class="test-author mt-auto">
           <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">J</div>
           <div>
-            <p class="font-bold text-ink text-sm">Jennifer</p>
-            <p class="text-muted text-xs font-light">Alumna</p>
+            <p class="test-name">Jennifer</p>
+            <p class="test-role">Alumna de clases privadas</p>
           </div>
         </div>
       </div>
 
       <div class="card-premium t-card reveal" style="transition-delay: 0.1s;">
-        <div style="color:var(--red); font-size:1.25rem; letter-spacing:2px;" class="mb-4">★★★★★</div>
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
         <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
-        <p class="text-ink font-light leading-relaxed mb-8 flex-grow italic" style="font-size: 0.95rem;">
+        <p class="test-text italic">
           "Llevo pocas clases con Carlos y ya noto una mejora enorme. Tiene mucha paciencia, explica los movimientos paso a paso y crea un ambiente muy agradable. Sin duda seguiré con él."
         </p>
-        <div class="flex items-center gap-4 pt-5 border-t border-gray-100 mt-auto">
+        <div class="test-author mt-auto">
           <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">A</div>
           <div>
-            <p class="font-bold text-ink text-sm">Alhareth</p>
-            <p class="text-muted text-xs font-light">Alumno</p>
+            <p class="test-name">Alhareth</p>
+            <p class="test-role">Alumno de clases privadas</p>
           </div>
         </div>
       </div>
 
       <div class="card-premium t-card md:col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.2s;">
-        <div style="color:var(--red); font-size:1.25rem; letter-spacing:2px;" class="mb-4">★★★★★</div>
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
         <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
-        <p class="text-ink font-light leading-relaxed mb-8 flex-grow italic" style="font-size: 0.95rem;">
+        <p class="test-text italic">
           "Clases muy dinámicas y divertidas. Carlos se preocupa de verdad por que aprendas bien la técnica sin que pierda la parte lúdica del baile. Lo recomiendo totalmente a cualquier nivel."
         </p>
-        <div class="flex items-center gap-4 pt-5 border-t border-gray-100 mt-auto">
+        <div class="test-author mt-auto">
           <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">M</div>
           <div>
-            <p class="font-bold text-ink text-sm">Maxi</p>
-            <p class="text-muted text-xs font-light">Alumno</p>
+            <p class="test-name">Maxi</p>
+            <p class="test-role">Alumno de clases privadas</p>
           </div>
         </div>
       </div>
