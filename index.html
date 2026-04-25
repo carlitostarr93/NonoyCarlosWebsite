@@ -507,7 +507,7 @@
       position: absolute; top: 1rem; left: 1.5rem;
     }
     .test-badge {
-      display: inline-block; margin-bottom: 1.25rem;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem; margin-bottom: 1.25rem;
       font-size: .58rem; font-weight: 700;
       letter-spacing: .14em; text-transform: uppercase;
       padding: .2rem .7rem; border-radius: 2px;
@@ -928,7 +928,10 @@
       <div class="test-card reveal d2">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
-        <span class="test-badge badge-organizer">Organizador · Festival</span>
+        <span class="test-badge badge-organizer">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Organizador · Festival
+        </span>
         <p class="test-text">
           "Booked Nono &amp; Carlos for our main showcase — the crowd response was incredible. Their show was the most-talked-about moment of the weekend. Sold-out workshops, zero complaints. Re-booked on the spot."
         </p>
