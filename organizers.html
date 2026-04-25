@@ -52,13 +52,13 @@
       box-shadow: 0 1px 0 rgba(255,255,255,.06);
     }
     .nav-logo {
-      font-size: .95rem; font-weight: 800;
-      letter-spacing: .18em; text-transform: uppercase; color: #fff;
+      font-size: clamp(1rem, 2vw, 1.1rem); font-weight: 800;
+      letter-spacing: .15em; text-transform: uppercase; color: #fff;
     }
     .nav-logo span { color: var(--red); }
     .nav-cta {
-      font-size: .7rem; font-weight: 600;
-      letter-spacing: .14em; text-transform: uppercase;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
       color: #fff; border: 1px solid rgba(255,255,255,.35);
       padding: .5rem 1.25rem; border-radius: 2px;
       transition: background .2s, border-color .2s;
@@ -125,9 +125,10 @@
     @media(min-width:768px) { .hero-content { padding: 0 2.5rem 5rem; } }
 
     .hero-kicker {
-      font-size: .62rem; font-weight: 600;
-      letter-spacing: .28em; text-transform: uppercase;
+      font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
       color: var(--red); margin-bottom: .75rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
       opacity: 0; animation: fadeUp .7s .3s forwards;
     }
     .hero-h1 {
@@ -139,9 +140,10 @@
     }
     .hero-h1 em { color: var(--red); font-style: normal; }
     .hero-sub {
-      font-size: clamp(.82rem, 1.4vw, 1rem);
-      font-weight: 300; color: rgba(255,255,255,.7);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300; color: rgba(255,255,255,.9);
       max-width: 500px; margin-top: .9rem; line-height: 1.75;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       opacity: 0; animation: fadeUp .8s .7s forwards;
     }
     .hero-scroll {
@@ -149,9 +151,9 @@
       opacity: 0; animation: fadeUp .8s .9s forwards;
     }
     .hero-scroll span {
-      font-size: .62rem; font-weight: 500;
+      font-size: 0.75rem; font-weight: 500;
       letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.5);
     }
     .scroll-line {
       width: 40px; height: 1px; background: rgba(255,255,255,.25);
@@ -169,8 +171,8 @@
     .sec-inner { max-width: 1200px; margin: 0 auto; }
     .tag {
       display: inline-block;
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase;
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
       color: var(--red); margin-bottom: .5rem;
     }
     .sec-title {
@@ -193,26 +195,33 @@
       }
     }
 
+    /* Image container: shows full image, no cropping */
     .about-img-wrap {
       position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      max-width: 480px;
-      margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media(min-width:768px) {
+      .about-img-wrap::before {
+        content: '';
+        position: absolute;
+        top: -10px; right: -10px;
+        width: 100%; height: 100%;
+        border: 2px solid var(--red);
+        border-radius: 6px; z-index: 0;
+      }
     }
     .about-img-wrap img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: relative; z-index: 1;
+      width: 100%;
+      max-height: 560px;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
       display: block;
-      border: 2px solid var(--red);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
     .about-text p {
-      font-size: .9rem; font-weight: 300;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300;
       line-height: 1.9; color: #444; margin-bottom: 1.1rem;
     }
     .stat-row {
@@ -220,11 +229,11 @@
       margin-top: 2rem; padding-top: 2rem;
       border-top: 1px solid #EFEFEF;
     }
-    .stat-num { font-size: 2rem; font-weight: 800; color: var(--red); line-height: 1; }
+    .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--red); line-height: 1; }
     .stat-lbl {
-      font-size: .67rem; font-weight: 500;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: #6B6B6B; margin-top: .2rem;
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: #6B6B6B; margin-top: .4rem;
     }
 
     /* ─── EVENTS SLIDER ──────────────────────── */
@@ -236,7 +245,7 @@
       gap: 1.25rem;
       overflow-x: auto;
       padding-bottom: 1.25rem;
-      align-items: stretch;
+      align-items: stretch;     
       scrollbar-width: thin;
       scrollbar-color: var(--red) rgba(255,255,255,.06);
       cursor: grab;
@@ -254,7 +263,7 @@
       display: flex; flex-direction: column;
       transition: transform .35s cubic-bezier(.25,.46,.45,.94), box-shadow .35s ease;
       cursor: pointer;
-      width: auto;
+      width: auto;           
     }
     .event-card:hover {
       transform: scale(1.03) translateY(-5px);
@@ -262,7 +271,7 @@
     }
 
     .event-img-box {
-      height: 360px;
+      height: 360px;          
       display: flex;
       align-items: center;
       justify-content: center;
@@ -273,9 +282,9 @@
 
     .event-img-box img {
       height: 100%;
-      width: auto;
-      max-width: 300px;
-      object-fit: contain;
+      width: auto;            
+      max-width: 300px;       
+      object-fit: contain;    
       display: block;
       transition: transform .5s ease;
     }
@@ -283,22 +292,23 @@
 
     .event-card-body { padding: .9rem 1rem 1rem; min-width: 160px; }
     .event-card-title {
-      font-size: .78rem; font-weight: 700;
+      font-size: 0.95rem; font-weight: 700;
       color: #fff; letter-spacing: .04em; text-transform: uppercase;
     }
-    .event-card-loc { font-size: .7rem; font-weight: 300; color: rgba(255,255,255,.4); margin-top: .2rem; }
+    .event-card-loc { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.5); margin-top: .2rem; }
     .event-card-date {
       display: inline-block; margin-top: .5rem;
-      font-size: .6rem; font-weight: 700;
+      font-size: 0.75rem; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
       background: var(--red); color: #fff;
-      padding: .18rem .6rem; border-radius: 2px;
+      padding: .25rem .75rem; border-radius: 3px;
     }
 
     /* ─── NUESTRO PRODUCTO ───────────────────── */
     #producto { background: #111; }
     #producto .sec-title { color: #fff; }
 
+    /* Tab navigation */
     .prod-tabs {
       display: flex; gap: 0;
       border-bottom: 1px solid rgba(255,255,255,.1);
@@ -310,21 +320,23 @@
     .prod-tab {
       flex-shrink: 0;
       padding: .9rem 1.5rem;
-      font-size: .7rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
       background: none; border: none;
       border-bottom: 2px solid transparent;
       cursor: pointer;
       transition: color .25s, border-color .25s;
       margin-bottom: -1px;
     }
-    .prod-tab:hover { color: rgba(255,255,255,.7); }
+    .prod-tab:hover { color: rgba(255,255,255,.8); }
     .prod-tab.active { color: var(--red); border-bottom-color: var(--red); }
 
+    /* Panels */
     .prod-panel { display: none; }
     .prod-panel.active { display: block; animation: fadeIn .4s ease; }
 
+    /* Photo carousel */
     .photo-carousel {
       position: relative;
       border-radius: 10px; overflow: hidden;
@@ -341,7 +353,7 @@
     .carousel-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    
+    /* Placeholder slide */
     .carousel-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -352,17 +364,18 @@
     }
     .carousel-placeholder-icon { font-size: 2.5rem; opacity: .4; }
     .carousel-placeholder-text {
-      font-size: .8rem; font-weight: 300;
-      color: rgba(255,255,255,.3); line-height: 1.7;
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,.4); line-height: 1.7;
     }
     .carousel-placeholder-badge {
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: .16em; text-transform: uppercase;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
       background: rgba(227,66,66,.15); color: var(--red);
       border: 1px solid rgba(227,66,66,.2);
       padding: .3rem .9rem; border-radius: 20px;
     }
 
+    /* Dots */
     .carousel-dots {
       display: flex; justify-content: center; gap: .5rem;
       margin-top: 1.25rem;
@@ -388,6 +401,7 @@
     .c-arrow:hover { background: var(--red); border-color: var(--red); }
     .c-arrow svg { width: 16px; height: 16px; }
 
+    /* Video embed */
     .video-embed-wrap {
       position: relative; border-radius: 10px; overflow: hidden;
       aspect-ratio: 16/9; background: #0d0d0d;
@@ -396,7 +410,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: none;
     }
-    
+    /* Video placeholder */
     .video-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -411,17 +425,18 @@
     }
     .video-placeholder-icon svg { width: 28px; height: 28px; color: var(--red); opacity: .6; }
     .video-placeholder-text {
-      font-size: .8rem; font-weight: 300;
-      color: rgba(255,255,255,.3); line-height: 1.7; max-width: 360px;
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,.4); line-height: 1.7; max-width: 360px;
     }
     .video-placeholder-badge {
-      font-size: .62rem; font-weight: 700;
-      letter-spacing: .16em; text-transform: uppercase;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
       background: rgba(227,66,66,.15); color: var(--red);
       border: 1px solid rgba(227,66,66,.2);
       padding: .3rem .9rem; border-radius: 20px;
     }
 
+    /* Panel meta */
     .prod-meta {
       margin-top: 2rem;
       display: grid; grid-template-columns: 1fr;
@@ -433,17 +448,17 @@
       letter-spacing: -.02em; margin-bottom: .5rem;
     }
     .prod-meta-desc {
-      font-size: .84rem; font-weight: 300;
-      color: rgba(255,255,255,.45); line-height: 1.8;
+      font-size: 0.95rem; font-weight: 300;
+      color: rgba(255,255,255,.6); line-height: 1.8;
     }
     .prod-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
     .prod-pill {
-      font-size: .65rem; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: .3rem .85rem; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .35rem .95rem; border-radius: 20px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.1);
-      color: rgba(255,255,255,.5);
+      color: rgba(255,255,255,.6);
     }
     .prod-cta-col { display: flex; flex-direction: column; justify-content: flex-end; gap: .75rem; align-items: flex-start; }
     @media(min-width:768px) { .prod-cta-col { align-items: flex-end; } }
@@ -456,41 +471,22 @@
     @media(min-width:900px) { .proof-grid { grid-template-columns: 1fr 1fr; gap: 4rem; } }
 
     .col-head {
-      font-size: .6rem; font-weight: 700;
-      letter-spacing: .25em; text-transform: uppercase;
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
       color: var(--red); margin-bottom: 1.5rem;
       padding-bottom: .75rem;
       border-bottom: 1px solid rgba(227,66,66,.2);
     }
-    
-    /* ─── TARJETAS ESTILO APPLE (Flotantes y Premium) ─── */
     .peer-card {
-      padding: 2.25rem 2rem; 
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.04); 
-      border-radius: 24px; 
-      margin-bottom: 1.25rem; 
-      position: relative;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.03); 
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
+      padding: 1.75rem 1.5rem; background: #fff;
+      border: 1px solid #EFEFEF; border-radius: 8px;
+      margin-bottom: 1.25rem; position: relative;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .org-card {
-      padding: 2rem; 
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.04); 
-      border-radius: 24px; 
-      margin-bottom: 1.25rem;
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.03); 
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
+    .peer-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); 
     }
-    
-    .peer-card:hover, .org-card:hover { 
-      transform: translateY(-8px);
-      border-color: rgba(0,0,0,0.08);
-      box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
-    }
-    
     .peer-quote-icon {
       font-size: 3.5rem; line-height: 1;
       color: var(--red); opacity: .12;
@@ -498,44 +494,64 @@
       position: absolute; top: .75rem; left: 1.25rem;
     }
     .peer-text {
-      font-size: .84rem; font-weight: 300;
+      font-size: 0.95rem; font-weight: 300;
       line-height: 1.8; color: #444;
       position: relative; z-index: 1;
     }
-    .peer-author { margin-top: 1rem; display: flex; align-items: center; gap: .75rem; }
+    .peer-author { margin-top: 1.5rem; display: flex; align-items: center; gap: .75rem; }
     .peer-avatar {
-      width: 38px; height: 38px; border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--red), #8b0000);
       display: flex; align-items: center; justify-content: center;
-      font-size: .8rem; font-weight: 700; color: #fff; flex-shrink: 0;
+      font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
     }
-    .peer-name { font-size: .82rem; font-weight: 600; color: var(--ink); }
-    .peer-role { font-size: .7rem; font-weight: 300; color: #6B6B6B; }
+    .peer-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    
+    /* Dorado Premium B2B para artistas pares */
+    .peer-role { 
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+      color: #D4AF37; margin-top: 0.3rem; 
+    }
 
+    .org-card {
+      padding: 1.5rem; background: #fff;
+      border: 1px solid #EFEFEF; border-radius: 8px;
+      margin-bottom: 1.25rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .org-card:hover { 
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); 
+    }
     .org-logo {
-      width: 52px; height: 52px; flex-shrink: 0;
+      width: 56px; height: 56px; flex-shrink: 0;
       border-radius: 6px; background: #F0F0F0;
       display: flex; align-items: center; justify-content: center;
     }
     .org-logo-inner {
-      width: 40px; height: 40px; background: var(--ink);
+      width: 44px; height: 44px; background: var(--ink);
       border-radius: 4px; display: flex; align-items: center; justify-content: center;
-      font-size: .5rem; font-weight: 800;
+      font-size: .55rem; font-weight: 800;
       letter-spacing: .05em; text-transform: uppercase;
       color: #fff; text-align: center; line-height: 1.3;
       filter: grayscale(1) opacity(.45);
       transition: filter .3s;
     }
     .org-card:hover .org-logo-inner { filter: grayscale(0) opacity(1); }
-    .org-text { font-size: .83rem; font-weight: 300; line-height: 1.75; color: #444; }
-    .org-author-name { font-size: .8rem; font-weight: 600; color: var(--ink); margin-top: .6rem; }
-    .org-author-role { font-size: .7rem; font-weight: 300; color: #6B6B6B; }
+    .org-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; }
+    .org-author-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1rem; }
+    .org-author-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
+    
+    /* Insignia Dorada Premium B2B para Festivales */
     .org-festival-tag {
-      display: inline-block; margin-top: .5rem;
-      font-size: .58rem; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 0.3rem; margin-top: .75rem;
+      font-size: .65rem; font-weight: 700;
       letter-spacing: .1em; text-transform: uppercase;
-      background: var(--ink); color: #fff;
-      padding: .18rem .6rem; border-radius: 2px;
+      background: rgba(212, 175, 55, 0.12); color: #D4AF37;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: .35rem .8rem; border-radius: 4px;
     }
 
     /* ─── BOOKING FORM ───────────────────────── */
@@ -546,15 +562,15 @@
     @media(min-width:600px) { .f-row.two { grid-template-columns: 1fr 1fr; } }
     .f-group { display: flex; flex-direction: column; gap: .45rem; }
     .f-label {
-      font-size: .63rem; font-weight: 600;
+      font-size: 0.75rem; font-weight: 600;
       letter-spacing: .18em; text-transform: uppercase;
-      color: rgba(255,255,255,.38);
+      color: rgba(255,255,255,.5);
     }
     .f-input {
       background: rgba(255,255,255,.05);
       border: 1px solid rgba(255,255,255,.12); border-radius: 4px;
-      padding: .85rem 1rem; font-family: 'Poppins', sans-serif;
-      font-size: .88rem; font-weight: 300; color: #fff; outline: none;
+      padding: 1rem; font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem; font-weight: 300; color: #fff; outline: none;
       transition: border-color .2s, background .2s, box-shadow .2s;
     }
     .f-input::placeholder { color: rgba(255,255,255,.22); }
@@ -564,13 +580,12 @@
       box-shadow: 0 0 0 3px rgba(227,66,66,.1);
     }
     textarea.f-input { resize: vertical; min-height: 130px; }
-    
     .btn-submit {
       margin-top: 1.5rem; background: var(--red); color: #fff;
-      border: none; border-radius: 4px; padding: 1rem 2.5rem;
+      border: none; border-radius: 4px; padding: 1rem 2.25rem;
       font-family: 'Poppins', sans-serif;
-      font-size: .78rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
       cursor: pointer;
       display: inline-flex; align-items: center; gap: .6rem;
       transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -580,7 +595,6 @@
       transform: translateY(-3px); 
       box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); 
     }
-    
     #form-success-epk { display: none; }
     #form-success-epk.show { display: flex; }
 
@@ -597,20 +611,13 @@
     @media(min-width:768px) {
       .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; }
     }
-    .foot-logo { font-size: .9rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: #fff; }
+    .foot-logo { font-size: 1rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: #fff; }
     .foot-logo span { color: var(--red); }
-    .foot-copy { font-size: .72rem; font-weight: 300; color: rgba(255,255,255,.22); }
+    .foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
 
-    /* ─── SCROLL REVEAL PREMIUM ─── */
-    .reveal { 
-      opacity: 0; 
-      transform: translateY(35px); 
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); 
-    }
-    .reveal.in { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
+    /* ─── SCROLL REVEAL ──────────────────────── */
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
@@ -630,28 +637,22 @@
     #mob-menu.open { max-height:240px; opacity:1; }
     .no-select { user-select:none; }
 
-    /* ─── CERTIFICACIONES ESTILO APPLE ─── */
+    /* ─── CERTIFICACIONES BLANCAS APPLE ─── */
     .cert-badge {
-      border: 1px solid rgba(0,0,0,0.04);
-      border-radius: 20px; 
-      padding: 1rem 1.5rem;
-      background: #fff; 
-      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
+      background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
       display: flex; align-items: center; gap: .75rem;
       width: 100%; justify-content: flex-start; text-align: left;
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
       cursor: default;
     }
     @media (min-width: 768px) { .cert-badge { width: auto; } }
-    
     .cert-badge:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0,0,0,0.08);
+      transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
       box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
     }
-    
-    .cert-title { font-size: .8rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
-    .cert-sub { font-size: .65rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
+    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -699,8 +700,7 @@
       Instructors
     </h1>
     <p class="hero-sub">
-      Profesores de Bachata en Barcelona, especializada en bachata fusión urbana, conocidos por sus clases accesibles, su estilo único y su fuerte presencia social en festivales.
-Una sola pasión: la bachata.
+      Nono &amp; Carlos — Barcelona-based artists fusing sensual bachata, urban energy and bachazouk into an unforgettable stage experience.
     </p>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -782,7 +782,7 @@ Una sola pasión: la bachata.
       <span class="tag">Nuestro Producto</span>
       <h2 class="sec-title">Lo que podemos<br/><em style="color:var(--red);font-style:italic;">ofrecerte</em></h2>
       <div class="red-line"></div>
-      <p style="color:rgba(255,255,255,.4); font-size:.86rem; font-weight:300; max-width:520px; line-height:1.8;">
+      <p style="color:rgba(255,255,255,.4); font-size:0.95rem; font-weight:300; max-width:520px; line-height:1.8;">
         Entendemos cómo funciona un festival por dentro: el organizador necesita artistas que sumen. Por eso, no nos escondemos en el backstage; bailamos en la pista con vuestros alumnos hasta el cierre, manteniendo la energía a tope hasta el final
        <br><br>
         Cuatro disciplinas. Un equipo. Adaptamos cada taller al perfil de tu evento y tu audiencia.
@@ -799,7 +799,6 @@ Una sola pasión: la bachata.
     <div class="prod-panel active reveal" id="panel-bachata">
 
       <div class="photo-carousel" id="carousel-bachata">
-
         <div class="carousel-slide active">
           <div class="aspect-video w-full h-full">
             <iframe 
@@ -833,7 +832,7 @@ Una sola pasión: la bachata.
           </div>
         </div>
         <div class="prod-cta-col">
-          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s;">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s;">
             Contratar este taller
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -853,10 +852,10 @@ Una sola pasión: la bachata.
           <span class="video-placeholder-badge">Vídeo próximamente</span>
           <p class="video-placeholder-text">
             Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
-            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_REGGAETON</code>
+            <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_REGGAETON</code>
           </p>
         </div>
-        </div>
+      </div>
 
       <div class="prod-meta">
         <div>
@@ -869,7 +868,7 @@ Una sola pasión: la bachata.
           </div>
         </div>
         <div class="prod-cta-col">
-          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
             Contratar este taller
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -889,10 +888,10 @@ Una sola pasión: la bachata.
           <span class="video-placeholder-badge">Vídeo próximamente</span>
           <p class="video-placeholder-text">
             Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
-            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_LADYSTYLE</code>
+            <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_LADYSTYLE</code>
           </p>
         </div>
-        </div>
+      </div>
 
       <div class="prod-meta">
         <div>
@@ -905,7 +904,7 @@ Una sola pasión: la bachata.
           </div>
         </div>
         <div class="prod-cta-col">
-          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
             Contratar este taller
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -925,10 +924,10 @@ Una sola pasión: la bachata.
           <span class="video-placeholder-badge">Vídeo próximamente</span>
           <p class="video-placeholder-text">
             Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
-            <code style="color:var(--red);font-size:.75rem;">VIDEO_ID_MANSTYLE</code>
+            <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_MANSTYLE</code>
           </p>
         </div>
-        </div>
+      </div>
 
       <div class="prod-meta">
         <div>
@@ -941,7 +940,7 @@ Una sola pasión: la bachata.
           </div>
         </div>
         <div class="prod-cta-col">
-          <a href="#booking" style="background:var(--red);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
+          <a href="#booking" style="background:var(--red);color:#fff;font-size:0.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.8rem 1.75rem;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;">
             Contratar este taller
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -962,7 +961,7 @@ Una sola pasión: la bachata.
         <span class="tag">Featured Events</span>
         <div class="red-line"></div>
       </div>
-      <p style="color:rgba(255,255,255,.35); font-size:.82rem; font-weight:300; max-width:260px;" class="md:text-right">
+      <p style="color:rgba(255,255,255,.35); font-size:0.95rem; font-weight:300; max-width:260px;" class="md:text-right">
         Drag or scroll to explore our festival appearances.
       </p>
     </div>
@@ -1038,7 +1037,7 @@ Una sola pasión: la bachata.
       
     </div>
 
-    <p style="color:rgba(255,255,255,.2); font-size:.72rem; font-weight:300; margin-top:.75rem;">
+    <p style="color:rgba(255,255,255,.2); font-size:0.8rem; font-weight:300; margin-top:.75rem;">
       ← Drag to scroll →
     </p>
 
@@ -1069,7 +1068,10 @@ Una sola pasión: la bachata.
             <div class="peer-avatar">KJ</div>
             <div>
               <div class="peer-name">Korke &amp; Judith</div>
-              <div class="peer-role">World Bachata Champions · Barcelona</div>
+              <div class="peer-role">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                World Bachata Champions · BCN
+              </div>
             </div>
           </div>
         </div>
@@ -1083,7 +1085,10 @@ Una sola pasión: la bachata.
             <div class="peer-avatar">DS</div>
             <div>
               <div class="peer-name">Daniel &amp; Sofía</div>
-              <div class="peer-role">International Instructors · Madrid</div>
+              <div class="peer-role">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                International Instructors · Madrid
+              </div>
             </div>
           </div>
         </div>
@@ -1097,7 +1102,10 @@ Una sola pasión: la bachata.
             <div class="peer-avatar">AT</div>
             <div>
               <div class="peer-name">Alex &amp; Tania</div>
-              <div class="peer-role">Bachazouk Artists · Paris</div>
+              <div class="peer-role">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Bachazouk Artists · Paris
+              </div>
             </div>
           </div>
         </div>
@@ -1117,7 +1125,10 @@ Una sola pasión: la bachata.
             </p>
             <p class="org-author-name">Marta González</p>
             <p class="org-author-role">Director, Barcelona Bachata Festival</p>
-            <span class="org-festival-tag">Barcelona Bachata Festival</span>
+            <span class="org-festival-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Barcelona Bachata Festival
+            </span>
           </div>
         </div>
 
@@ -1131,7 +1142,10 @@ Una sola pasión: la bachata.
             </p>
             <p class="org-author-name">Pierre Leblanc</p>
             <p class="org-author-role">Organizer, Paris Bachata Open</p>
-            <span class="org-festival-tag">Paris Bachata Open</span>
+            <span class="org-festival-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Paris Bachata Open
+            </span>
           </div>
         </div>
 
@@ -1145,7 +1159,10 @@ Una sola pasión: la bachata.
             </p>
             <p class="org-author-name">Valentina Ricci</p>
             <p class="org-author-role">Festival Director, Rome Sensual Congress</p>
-            <span class="org-festival-tag">Rome Sensual Congress</span>
+            <span class="org-festival-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Rome Sensual Congress
+            </span>
           </div>
         </div>
 
@@ -1163,7 +1180,7 @@ Una sola pasión: la bachata.
       <span class="tag">Booking Enquiries</span>
       <h2 class="sec-title" style="color:#fff;">Book Nono &amp;<br/>Carlos for Your Event</h2>
       <div class="red-line"></div>
-      <p style="color:rgba(255,255,255,.4); font-size:.88rem; font-weight:300; max-width:480px; line-height:1.8; margin-bottom:2.5rem;">
+      <p style="color:rgba(255,255,255,.4); font-size:0.95rem; font-weight:300; max-width:480px; line-height:1.8; margin-bottom:2.5rem;">
         Available for congresses, festivals, shows, workshops and special events worldwide. We respond within 24 hours.
       </p>
     </div>
@@ -1173,7 +1190,7 @@ Una sola pasión: la bachata.
       <svg class="w-5 h-5 flex-shrink-0" style="color:#4ade80;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
       </svg>
-      <p style="color:rgba(255,255,255,.75); font-size:.88rem; font-weight:300;">
+      <p style="color:rgba(255,255,255,.75); font-size:0.95rem; font-weight:300;">
         Enquiry sent! We'll get back to you within 24 hours. 🎶
       </p>
     </div>
@@ -1347,6 +1364,7 @@ Una sola pasión: la bachata.
         d.classList.toggle('active', i === c.current)
       );
     }
+    // Reset auto timer
     if (c.timer) { clearInterval(c.timer); c.timer = setInterval(() => moveCarousel(id, 1), 3500); }
   }
 
