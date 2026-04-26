@@ -62,6 +62,7 @@
       color: #fff; border: 1px solid rgba(255,255,255,.35);
       padding: .5rem 1.25rem; border-radius: 2px;
       transition: background .2s, border-color .2s;
+      text-decoration: none;
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
@@ -195,29 +196,15 @@
       }
     }
 
-    /* Image container: shows full image, no cropping */
+    /* ─── ABOUT IMG PERFECT SQUARE ─── */
     .about-img-wrap {
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    @media(min-width:768px) {
-      .about-img-wrap::before {
-        content: '';
-        position: absolute;
-        top: -10px; right: -10px;
-        width: 100%; height: 100%;
-        border: 2px solid var(--red);
-        border-radius: 6px; z-index: 0;
-      }
+      position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto;
     }
     .about-img-wrap img {
-      position: relative; z-index: 1;
-      width: 100%;
-      max-height: 560px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 6px;
-      display: block;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      border-radius: 6px; display: block;
+      border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
     .about-text p {
@@ -245,7 +232,7 @@
       gap: 1.25rem;
       overflow-x: auto;
       padding-bottom: 1.25rem;
-      align-items: stretch;     
+      align-items: stretch;
       scrollbar-width: thin;
       scrollbar-color: var(--red) rgba(255,255,255,.06);
       cursor: grab;
@@ -263,7 +250,7 @@
       display: flex; flex-direction: column;
       transition: transform .35s cubic-bezier(.25,.46,.45,.94), box-shadow .35s ease;
       cursor: pointer;
-      width: auto;           
+      width: auto;
     }
     .event-card:hover {
       transform: scale(1.03) translateY(-5px);
@@ -271,7 +258,7 @@
     }
 
     .event-img-box {
-      height: 360px;          
+      height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -282,9 +269,9 @@
 
     .event-img-box img {
       height: 100%;
-      width: auto;            
-      max-width: 300px;       
-      object-fit: contain;    
+      width: auto;
+      max-width: 300px;
+      object-fit: contain;
       display: block;
       transition: transform .5s ease;
     }
@@ -308,7 +295,6 @@
     #producto { background: #111; }
     #producto .sec-title { color: #fff; }
 
-    /* Tab navigation */
     .prod-tabs {
       display: flex; gap: 0;
       border-bottom: 1px solid rgba(255,255,255,.1);
@@ -332,11 +318,9 @@
     .prod-tab:hover { color: rgba(255,255,255,.8); }
     .prod-tab.active { color: var(--red); border-bottom-color: var(--red); }
 
-    /* Panels */
     .prod-panel { display: none; }
     .prod-panel.active { display: block; animation: fadeIn .4s ease; }
 
-    /* Photo carousel */
     .photo-carousel {
       position: relative;
       border-radius: 10px; overflow: hidden;
@@ -353,7 +337,7 @@
     .carousel-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
-    /* Placeholder slide */
+    
     .carousel-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -375,7 +359,6 @@
       padding: .3rem .9rem; border-radius: 20px;
     }
 
-    /* Dots */
     .carousel-dots {
       display: flex; justify-content: center; gap: .5rem;
       margin-top: 1.25rem;
@@ -401,7 +384,6 @@
     .c-arrow:hover { background: var(--red); border-color: var(--red); }
     .c-arrow svg { width: 16px; height: 16px; }
 
-    /* Video embed */
     .video-embed-wrap {
       position: relative; border-radius: 10px; overflow: hidden;
       aspect-ratio: 16/9; background: #0d0d0d;
@@ -410,7 +392,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: none;
     }
-    /* Video placeholder */
+    
     .video-placeholder {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -436,7 +418,6 @@
       padding: .3rem .9rem; border-radius: 20px;
     }
 
-    /* Panel meta */
     .prod-meta {
       margin-top: 2rem;
       display: grid; grid-template-columns: 1fr;
@@ -477,16 +458,35 @@
       padding-bottom: .75rem;
       border-bottom: 1px solid rgba(227,66,66,.2);
     }
+    
+    /* ─── TARJETAS ESTILO APPLE (Flotantes y Premium) ─── */
     .peer-card {
-      padding: 1.75rem 1.5rem; background: #fff;
-      border: 1px solid #EFEFEF; border-radius: 8px;
-      margin-bottom: 1.25rem; position: relative;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 2.25rem 2rem; 
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04); 
+      border-radius: 24px; 
+      margin-bottom: 1.25rem; 
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03); 
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
     }
-    .peer-card:hover { 
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); 
+    .org-card {
+      padding: 2rem; 
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04); 
+      border-radius: 24px; 
+      margin-bottom: 1.25rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03); 
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
     }
+    
+    .peer-card:hover, .org-card:hover { 
+      transform: translateY(-8px);
+      border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
+    }
+    
     .peer-quote-icon {
       font-size: 3.5rem; line-height: 1;
       color: var(--red); opacity: .12;
@@ -514,17 +514,6 @@
       color: #D4AF37; margin-top: 0.3rem; 
     }
 
-    .org-card {
-      padding: 1.5rem; background: #fff;
-      border: 1px solid #EFEFEF; border-radius: 8px;
-      margin-bottom: 1.25rem;
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .org-card:hover { 
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); 
-    }
     .org-logo {
       width: 56px; height: 56px; flex-shrink: 0;
       border-radius: 6px; background: #F0F0F0;
@@ -580,6 +569,7 @@
       box-shadow: 0 0 0 3px rgba(227,66,66,.1);
     }
     textarea.f-input { resize: vertical; min-height: 130px; }
+    
     .btn-submit {
       margin-top: 1.5rem; background: var(--red); color: #fff;
       border: none; border-radius: 4px; padding: 1rem 2.25rem;
@@ -591,22 +581,23 @@
       transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-submit:hover { 
-      background: var(--red); 
+      background: var(--red-dk); 
       transform: translateY(-3px); 
       box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); 
     }
+    
     #form-success-epk { display: none; }
     #form-success-epk.show { display: flex; }
 
     /* ─── FOOTER ─────────────────────────────── */
     footer {
-      background: #070707; padding: 2.5rem 2rem;
-      border-top: 1px solid rgba(255,255,255,.06);
+      background: #070707; padding: 4rem 2rem;
+      border-top: 1px solid rgba(255,255,255,.05);
     }
     .foot-inner {
       max-width: 1200px; margin: 0 auto;
       display: flex; flex-direction: column;
-      align-items: center; gap: 1rem; text-align: center;
+      align-items: center; gap: 1.5rem; text-align: center;
     }
     @media(min-width:768px) {
       .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; }
@@ -615,9 +606,16 @@
     .foot-logo span { color: var(--red); }
     .foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
 
-    /* ─── SCROLL REVEAL ──────────────────────── */
-    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    /* ─── SCROLL REVEAL PREMIUM ─── */
+    .reveal { 
+      opacity: 0; 
+      transform: translateY(35px); 
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    .reveal.in { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
@@ -637,13 +635,13 @@
     #mob-menu.open { max-height:240px; opacity:1; }
     .no-select { user-select:none; }
 
-    /* ─── CERTIFICACIONES BLANCAS APPLE ─── */
+    /* ─── CERTIFICACIONES ─── */
     .cert-badge {
       border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
       background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
       display: flex; align-items: center; gap: .75rem;
       width: 100%; justify-content: flex-start; text-align: left;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
       cursor: default;
     }
     @media (min-width: 768px) { .cert-badge { width: auto; } }
@@ -658,14 +656,14 @@
 <body>
 
 <nav id="nav">
-  <a href="#" class="nav-logo">Nono <span>&</span> Carlos</a>
+  <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="hidden md:flex items-center gap-6">
     <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
     <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
     <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
     <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
-    <a href="index.html" class="nav-cta">Clases Privadas</a>
+    <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="nav-cta">Contáctanos</a>
   </div>
 
   <button id="hbg" class="md:hidden text-white" aria-label="Menu">
@@ -674,12 +672,12 @@
   </button>
 </nav>
 
-<div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4">
+<div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
   <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">About</a>
   <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Events</a>
   <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Reviews</a>
   <a href="#booking" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Booking</a>
-  <a href="index.html" class="block mt-3 text-center nav-cta">Clases Privadas</a>
+  <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="block mt-3 text-center nav-cta">Contáctanos</a>
 </div>
 
 
@@ -700,7 +698,8 @@
       Instructors
     </h1>
     <p class="hero-sub">
-      Nono &amp; Carlos — Barcelona-based artists fusing sensual bachata, urban energy and bachazouk into an unforgettable stage experience.
+      Profesores de Bachata en Barcelona, especializada en bachata fusión urbana, conocidos por sus clases accesibles, su estilo único y su fuerte presencia social en festivales.
+Una sola pasión: la bachata.
     </p>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -799,6 +798,7 @@
     <div class="prod-panel active reveal" id="panel-bachata">
 
       <div class="photo-carousel" id="carousel-bachata">
+
         <div class="carousel-slide active">
           <div class="aspect-video w-full h-full">
             <iframe 
@@ -855,7 +855,7 @@
             <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_REGGAETON</code>
           </p>
         </div>
-      </div>
+        </div>
 
       <div class="prod-meta">
         <div>
@@ -891,7 +891,7 @@
             <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_LADYSTYLE</code>
           </p>
         </div>
-      </div>
+        </div>
 
       <div class="prod-meta">
         <div>
@@ -927,7 +927,7 @@
             <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_MANSTYLE</code>
           </p>
         </div>
-      </div>
+        </div>
 
       <div class="prod-meta">
         <div>
@@ -1364,7 +1364,6 @@
         d.classList.toggle('active', i === c.current)
       );
     }
-    // Reset auto timer
     if (c.timer) { clearInterval(c.timer); c.timer = setInterval(() => moveCarousel(id, 1), 3500); }
   }
 
