@@ -116,8 +116,13 @@
     .prod-panel { display: none; margin-top: 2rem; }
     .prod-panel.active { display: block; animation: fadeIn .5s ease; }
 
-    /* ─── CAROUSEL FIX ─── */
-    .photo-carousel { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; background: #000; }
+    /* ─── VIDEO CONTAINERS (UNIFICADOS) ─── */
+    .photo-carousel, .video-embed-wrap { 
+      position: relative; width: 100%; border-radius: 12px; overflow: hidden; 
+      aspect-ratio: 16/9; background: #000; border: 1px solid rgba(255,255,255,0.05); 
+    }
+    .video-embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    
     .carousel-slide { 
       position: absolute; inset: 0; opacity: 0; visibility: hidden; 
       transition: opacity .6s ease, visibility 0.6s; pointer-events: none; 
@@ -138,7 +143,7 @@
     .event-card { flex-shrink: 0; width: 300px; background: #181818; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1); }
     .event-card:hover { transform: translateY(-10px); }
     .event-img-box { height: 380px; overflow: hidden; }
-    .event-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .event-img-box img { width: 100%; height: 100%; object-fit: cover; background: #111; }
 
     /* ─── REVIEWS APPLE-STYLE ────────────────── */
     .peer-card { 
@@ -175,7 +180,9 @@
 </nav>
 
 <section id="hero">
-  <video id="hero-video" autoplay muted loop playsinline src="./img/hero-video.mp4"></video>
+  <video id="hero-video" autoplay muted loop playsinline poster="./img/carlosynono%20elegant.jpg">
+    <source src="./img/hero-video.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-h1">International<br/>Bachata<br/><em>Artists</em> &amp;<br/>Instructors</h1>
@@ -203,7 +210,7 @@
         </div>
       </div>
       <div class="about-img-wrap reveal">
-        <img src="./img/carlosynono elegant.jpg" alt="Nono and Carlos Elegant">
+        <img src="./img/carlosynono%20elegant.jpg" alt="Nono and Carlos Elegant">
       </div>
     </div>
   </div>
@@ -228,13 +235,16 @@
     <div class="prod-panel active" id="panel-bachata">
       <div class="photo-carousel" id="carousel-bachata">
         <div class="carousel-slide active">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/ETQfDvf77z0?rel=0&modestbranding=1" allowfullscreen></iframe>
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/bR9-0cEg7FM?rel=0&modestbranding=1" allowfullscreen></iframe>
         </div>
         <div class="carousel-slide">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/NxCcWfF3Alc?rel=0&modestbranding=1" allowfullscreen></iframe>
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/a9l0NJBH63Q?rel=0&modestbranding=1" allowfullscreen></iframe>
         </div>
         <div class="carousel-slide">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/uF9H159n6RA?rel=0&modestbranding=1" allowfullscreen></iframe>
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/wBjygdqPxtU?rel=0&modestbranding=1" allowfullscreen></iframe>
+        </div>
+        <div class="carousel-slide">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/B32ogTf2PfA?rel=0&modestbranding=1" allowfullscreen></iframe>
         </div>
         <div class="carousel-arrows">
           <button class="c-arrow" onclick="moveCarousel('bachata',-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -246,15 +256,15 @@
 
     <div class="prod-panel" id="panel-reggaeton">
       <div class="video-embed-wrap">
-        <iframe class="w-full h-full" src="https://www.youtube.com/embed/JqZ8PQJEpG4?rel=0&modestbranding=1" allowfullscreen></iframe>
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/rFUxYk3RzpQ?rel=0&modestbranding=1" allowfullscreen></iframe>
       </div>
     </div>
 
     <div class="prod-panel" id="panel-lady">
-      <div class="photo-carousel flex items-center justify-center border border-white/10"><p class="text-white/30 text-sm italic">Video coming soon.</p></div>
+      <div class="photo-carousel flex items-center justify-center"><p class="text-white/30 text-sm italic">Video demonstration coming soon.</p></div>
     </div>
     <div class="prod-panel" id="panel-man">
-      <div class="photo-carousel flex items-center justify-center border border-white/10"><p class="text-white/30 text-sm italic">Video coming soon.</p></div>
+      <div class="photo-carousel flex items-center justify-center"><p class="text-white/30 text-sm italic">Video demonstration coming soon.</p></div>
     </div>
   </div>
 </section>
@@ -267,12 +277,12 @@
       <div class="red-line"></div>
     </div>
     <div class="slider-track no-scrollbar" id="slider">
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlosbon2024.jpg"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata a Otro Nivel</p><p class="text-xs opacity-40 mt-1">Toulouse, FR · 2024</p></div></div>
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlospassion2025.jpg"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Passion Bachata</p><p class="text-xs opacity-40 mt-1">Bessançon, FR · 2025</p></div></div>
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos bachataaddict.png"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata Addict</p><p class="text-xs opacity-40 mt-1">Montpellier, FR · 2025</p></div></div>
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos danceup2024.webp"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Dance Up Congress</p><p class="text-xs opacity-40 mt-1">Lyon, FR · 2025</p></div></div>
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos bachateame.jpeg"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachatéame</p><p class="text-xs opacity-40 mt-1">Stuttgart, DE · 2026</p></div></div>
-      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlossuave2026.jpg"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata Suave</p><p class="text-xs opacity-40 mt-1">Marseille, FR · 2026</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlosbon2024.jpg" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata a Otro Nivel</p><p class="text-xs opacity-40 mt-1">Toulouse, FR · 2024</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlospassion2025.jpg" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Passion Bachata</p><p class="text-xs opacity-40 mt-1">Bessançon, FR · 2025</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos%20bachataaddict.png" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata Addict</p><p class="text-xs opacity-40 mt-1">Montpellier, FR · 2025</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos%20danceup2024.webp" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Dance Up Congress</p><p class="text-xs opacity-40 mt-1">Lyon, FR · 2025</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlos%20bachateame.jpeg" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachatéame</p><p class="text-xs opacity-40 mt-1">Stuttgart, DE · 2026</p></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="./img/nonoycarlossuave2026.jpg" loading="lazy"></div><div class="p-5 text-white"><p class="font-bold uppercase tracking-tight">Bachata Suave</p><p class="text-xs opacity-40 mt-1">Marseille, FR · 2026</p></div></div>
     </div>
   </div>
 </section>
@@ -355,11 +365,22 @@
   function moveCarousel(id, dir) { goTo(id, carousels[id].current + dir); }
   initCarousel('bachata');
 
-  // Reveal Logic
+  // Reveal Animations Logic
   const revObs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-  // SPREADSHEET LOGIC (DYNAMIC REVIEWS)
+  // Slider Drag to Scroll
+  const slider = document.getElementById('slider');
+  let isDown = false, startX, scrollLeft;
+  slider.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+  ['mouseleave','mouseup'].forEach(ev => slider.addEventListener(ev, () => isDown = false));
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    slider.scrollLeft = scrollLeft - ((e.pageX - slider.offsetLeft) - startX) * 1.5;
+  });
+
+  // EXCEL / SPREADSHEET AUTOMATION LOGIC
   document.addEventListener("DOMContentLoaded", () => {
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
     
@@ -376,12 +397,14 @@
         const card = document.createElement('div');
         card.className = 'peer-card reveal in';
         
-        // Avatar logic (pilla la foto de tu carpeta /img si está en el excel)
         let avatar = `<div class="peer-avatar">${name.substring(0,2)}</div>`;
-        if(img) avatar = `<div class="peer-avatar"><img src="${img}"></div>`;
+        if(img) {
+          const safeImg = img.trim().replace(/ /g, '%20');
+          avatar = `<div class="peer-avatar"><img src="${safeImg}"></div>`;
+        }
 
         card.innerHTML = `
-          <div class="peer-author">
+          <div class="peer-author" style="margin-top: 0; margin-bottom: 1.5rem;">
             ${avatar}
             <div>
               <p class="peer-name">${name}</p>
@@ -391,17 +414,16 @@
               </p>
             </div>
           </div>
-          <p class="peer-text">${feedback.replace(/\n/g, '<br>')}</p>
+          <p class="peer-text" style="margin-top: 0;">${feedback.replace(/\n/g, '<br>')}</p>
         `;
         
-        // Reparto equitativo entre dos columnas
         if(i % 2 === 0) col1.appendChild(card);
         else col2.appendChild(card);
       });
     });
   });
 
-  // CSV Parser (maneja comas y comillas correctamente)
+  // CSV Parser 
   function parseCSV(s) {
     const r = []; let q = false; let row = 0, col = 0;
     for (let c = 0; c < s.length; c++) {
