@@ -487,18 +487,12 @@
       box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
     }
     
-    .peer-quote-icon {
-      font-size: 3.5rem; line-height: 1;
-      color: var(--red); opacity: .12;
-      font-family: Georgia, serif;
-      position: absolute; top: .75rem; left: 1.25rem;
-    }
     .peer-text {
       font-size: 0.95rem; font-weight: 300;
       line-height: 1.8; color: #444;
       position: relative; z-index: 1;
     }
-    .peer-author { margin-top: 1.5rem; display: flex; align-items: center; gap: .75rem; }
+    .peer-author { display: flex; align-items: center; gap: .75rem; }
     .peer-avatar {
       width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--red), #8b0000);
@@ -1072,117 +1066,13 @@
 
     <div class="proof-grid">
 
-      <div class="reveal d1">
+      <div class="reveal d1" id="artists-reviews-container">
         <div class="col-head">Peer Reviews — Artists</div>
-
-        <div class="peer-card">
-          <div class="peer-quote-icon">"</div>
-          <p class="peer-text">
-            Watching Nono and Carlos on stage is something else entirely. Their connection, their musicality — it's not just technique, it's emotion made visible. They are among the most authentic couples on the international circuit right now.
-          </p>
-          <div class="peer-author">
-            <div class="peer-avatar">KJ</div>
-            <div>
-              <div class="peer-name">Korke &amp; Judith</div>
-              <div class="peer-role">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                World Bachata Champions · BCN
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div class="peer-card">
-          <div class="peer-quote-icon">"</div>
-          <p class="peer-text">
-            Every time I share the floor with them at a congress, the energy shifts. Their fusion of urban and sensual creates something genuinely new — not imitation, real innovation.
-          </p>
-          <div class="peer-author">
-            <div class="peer-avatar">DS</div>
-            <div>
-              <div class="peer-name">Daniel &amp; Sofía</div>
-              <div class="peer-role">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                International Instructors · Madrid
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="peer-card">
-          <div class="peer-quote-icon">"</div>
-          <p class="peer-text">
-            Their approach to teaching mirrors their performance — precise, passionate and deeply generous with their knowledge. Any festival is better with them on the lineup.
-          </p>
-          <div class="peer-author">
-            <div class="peer-avatar">AT</div>
-            <div>
-              <div class="peer-name">Alex &amp; Tania</div>
-              <div class="peer-role">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                Bachazouk Artists · Paris
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="reveal d2">
+      <div class="reveal d2" id="organizers-reviews-container">
         <div class="col-head">Organizer Insights — Festivals</div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">BCN<br/>FEST</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              We booked Nono &amp; Carlos for our main showcase and the crowd response was incredible. Their show number was the most-talked-about moment of the weekend. Sold-out workshops, zero complaints. We re-booked them on the spot.
-            </p>
-            <p class="org-author-name">Marta González</p>
-            <p class="org-author-role">Director, Barcelona Bachata Festival</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Barcelona Bachata Festival
-            </span>
-          </div>
         </div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">PBO<br/>PRS</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              Professional, punctual, adaptable. They adapted their workshop format to our audience perfectly. Attendance grew 30% on the second day entirely by word of mouth after their Friday night class.
-            </p>
-            <p class="org-author-name">Pierre Leblanc</p>
-            <p class="org-author-role">Organizer, Paris Bachata Open</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Paris Bachata Open
-            </span>
-          </div>
-        </div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">RSC<br/>ROM</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              What impressed me most was their stage presence. You can teach steps — you can't teach what they have. Our audience was on their feet for the entire show number. Truly memorable.
-            </p>
-            <p class="org-author-name">Valentina Ricci</p>
-            <p class="org-author-role">Festival Director, Rome Sensual Congress</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Rome Sensual Congress
-            </span>
-          </div>
-        </div>
-
-      </div>
 
     </div>
   </div>
@@ -1386,7 +1276,7 @@
 
   initCarousel('bachata');
 
-  /* ── LECTURA AUTOMÁTICA DEL GOOGLE SPREADSHEET (VERSIÓN ARTISTAS + ENLACES DIRECTOS) ── */
+  /* ── LECTURA AUTOMÁTICA DEL GOOGLE SPREADSHEET (DISEÑO LIMPIO) ── */
   document.addEventListener("DOMContentLoaded", () => {
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
 
@@ -1396,8 +1286,8 @@
         const rows = parseCSV(csvText);
         rows.shift(); // Elimina la fila de cabeceras
 
-        // Apuntamos a la columna de Artistas (reveal d1)
-        const container = document.querySelector('.proof-grid .reveal.d1');
+        // Apuntamos a la columna de Artistas
+        const container = document.getElementById('artists-reviews-container');
         if (!container) return;
 
         rows.forEach(row => {
@@ -1406,25 +1296,23 @@
           const nameRole = row[2] ? row[2].trim() : '';
           const eventName = row[3] ? row[3].trim() : '';
           const feedback = row[4] ? row[4].trim() : '';
-          const logoLink = row[6] ? row[6].trim() : ''; // Aquí va tu link interno del excel ej: ./img/foto.jpg
+          const logoLink = row[6] ? row[6].trim() : ''; 
 
           if(!feedback || !nameRole) return; 
 
           const card = document.createElement('div');
-          // Cambiamos la clase para que pille el diseño de Artista
           card.className = 'peer-card';
           card.style = 'opacity: 0; animation: fadeUp 0.8s forwards; animation-delay: 0.2s;';
 
-          // Renderizamos el avatar. Si hay link válido, pone la foto. Si no, las iniciales.
+          // Avatar / Logo
           let avatarHtml = `<div class="peer-avatar">${nameRole.substring(0,2).toUpperCase()}</div>`;
           if (logoLink) {
-            avatarHtml = `<img src="${logoLink}" style="width:44px; height:44px; border-radius:50%; object-fit:cover; flex-shrink:0;" alt="${nameRole} avatar">`;
+            avatarHtml = `<img src="${logoLink}" style="width:44px; height:44px; border-radius:50%; object-fit:contain; flex-shrink:0; background:#fff;" alt="${nameRole} avatar">`;
           }
 
+          // Inyectamos el contenido con el orden invertido: Cabecera primero, texto después
           card.innerHTML = `
-            <div class="peer-quote-icon">"</div>
-            <p class="peer-text">${feedback.replace(/\n/g, '<br>')}</p>
-            <div class="peer-author">
+            <div class="peer-author" style="margin-top: 0; margin-bottom: 1.5rem;">
               ${avatarHtml}
               <div>
                 <div class="peer-name">${nameRole}</div>
@@ -1434,6 +1322,7 @@
                 </div>
               </div>
             </div>
+            <p class="peer-text" style="margin-top: 0;">${feedback.replace(/\n/g, '<br>')}</p>
           `;
           
           container.appendChild(card);
