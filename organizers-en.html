@@ -1130,58 +1130,6 @@
 
       <div class="reveal d2">
         <div class="col-head">Organizer Insights — Festivals</div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">BCN<br/>FEST</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              We booked Nono &amp; Carlos for our main showcase and the crowd response was incredible. Their show number was the most-talked-about moment of the weekend. Sold-out workshops, zero complaints. We re-booked them on the spot.
-            </p>
-            <p class="org-author-name">Marta González</p>
-            <p class="org-author-role">Director, Barcelona Bachata Festival</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Barcelona Bachata Festival
-            </span>
-          </div>
-        </div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">PBO<br/>PRS</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              Professional, punctual, adaptable. They adapted their workshop format to our audience perfectly. Attendance grew 30% on the second day entirely by word of mouth after their Friday night class.
-            </p>
-            <p class="org-author-name">Pierre Leblanc</p>
-            <p class="org-author-role">Organizer, Paris Bachata Open</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Paris Bachata Open
-            </span>
-          </div>
-        </div>
-
-        <div class="org-card">
-          <div class="org-logo">
-            <div class="org-logo-inner">RSC<br/>ROM</div>
-          </div>
-          <div class="org-body">
-            <p class="org-text">
-              What impressed me most was their stage presence. You can teach steps — you can't teach what they have. Our audience was on their feet for the entire show number. Truly memorable.
-            </p>
-            <p class="org-author-name">Valentina Ricci</p>
-            <p class="org-author-role">Festival Director, Rome Sensual Congress</p>
-            <span class="org-festival-tag">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Rome Sensual Congress
-            </span>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -1386,6 +1334,85 @@
 
   initCarousel('bachata');
 
+  /* ── LECTURA AUTOMÁTICA DEL GOOGLE SPREADSHEET ── */
+  document.addEventListener("DOMContentLoaded", () => {
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
+
+    fetch(csvUrl)
+      .then(response => response.text())
+      .then(csvText => {
+        const rows = parseCSV(csvText);
+        rows.shift(); // Elimina la fila de cabeceras
+
+        const container = document.querySelector('.proof-grid .reveal.d2');
+        if (!container) return;
+
+        rows.forEach(row => {
+          if (row.length < 5) return; 
+
+          const nameRole = row[2] ? row[2].trim() : '';
+          const eventName = row[3] ? row[3].trim() : '';
+          const feedback = row[4] ? row[4].trim() : '';
+          const logoLink = row[6] ? row[6].trim() : '';
+
+          if(!feedback || !nameRole) return; 
+
+          let finalLogoSrc = '';
+          if (logoLink.includes('drive.google.com')) {
+            const match = logoLink.match(/id=([a-zA-Z0-9_-]+)/) || logoLink.match(/\/d\/([a-zA-Z0-9_-]+)/);
+            if (match && match[1]) {
+              finalLogoSrc = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+            }
+          }
+
+          const card = document.createElement('div');
+          card.className = 'org-card';
+          card.style = 'opacity: 0; animation: fadeUp 0.8s forwards; animation-delay: 0.2s;';
+
+          let logoHtml = `<div class="org-logo-inner" style="font-size:0.65rem;">${eventName.substring(0,3).toUpperCase()}</div>`;
+          if (finalLogoSrc) {
+            logoHtml = `<img src="${finalLogoSrc}" style="width:100%; height:100%; object-fit:contain; border-radius:4px;" alt="${eventName} logo">`;
+          }
+
+          card.innerHTML = `
+            <div class="org-logo" style="overflow:hidden; background:#F0F0F0; padding:2px;">
+              ${logoHtml}
+            </div>
+            <div class="org-body">
+              <p class="org-text">"${feedback.replace(/\n/g, '<br>')}"</p>
+              <p class="org-author-name">${nameRole}</p>
+              <p class="org-author-role">${eventName}</p>
+              <span class="org-festival-tag" style="margin-top:0.75rem;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Verified Feedback
+              </span>
+            </div>
+          `;
+          
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error al cargar reseñas:', error));
+
+    function parseCSV(str) {
+      const arr = [];
+      let quote = false;
+      let row = 0, col = 0;
+      for (let c = 0; c < str.length; c++) {
+        let cc = str[c], nc = str[c+1];
+        arr[row] = arr[row] || [];
+        arr[row][col] = arr[row][col] || '';
+        if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+        if (cc == '"') { quote = !quote; continue; }
+        if (cc == ',' && !quote) { ++col; continue; }
+        if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+        if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+        if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+        arr[row][col] += cc;
+      }
+      return arr;
+    }
+  });
 </script>
 
 </body>
