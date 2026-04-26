@@ -93,6 +93,12 @@
       color: rgba(255,255,255,.9); max-width: 550px; margin-top: 1rem; line-height: 1.7;
       opacity: 0; animation: fadeUp .8s .5s forwards;
     }
+    
+    /* ─── ANIMACION SCROLL HERO ─── */
+    .hero-scroll { margin-top: 2.5rem; display: flex; align-items: center; gap: .75rem; opacity: 0; animation: fadeUp .8s .7s forwards; }
+    .hero-scroll span { font-size: 0.75rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .scroll-line { width: 40px; height: 1px; background: rgba(255,255,255,.25); position: relative; overflow: hidden; }
+    .scroll-line::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--red); animation: scanLine 2.2s 1.2s infinite; }
 
     /* ─── SECTIONS ───────────────────── */
     .sec { padding: 4rem 1.5rem; }
@@ -175,7 +181,8 @@
     .event-card { flex-shrink: 0; width: 280px; background: #181818; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1); }
     .event-card:hover { transform: translateY(-8px); }
     .event-img-box { height: 350px; overflow: hidden; background: #111; }
-    .event-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    /* Corrección del centrado de los flyers para que no corte las cabezas */
+    .event-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
     .event-card-body { padding: 1rem; }
     .event-card-title { font-size: 0.9rem; font-weight: 700; color: #fff; letter-spacing: .04em; text-transform: uppercase; }
     .event-card-loc { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,.5); margin-top: .2rem; }
@@ -206,6 +213,10 @@
     textarea.f-input { resize: vertical; min-height: 120px; }
     .btn-submit { margin-top: 1.25rem; background: var(--red); color: #fff; border: none; border-radius: 4px; padding: 0.9rem 2rem; font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: .6rem; transition: all 0.3s ease; }
     .btn-submit:hover { background: var(--red-dk); transform: translateY(-3px); box-shadow: 0 8px 16px rgba(227,66,66, 0.3); }
+    
+    /* CORRECCIÓN: OCULTAR MENSAJE DE ÉXITO POR DEFECTO */
+    #form-success-epk { display: none; }
+    #form-success-epk.show { display: flex; }
 
     /* ─── FOOTER (MINIMALIST) ─────────────── */
     footer { background: #070707; padding: 2.5rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
@@ -216,6 +227,7 @@
     /* ─── ANIMATIONS ──────────────────────────── */
     @keyframes fadeUp { from { opacity:0; transform:translateY(25px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes scanLine { 0% { left:-100%; } 50% { left:0%; } 100% { left:100%; } }
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
     
@@ -280,7 +292,7 @@
             <span style="color:var(--red); font-size:1.5rem;">🎓</span>
             <div>
               <p class="cert-title">Esencia Bachata Method</p>
-              <p class="cert-sub">Official Certification</p>
+              <p class="cert-sub">by Gero &amp; Migle Marco &amp; Sara</p>
             </div>
           </div>
           <div class="cert-badge">
@@ -293,8 +305,8 @@
           <div class="cert-badge">
             <span style="color:var(--red); font-size:1.5rem;">🎓</span>
             <div>
-              <p class="cert-title">Bachazouk Method</p>
-              <p class="cert-sub">Masa &amp; Polina Certified</p>
+              <p class="cert-title">Bachazouk Teachers Course</p>
+              <p class="cert-sub">by Masa &amp; Polina</p>
             </div>
           </div>
         </div>
@@ -336,8 +348,8 @@
 
     <div class="prod-panel active reveal" id="panel-bachata">
       <div class="photo-carousel" id="carousel-bachata">
-        <div class="carousel-slide"><iframe class="w-full h-full" src="https://www.youtube.com/embed/a9l0NJBH63Q?rel=0&modestbranding=1" allowfullscreen></iframe></div>
-        <div class="carousel-slide active"><iframe class="w-full h-full" src="https://www.youtube.com/embed/bR9-0cEg7FM?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+        <div class="carousel-slide active"><iframe class="w-full h-full" src="https://www.youtube.com/embed/a9l0NJBH63Q?rel=0&modestbranding=1" allowfullscreen></iframe></div>
+        <div class="carousel-slide"><iframe class="w-full h-full" src="https://www.youtube.com/embed/bR9-0cEg7FM?rel=0&modestbranding=1" allowfullscreen></iframe></div>
         <div class="carousel-slide"><iframe class="w-full h-full" src="https://www.youtube.com/embed/wBjygdqPxtU?rel=0&modestbranding=1" allowfullscreen></iframe></div>
         <div class="carousel-slide"><iframe class="w-full h-full" src="https://www.youtube.com/embed/B32ogTf2PfA?rel=0&modestbranding=1" allowfullscreen></iframe></div>
         <div class="carousel-arrows">
