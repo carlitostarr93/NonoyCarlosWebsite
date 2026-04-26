@@ -803,12 +803,35 @@ Una sola pasión: la bachata.
           <div class="aspect-video w-full h-full">
             <iframe 
               class="w-full h-full"
-              src="https://www.youtube.com/embed/ocMY9RnXWdU?rel=0&modestbranding=1" 
+              src="https://www.youtube.com/embed/ETQfDvf77z0?rel=0&modestbranding=1" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen>
             </iframe>
           </div>
         </div>
+
+        <div class="carousel-slide">
+          <div class="aspect-video w-full h-full">
+            <iframe 
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/NxCcWfF3Alc?rel=0&modestbranding=1" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div class="aspect-video w-full h-full">
+            <iframe 
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/uF9H159n6RA?rel=0&modestbranding=1" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
         <div class="carousel-arrows">
           <button class="c-arrow" onclick="moveCarousel('bachata',-1)" aria-label="Anterior">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -843,19 +866,13 @@ Una sola pasión: la bachata.
     <div class="prod-panel" id="panel-reggaeton">
 
       <div class="video-embed-wrap" id="wrap-reggaeton">
-        <div class="video-placeholder">
-          <div class="video-placeholder-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
-          </div>
-          <span class="video-placeholder-badge">Vídeo próximamente</span>
-          <p class="video-placeholder-text">
-            Sube tu vídeo a YouTube y reemplaza el placeholder con el ID del vídeo.<br/>
-            <code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_REGGAETON</code>
-          </p>
-        </div>
-        </div>
+        <iframe 
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/JqZ8PQJEpG4?rel=0&modestbranding=1" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
 
       <div class="prod-meta">
         <div>
@@ -1332,7 +1349,7 @@ Una sola pasión: la bachata.
     const dotsEl = document.getElementById('dots-' + id);
     if (!slides.length) return;
 
-    carousels[id] = { current: 0, total: slides.length, timer: null };
+    carousels[id] = { current: 0, total: slides.length };
 
     // Build dots
     if (dotsEl) {
@@ -1345,8 +1362,7 @@ Una sola pasión: la bachata.
       });
     }
 
-    // Auto-advance every 3.5 s
-    carousels[id].timer = setInterval(() => moveCarousel(id, 1), 3500);
+    // HE QUITADO EL AUTOPLAY AQUÍ PARA QUE LOS VÍDEOS DE YOUTUBE SE PUEDAN VER SIN INTERRUPCIONES
   }
 
   function goTo(id, idx) {
@@ -1364,7 +1380,6 @@ Una sola pasión: la bachata.
         d.classList.toggle('active', i === c.current)
       );
     }
-    if (c.timer) { clearInterval(c.timer); c.timer = setInterval(() => moveCarousel(id, 1), 3500); }
   }
 
   function moveCarousel(id, dir) {
