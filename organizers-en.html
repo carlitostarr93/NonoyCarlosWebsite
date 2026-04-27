@@ -12,8 +12,8 @@
   <meta property="og:description" content="Based in Barcelona, specialized in urban fusion bachata. Book workshops, shows and special events worldwide." />
   <meta property="og:image" content="https://nonoycarlosbachata.com/img/carlosynono%20elegant.jpg" />
 
-  <link rel="icon" type="image/png" href="./img/favicon.png?v=3" />
-  <link rel="apple-touch-icon" href="./img/favicon.png?v=3" />
+  <link rel="icon" type="image/png" href="./img/favicon.png?v=4" />
+  <link rel="apple-touch-icon" href="./img/favicon.png?v=4" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,12 +77,26 @@
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
-    /* ─── HERO ───────────────────────────────── */
-    #hero { position: relative; height: 100vh; overflow: hidden; background: #000; }
+    /* ─── HERO (BULLETPROOF COVER) ───────────────────────────────── */
+    #hero { 
+      position: relative; 
+      height: 100vh; 
+      width: 100%;
+      overflow: hidden; 
+      background: #000; 
+    }
     #hero-video {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; opacity: .55; pointer-events: none;
+      position: absolute; 
+      top: 50%; 
+      left: 50%;
+      min-width: 100%; 
+      min-height: 100%;
+      width: auto; 
+      height: auto;
+      transform: translateX(-50%) translateY(-50%);
+      object-fit: cover; 
+      opacity: .55; 
+      pointer-events: none;
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -275,7 +289,7 @@
 
 <section id="hero">
   <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="./img/carlosynono%20elegant.jpg">
-    <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/v1777249904/herovideo_w5szyx.mp4" type="video/mp4">
+    <source src="./img/herovideo.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
