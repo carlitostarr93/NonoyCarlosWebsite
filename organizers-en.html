@@ -12,8 +12,8 @@
   <meta property="og:description" content="Based in Barcelona, specialized in urban fusion bachata. Book workshops, shows and special events worldwide." />
   <meta property="og:image" content="https://nonoycarlosbachata.com/img/carlosynono%20elegant.jpg" />
 
-  <link rel="icon" type="image/png" href="./img/favicon.png?v=5" />
-  <link rel="apple-touch-icon" href="./img/favicon.png?v=5" />
+  <link rel="icon" type="image/png" href="./img/favicon.png?v=6" />
+  <link rel="apple-touch-icon" href="./img/favicon.png?v=6" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +77,7 @@
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
-    /* ─── HERO ───────────────────────────────── */
+    /* ─── HERO (CLONADO EXACTO DE TU VERSIÓN EN ESPAÑOL) ────────────────── */
     #hero {
       position: relative;
       overflow: hidden;
@@ -91,8 +91,7 @@
         width: 100%; height: 100%;
         object-fit: cover;
         object-position: center center;
-        opacity: 0; /* Fade in por JS */
-        transition: opacity 1s ease-in-out;
+        opacity: .6;
         pointer-events: none;
       }
     }
@@ -104,8 +103,7 @@
         width: 100%; height: 100%;
         object-fit: cover;
         object-position: center 20%;
-        opacity: 0; /* Fade in por JS */
-        transition: opacity 1s ease-in-out;
+        opacity: .55;
         pointer-events: none;
       }
     }
@@ -117,8 +115,7 @@
         width: 100%; height: 100%;
         object-fit: cover;
         object-position: center 15%;
-        opacity: 0; /* Fade in por JS */
-        transition: opacity 1s ease-in-out;
+        opacity: .5;
         pointer-events: none;
       }
     }
@@ -134,11 +131,18 @@
       position: relative; z-index: 2;
       height: 100%; display: flex;
       flex-direction: column; justify-content: flex-end;
-      padding: 120px 1.5rem 5rem;
+      padding: 0 1.5rem 3.5rem;
       max-width: 1200px; margin: 0 auto;
     }
     @media(min-width:768px) { .hero-content { padding: 120px 2.5rem 5rem; } }
 
+    .hero-kicker {
+      font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 700;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--red); margin-bottom: .75rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      opacity: 0; animation: fadeUp .7s .3s forwards;
+    }
     .hero-h1 {
       font-size: clamp(2.2rem, 6vw, 5.5rem);
       font-weight: 900; line-height: 1.0;
@@ -203,6 +207,7 @@
       }
     }
 
+    /* ─── ABOUT IMG PERFECT SQUARE ─── */
     .about-img-wrap {
       position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto;
     }
@@ -342,27 +347,6 @@
     .carousel-slide.active { opacity: 1; pointer-events: auto; z-index: 10; }
     .carousel-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    
-    .carousel-placeholder {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 1rem;
-      background: #111; border: 1px dashed rgba(255,255,255,.12);
-      border-radius: 10px;
-      padding: 2rem; text-align: center;
-    }
-    .carousel-placeholder-icon { font-size: 2.5rem; opacity: .4; }
-    .carousel-placeholder-text {
-      font-size: 0.9rem; font-weight: 300;
-      color: rgba(255,255,255,.4); line-height: 1.7;
-    }
-    .carousel-placeholder-badge {
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      background: rgba(227,66,66,.15); color: var(--red);
-      border: 1px solid rgba(227,66,66,.2);
-      padding: .3rem .9rem; border-radius: 20px;
     }
 
     .carousel-dots {
@@ -652,6 +636,8 @@
       transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
       box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
     }
+    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -681,9 +667,10 @@
   <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="block mt-3 text-center nav-cta">Contact Us</a>
 </div>
 
+
 <section id="hero">
-  <video id="hero-video" autoplay muted loop playsinline preload="auto">
-    <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/v1777299643/header_web_promo_o3kaab.mp4>
+  <video id="hero-video" autoplay muted loop playsinline poster="./img/carlosynono%20elegant.jpg">
+    <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/q_auto,f_auto/v1777299643/header_web_promo_o3kaab.mp4" type="video/mp4">
   </video>
 
   <div class="hero-overlay"></div>
@@ -704,6 +691,7 @@
     </div>
   </div>
 </section>
+
 
 <section id="about" class="sec">
   <div class="sec-inner">
@@ -760,7 +748,7 @@
 
       <div class="about-img-wrap reveal d2">
         <img
-          src="img/carlosynono%20elegant.jpg"
+          src="./img/carlosynono%20elegant.jpg"
           alt="Nono and Carlos — professional bachata artists"
           loading="lazy"
         />
@@ -949,10 +937,9 @@
     </div>
 
     <div class="slider-track no-select reveal d1" id="slider">
-
       <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlosbon2024.jpg" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlosbon2024.jpg" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Bachata a Otro Nivel</div>
@@ -963,7 +950,7 @@
 
       <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlospassion2025.jpg" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlospassion2025.jpg" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Passion Bachata Festival</div>
@@ -974,7 +961,7 @@
       
       <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlos%20bachataaddict.png" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlos%20bachataaddict.png" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Bachata Addict</div>
@@ -985,7 +972,7 @@
       
        <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlos%20danceup2024.webp" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlos%20danceup2024.webp" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Dance Up Congress</div>
@@ -996,7 +983,7 @@
       
       <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlos%20bachateame.jpeg" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlos%20bachateame.jpeg" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Bachatéame</div>
@@ -1007,7 +994,7 @@
     
       <div class="event-card">
         <div class="event-img-box">
-          <img src="img/nonoycarlossuave2026.jpg" alt="Festival event flyer" loading="lazy" />
+          <img src="./img/nonoycarlossuave2026.jpg" alt="Festival event flyer" loading="lazy" />
         </div>
         <div class="event-card-body">
           <div class="event-card-title">Bachata Suave</div>
@@ -1060,7 +1047,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
       </svg>
       <p style="color:rgba(255,255,255,.75); font-size:0.95rem; font-weight:300;">
-        Enquiry sent! We'll get back to you within 24 hours. 🎶
+        Enquiry sent! We'll get back to you within 24 hours.
       </p>
     </div>
 
@@ -1114,18 +1101,6 @@
 </footer>
 
 <script>
-  /* ── FIX GLITCH DE CARGA DEL VIDEO ── */
-  const heroVideo = document.getElementById('hero-video');
-  if (heroVideo) {
-    if (heroVideo.readyState >= 3) {
-      heroVideo.style.opacity = '0.55';
-    } else {
-      heroVideo.addEventListener('canplaythrough', () => {
-        heroVideo.style.opacity = '0.55';
-      });
-    }
-  }
-
   /* ── Navbar scroll ── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
