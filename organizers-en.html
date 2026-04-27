@@ -767,7 +767,7 @@
       <div class="red-line"></div>
       <p style="color:white; font-size:0.95rem; font-weight:300; max-width:520px; line-height:1.8;">
         We understand how a festival works from the inside: organizers need artists who add value. That's why we don't hide in the backstage; we dance on the floor with your attendees until closing time, keeping the energy high until the very end.
-       <br><br>
+        <br><br>
         Four disciplines. One team. We adapt each workshop to the profile of your event and your audience.
       </p>
     </div>
@@ -1080,6 +1080,15 @@
         <textarea id="ep-msg" class="f-input" placeholder="Tell us about the event, format, expected attendance, what you're looking for (show, workshop, both)…"></textarea>
       </div>
 
+      <div class="f-group mb-4 mt-2">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 accent-red" />
+          <span class="text-[0.7rem] text-white/40 font-light leading-snug">
+            I have read and accept the <a href="politica-privacidad.html" class="underline hover:text-red transition-colors">Privacy Policy</a>.
+          </span>
+        </label>
+      </div>
+
       <button type="submit" class="btn-submit">
         Send Enquiry
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1096,7 +1105,15 @@
     <div class="nav-logo">Nono <span>&</span> Carlos</div>
     <div class="text-center md:text-end">
       <p class="foot-copy" style="margin-bottom: 4px;">International Bachata Artists · Barcelona</p>
-      <p class="foot-copy">© 2026 All rights reserved</p>
+      <p class="foot-copy" style="margin-bottom: 4px;">© 2026 All rights reserved</p>
+      
+      <div class="flex flex-wrap justify-center md:justify-end gap-x-3 mt-2">
+        <a href="aviso-legal.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Aviso Legal</a>
+        <span class="foot-copy opacity-20">|</span>
+        <a href="politica-privacidad.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Privacidad</a>
+        <span class="foot-copy opacity-20">|</span>
+        <a href="politica-cookies.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Cookies</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -1147,10 +1164,19 @@
   /* ── Booking form ──────────────── */
   document.getElementById('epk-form').addEventListener('submit', e => {
     e.preventDefault();
+    
+    // Validar checkbox
+    const checkbox = e.target.querySelector('input[type="checkbox"]');
+    if (!checkbox.checked) {
+      alert("Please accept the Privacy Policy to continue.");
+      return;
+    }
+
     const ev  = document.getElementById('ep-event').value.trim();
     const em  = document.getElementById('ep-email').value.trim();
     if (!ev) { document.getElementById('ep-event').focus(); return; }
     if (!em || !em.includes('@')) { document.getElementById('ep-email').focus(); return; }
+    
     const btn = e.target.querySelector('.btn-submit');
     btn.textContent = 'Sending…'; btn.disabled = true; btn.style.opacity = '.6';
     setTimeout(() => {
