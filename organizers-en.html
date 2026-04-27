@@ -77,7 +77,7 @@
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
-    /* ─── HERO (CLONADO VERSIÓN ESPAÑOL) ───────────────────────────────── */
+    /* ─── HERO (CLONADO EXACTO VERSIÓN ESPAÑOL) ───────────────────────────────── */
     #hero {
       position: relative;
       overflow: hidden;
@@ -134,15 +134,8 @@
       padding: 0 1.5rem 3.5rem;
       max-width: 1200px; margin: 0 auto;
     }
-    @media(min-width:768px) { .hero-content { padding: 0 2.5rem 5rem; } }
+    @media(min-width:768px) { .hero-content { padding: 120px 2.5rem 5rem; } } /* Añadido padding de 120px para proteger el menú sin EPK */
 
-    .hero-kicker {
-      font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase;
-      color: var(--red); margin-bottom: .75rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      opacity: 0; animation: fadeUp .7s .3s forwards;
-    }
     .hero-h1 {
       font-size: clamp(2.2rem, 6vw, 5.5rem);
       font-weight: 900; line-height: 1.0;
@@ -348,6 +341,27 @@
     .carousel-slide img {
       width: 100%; height: 100%; object-fit: cover; display: block;
     }
+    
+    .carousel-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      background: #111; border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 2rem; text-align: center;
+    }
+    .carousel-placeholder-icon { font-size: 2.5rem; opacity: .4; }
+    .carousel-placeholder-text {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,.4); line-height: 1.7;
+    }
+    .carousel-placeholder-badge {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      background: rgba(227,66,66,.15); color: var(--red);
+      border: 1px solid rgba(227,66,66,.2);
+      padding: .3rem .9rem; border-radius: 20px;
+    }
 
     .carousel-dots {
       display: flex; justify-content: center; gap: .5rem;
@@ -532,11 +546,13 @@
     #form-success-epk { display: none; }
     #form-success-epk.show { display: flex; }
 
-    /* ─── FOOTER MINIMALISTA─────────────────────────────── */
-    footer { background: #070707; padding: 2.5rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
+    /* ─── FOOTER ─────────────────────────────── */
+    footer { background: #070707; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
+    .foot-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+    @media(min-width:768px) { .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
     .foot-logo { font-size: 1rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: #fff; }
     .foot-logo span { color: var(--red); }
-    .foot-copy { font-size: 0.8rem; font-weight: 400; color: rgba(255,255,255,.4); line-height: 1.6; }
+    .foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
 
     /* ─── SCROLL REVEAL PREMIUM ─── */
     .reveal { 
@@ -564,7 +580,7 @@
 
     /* ─── MOBILE MENU ────────────────────────── */
     #mob-menu { max-height:0; opacity:0; overflow:hidden; transition:max-height .3s, opacity .3s; }
-    #mob-menu.open { max-height:280px; opacity:1; }
+    #mob-menu.open { max-height:240px; opacity:1; }
     .no-select { user-select:none; }
 
     /* ─── CERTIFICACIONES ─── */
@@ -943,7 +959,6 @@
           <div class="event-card-date">2026</div>
         </div>
       </div>
-      
     </div>
 
     <p style="color:rgba(255,255,255,.2); font-size:0.8rem; font-weight:300; margin-top:.75rem;">
@@ -1042,18 +1057,6 @@
 </footer>
 
 <script>
-  /* ── FIX GITCH DE CARGA DEL VIDEO (Opcional, previene pantallazos) ── */
-  const heroVideo = document.getElementById('hero-video');
-  if (heroVideo) {
-    if (heroVideo.readyState >= 3) {
-      heroVideo.style.opacity = '0.55';
-    } else {
-      heroVideo.addEventListener('canplaythrough', () => {
-        heroVideo.style.opacity = '0.55';
-      });
-    }
-  }
-
   /* ── Navbar scroll ── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
