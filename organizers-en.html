@@ -12,8 +12,8 @@
   <meta property="og:description" content="Based in Barcelona, specialized in urban fusion bachata. Book workshops, shows and special events worldwide." />
   <meta property="og:image" content="https://nonoycarlosbachata.com/img/carlosynono%20elegant.jpg" />
 
-  <link rel="icon" type="image/png" href="./img/favicon.png?v=4" />
-  <link rel="apple-touch-icon" href="./img/favicon.png?v=4" />
+  <link rel="icon" type="image/png" href="./img/favicon.png?v=5" />
+  <link rel="apple-touch-icon" href="./img/favicon.png?v=5" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,25 +77,19 @@
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
 
-    /* ─── HERO (BULLETPROOF COVER) ───────────────────────────────── */
+    /* ─── HERO ───────────────────────────────── */
     #hero { 
       position: relative; 
       height: 100vh; 
-      width: 100%;
       overflow: hidden; 
-      background: #000; 
+      background-color: #000; /* Fondo negro preventivo */
     }
     #hero-video {
-      position: absolute; 
-      top: 50%; 
-      left: 50%;
-      min-width: 100%; 
-      min-height: 100%;
-      width: auto; 
-      height: auto;
-      transform: translateX(-50%) translateY(-50%);
-      object-fit: cover; 
-      opacity: .55; 
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; /* Adaptación responsive estándar */
+      opacity: 0; /* Inicialmente oculto para evitar el destello */
+      transition: opacity 1s ease-in-out; /* Transición suave al cargar */
       pointer-events: none;
     }
     .hero-overlay {
@@ -288,7 +282,7 @@
 </div>
 
 <section id="hero">
-  <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="./img/carlosynono%20elegant.jpg">
+  <video id="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="./img/herovideo.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -512,6 +506,20 @@
 </footer>
 
 <script>
+  /* ── FIX GITCH DE CARGA DEL VIDEO (Fade-in suave) ── */
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    // Si el vídeo ya está listo (caché), mostrarlo inmediatamente
+    if (heroVideo.readyState >= 3) {
+      heroVideo.style.opacity = '0.55';
+    } else {
+      // Si no, esperar a que tenga datos suficientes
+      heroVideo.addEventListener('canplaythrough', () => {
+        heroVideo.style.opacity = '0.55';
+      });
+    }
+  }
+
   /* ── Navbar scroll ── */
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
