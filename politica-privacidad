@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Bachata Maestra</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; max-width: 850px; margin: auto; color: #333; }
+        h1 { color: #000; border-bottom: 3px solid #f4d03f; padding-bottom: 10px; font-size: 24px; }
+        h2 { color: #444; font-size: 18px; margin-top: 25px; }
+        p, li { font-size: 15px; }
+        .back-link { margin-top: 40px; display: block; color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Política de Privacidad (RGPD)</h1>
+    
+    <h2>1. Responsable del Tratamiento</h2>
+    <p>El responsable de sus datos es la asociación <strong>Bachata Maestra</strong>, con contacto en bachatamaestra@gmail.com.</p>
 
+    <h2>2. Datos que Recogemos y Finalidad</h2>
+    <p>Solo tratamos los datos que nos facilitas voluntariamente a través de mensajes directos en redes sociales (Instagram), correos electrónicos o formularios de feedback. La finalidad es:</p>
+    <ul>
+        <li>Gestión de inscripciones y reservas de talleres.</li>
+        <li>Coordinación de eventos con organizadores (bookings).</li>
+        <li>Mejora de nuestras actividades mediante el análisis de opiniones (reviews).</li>
+    </ul>
+
+    <h2>3. Conservación y Seguridad</h2>
+    <p>Los datos se conservan mientras sean necesarios para la gestión de la asociación y el cumplimiento de obligaciones legales. No cedemos tus datos a terceros ajenos a la asociación y sus voluntarios internos necesarios para la actividad.</p>
+
+    <h2>4. Tus Derechos</h2>
+    <p>Tienes derecho a acceder, rectificar o solicitar la eliminación de tus datos en cualquier momento escribiendo a bachatamaestra@gmail.com.</p>
+
+    <a href="index.html" class="back-link">← Volver a la página principal</a>
+</body>
+</html>
