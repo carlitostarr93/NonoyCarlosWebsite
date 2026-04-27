@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies - Bachata Maestra</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; max-width: 850px; margin: auto; color: #333; }
+        h1 { color: #000; border-bottom: 3px solid #f4d03f; padding-bottom: 10px; font-size: 24px; }
+        h2 { color: #444; font-size: 18px; margin-top: 25px; }
+        p, li { font-size: 15px; }
+        .back-link { margin-top: 40px; display: block; color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Política de Cookies</h1>
+    
+    <p>Esta web utiliza cookies técnicas para garantizar su correcto funcionamiento. Al navegar por ella, aceptas el uso de las siguientes herramientas:</p>
 
+    <h2>1. Cookies de Terceros (YouTube)</h2>
+    <p>Utilizamos la plataforma YouTube para mostrar vídeos de nuestras actividades. Aunque configuramos los vídeos en "Modo de Privacidad Mejorada", YouTube puede instalar cookies propias para registrar estadísticas de reproducción y preferencias del usuario si este decide interactuar con el vídeo.</p>
+
+    <h2>2. Cómo gestionar las cookies</h2>
+    <p>Puedes restringir, bloquear o borrar las cookies de este sitio utilizando la configuración de tu navegador (Chrome, Safari, Firefox, etc.). Si bloqueas todas las cookies, es posible que algunas funciones de visualización de contenido multimedia se vean afectadas.</p>
+
+    <a href="index.html" class="back-link">← Volver a la página principal</a>
+</body>
+</html>
