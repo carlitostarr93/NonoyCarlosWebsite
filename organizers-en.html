@@ -12,8 +12,8 @@
   <meta property="og:description" content="Based in Barcelona, specialized in urban fusion bachata. Book workshops, shows and special events worldwide." />
   <meta property="og:image" content="https://nonoycarlosbachata.com/img/carlosynono%20elegant.jpg" />
 
-  <link rel="icon" type="image/png" href="./img/favicon.png?v=7" />
-  <link rel="apple-touch-icon" href="./img/favicon.png?v=7" />
+  <link rel="icon" type="image/png" href="./img/favicon.png?v=6" />
+  <link rel="apple-touch-icon" href="./img/favicon.png?v=6" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -207,6 +207,7 @@
       }
     }
 
+    /* ─── ABOUT IMG PERFECT SQUARE ─── */
     .about-img-wrap {
       position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto;
     }
@@ -281,7 +282,7 @@
       height: 100%;
       width: auto;
       max-width: 300px;
-      object-fit: contain; 
+      object-fit: contain;
       display: block;
       transition: transform .5s ease;
     }
@@ -495,6 +496,7 @@
     }
     .peer-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
     
+    /* Dorado Premium B2B para artistas pares */
     .peer-role { 
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
@@ -520,6 +522,7 @@
     .org-author-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1rem; }
     .org-author-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
     
+    /* Insignia Dorada Premium B2B para Festivales */
     .org-festival-tag {
       display: inline-flex; align-items: center; gap: 0.3rem; margin-top: .75rem;
       font-size: .65rem; font-weight: 700;
@@ -621,13 +624,10 @@
     #mob-menu.open { max-height:240px; opacity:1; }
     .no-select { user-select:none; }
 
-    /* ─── CERTIFICACIONES (ESTILO DARK PREMIUM) ─── */
+    /* ─── CERTIFICACIONES ─── */
     .cert-badge {
-      border: 1px solid rgba(227,66,66,0.2); 
-      border-radius: 14px; 
-      padding: 0.75rem 1.25rem;
-      background: linear-gradient(135deg, #111 0%, #000 100%);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
+      background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
       display: flex; align-items: center; gap: .75rem;
       width: 100%; justify-content: flex-start; text-align: left;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
@@ -635,10 +635,11 @@
     }
     @media (min-width: 768px) { .cert-badge { width: auto; } }
     .cert-badge:hover {
-      transform: translateY(-4px); 
-      border-color: rgba(227,66,66,0.6);
-      box-shadow: 0 16px 32px -8px rgba(227,66,66,0.25), 0 8px 16px -4px rgba(0,0,0,0.1);
+      transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
+      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
     }
+    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -672,7 +673,7 @@
   <video id="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/q_auto,f_auto/v1777299643/header_web_promo_o3kaab.mp4" type="video/mp4">
   </video>
-
+  
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -711,24 +712,24 @@
           <div class="cert-badge">
             <span style="color:var(--red); font-size:1.25rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.85rem] text-white leading-tight">Esencia Bachata Method</p>
-              <p class="font-normal text-[0.7rem] text-white/60 mt-[2px]">by Gero &amp; Migle Marco &amp; Sara</p>
+              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Esencia Bachata Method</p>
+              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Gero &amp; Migle Marco &amp; Sara</p>
             </div>
           </div>
           
           <div class="cert-badge">
             <span style="color:var(--red); font-size:1.25rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.85rem] text-white leading-tight">Bachata Sensual Lvl 1</p>
-              <p class="font-normal text-[0.7rem] text-white/60 mt-[2px]">by Korke &amp; Judith</p>
+              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Bachata Sensual Lvl 1</p>
+              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Korke &amp; Judith</p>
             </div>
           </div>
           
           <div class="cert-badge">
             <span style="color:var(--red); font-size:1.25rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.85rem] text-white leading-tight">Bachazouk Teachers Course</p>
-              <p class="font-normal text-[0.7rem] text-white/60 mt-[2px]">by Masa &amp; Polina</p>
+              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Bachazouk Teachers Course</p>
+              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Masa &amp; Polina</p>
             </div>
           </div>
         </div>
@@ -764,11 +765,10 @@
       <span class="tag">Our Portfolio</span>
       <h2 class="sec-title" style="color:white">What we can<br/><em style="color:var(--red);font-style:italic;">offer you</em></h2>
       <div class="red-line"></div>
-      
-      <p style="color:white; font-size:0.95rem; font-weight:300; max-width:550px; line-height:1.8;">
-        Our goal is to bring real value to your event. Beyond delivering high-quality workshops, we are passionate about the social floor. We actively dance and connect with your attendees, helping you build a vibrant and engaging atmosphere.
+      <p style="color:white; font-size:0.95rem; font-weight:300; max-width:520px; line-height:1.8;">
+        We understand how a festival works from the inside: organizers need artists who add value. That's why we don't hide in the backstage; we dance on the floor with your attendees until closing time, keeping the energy high until the very end.
        <br><br>
-        Four disciplines. One team. We offer flexible formats (1h, 1.5h, or masterclasses) and adapt our themes to fit your audience, from beginner to advanced.
+        Four disciplines. One team. We adapt each workshop to the profile of your event and your audience.
       </p>
     </div>
 
@@ -937,6 +937,7 @@
     </div>
 
     <div class="slider-track no-select reveal d1" id="slider">
+
       <div class="event-card">
         <div class="event-img-box">
           <img src="img/nonoycarlosbon2024.jpg" alt="Festival event flyer" loading="lazy" />
@@ -1002,6 +1003,7 @@
           <div class="event-card-date">2026</div>
         </div>
       </div>
+      
     </div>
 
     <p style="color:rgba(255,255,255,.2); font-size:0.8rem; font-weight:300; margin-top:.75rem;">
@@ -1046,7 +1048,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
       </svg>
       <p style="color:rgba(255,255,255,.75); font-size:0.95rem; font-weight:300;">
-        Enquiry sent! We'll get back to you within 24 hours.
+        Enquiry sent! We'll get back to you within 24 hours. 🎶
       </p>
     </div>
 
