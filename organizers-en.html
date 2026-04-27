@@ -12,7 +12,7 @@
   <meta property="og:description" content="Based in Barcelona, specialized in urban fusion bachata. Book workshops, shows and special events worldwide." />
   <meta property="og:image" content="https://nonoycarlosbachata.com/img/carlosynono%20elegant.jpg" />
 
-  <link rel="icon" type="image/jpeg" href="./img/favicon.jpg" />
+ <link rel="icon" type="image/jpeg" href="./img/favicon.jpg?v=2" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,10 +106,11 @@
     .hero-content {
       position: relative; z-index: 2; height: 100%; width: 100%;
       display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 1.5rem 5rem; max-width: 1200px; margin: 0 auto;
+      padding: 120px 1.5rem 5rem;
+      max-width: 1200px; margin: 0 auto;
     }
     .hero-h1 {
-      font-size: clamp(2.2rem, 5vw, 4.5rem); /* Ajustado para que no sea tan gigante en PC */
+      font-size: clamp(2rem, 5vw, 4.2rem); 
       font-weight: 900; line-height: 1.05;
       color: #fff; text-transform: uppercase; letter-spacing: -.01em;
       opacity: 0; animation: fadeUp .8s .3s forwards;
@@ -289,7 +290,7 @@
 
 <section id="hero">
   <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="./img/carlosynono%20elegant.jpg">
-    <source src="./img/herovideo.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/v1777249904/herovideo_w5szyx.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
