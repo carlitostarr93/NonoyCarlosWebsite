@@ -1082,9 +1082,9 @@
 
       <div class="f-group mb-4 mt-2">
         <label class="flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 accent-red" />
+          <input type="checkbox" id="legal-check" required class="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 accent-red" />
           <span class="text-[0.7rem] text-white/40 font-light leading-snug">
-            I have read and accept the <a href="politica-privacidad.html" class="underline hover:text-red transition-colors">Privacy Policy</a>.
+            I have read and accept the <a href="privacy-policy.html" class="underline hover:text-red transition-colors">Privacy Policy</a>.
           </span>
         </label>
       </div>
@@ -1108,11 +1108,11 @@
       <p class="foot-copy" style="margin-bottom: 4px;">© 2026 All rights reserved</p>
       
       <div class="flex flex-wrap justify-center md:justify-end gap-x-3 mt-2">
-        <a href="aviso-legal.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Aviso Legal</a>
+        <a href="legal-notice.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Legal Notice</a>
         <span class="foot-copy opacity-20">|</span>
-        <a href="politica-privacidad.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Privacidad</a>
+        <a href="privacy-policy.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Privacy Policy</a>
         <span class="foot-copy opacity-20">|</span>
-        <a href="politica-cookies.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Cookies</a>
+        <a href="cookies-policy.html" class="foot-copy hover:text-red transition-colors underline decoration-white/10 underline-offset-4">Cookies Policy</a>
       </div>
     </div>
   </div>
@@ -1161,13 +1161,13 @@
     slider.scrollLeft = scrollLeft - (x - startX) * 1.4;
   });
 
-  /* ── Booking form ──────────────── */
+  /* ── Booking form with checkbox validation ── */
   document.getElementById('epk-form').addEventListener('submit', e => {
     e.preventDefault();
     
-    // Validar checkbox
-    const checkbox = e.target.querySelector('input[type="checkbox"]');
-    if (!checkbox.checked) {
+    // Check legal checkbox
+    const checkbox = document.getElementById('legal-check');
+    if (checkbox && !checkbox.checked) {
       alert("Please accept the Privacy Policy to continue.");
       return;
     }
