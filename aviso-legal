@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal - Bachata Maestra</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; max-width: 850px; margin: auto; color: #333; background-color: #fff; }
+        h1 { color: #000; border-bottom: 3px solid #f4d03f; padding-bottom: 10px; font-size: 24px; }
+        h2 { color: #444; font-size: 18px; margin-top: 25px; }
+        p, li { font-size: 15px; }
+        .back-link { margin-top: 40px; display: block; color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Aviso Legal</h1>
+    
+    <h2>1. Datos Identificativos</h2>
+    <p>En cumplimiento del deber de información, se facilitan los siguientes datos del titular de la web:</p>
+    <ul>
+        <li><strong>Entidad:</strong> Bachata Maestra (Association Loi 1901)</li>
+        <li><strong>SIREN:</strong> 945 243 632</li>
+        <li><strong>Domicilio Social:</strong> 415 B chemin de Peygranet, 26400 Chabrillan, Francia.</li>
+        <li><strong>Correo electrónico:</strong> bachatamaestra@gmail.com</li>
+    </ul>
 
+    <h2>2. Objeto y Condiciones de Uso</h2>
+    <p>Este sitio web tiene un carácter informativo y de gestión interna para la asociación. El acceso a la web es gratuito. El usuario se compromete a hacer un uso lícito de los contenidos, evitando cualquier acción que pueda dañar la imagen o los derechos de Bachata Maestra.</p>
+
+    <h2>3. Responsabilidad</h2>
+    <p>Bachata Maestra no se hace responsable de los daños derivados de un uso incorrecto de la web, ni de las posibles interrupciones en el servicio. Respecto a las actividades físicas (talleres), la asociación actúa como coordinadora, siendo los participantes responsables de su propia condición física.</p>
+
+    <a href="index.html" class="back-link">← Volver a la página principal</a>
+</body>
+</html>
