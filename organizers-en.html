@@ -207,7 +207,6 @@
       }
     }
 
-    /* ─── ABOUT IMG PERFECT SQUARE ─── */
     .about-img-wrap {
       position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto;
     }
@@ -282,7 +281,7 @@
       height: 100%;
       width: auto;
       max-width: 300px;
-      object-fit: contain;
+      object-fit: contain; 
       display: block;
       transition: transform .5s ease;
     }
@@ -496,7 +495,6 @@
     }
     .peer-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
     
-    /* Dorado Premium B2B para artistas pares */
     .peer-role { 
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
@@ -522,7 +520,6 @@
     .org-author-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1rem; }
     .org-author-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
     
-    /* Insignia Dorada Premium B2B para Festivales */
     .org-festival-tag {
       display: inline-flex; align-items: center; gap: 0.3rem; margin-top: .75rem;
       font-size: .65rem; font-weight: 700;
@@ -626,9 +623,9 @@
 
     /* ─── CERTIFICACIONES ─── */
     .cert-badge {
-      border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
+      border: 1px solid rgba(0,0,0,0.04); border-radius: 14px; padding: 0.75rem 1.25rem;
       background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
-      display: flex; align-items: center; gap: .75rem;
+      display: flex; align-items: center; gap: .6rem;
       width: 100%; justify-content: flex-start; text-align: left;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
       cursor: default;
@@ -638,8 +635,6 @@
       transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
       box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
     }
-    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
-    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -673,7 +668,7 @@
   <video id="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/q_auto,f_auto/v1777299643/header_web_promo_o3kaab.mp4" type="video/mp4">
   </video>
-  
+
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -708,28 +703,28 @@
           We have designed our own style that merges the essence of bachata with the power of urban dance and the fluidity of sensual and bachazouk — creating an artistic proposition that connects with audiences across all latitudes.
         </p>
 
-        <div class="flex flex-col md:flex-row flex-wrap gap-4 mt-6">
+        <div class="flex flex-col md:flex-row flex-wrap gap-3 mt-6">
           <div class="cert-badge">
-            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Esencia Bachata Method</p>
-              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Gero &amp; Migle Marco &amp; Sara</p>
+              <p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Esencia Bachata Method</p>
+              <p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Gero &amp; Migle Marco &amp; Sara</p>
             </div>
           </div>
           
           <div class="cert-badge">
-            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Bachata Sensual Lvl 1</p>
-              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Korke &amp; Judith</p>
+              <p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Bachata Sensual Lvl 1</p>
+              <p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Korke &amp; Judith</p>
             </div>
           </div>
           
           <div class="cert-badge">
-            <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
             <div>
-              <p class="font-bold text-[0.9rem] text-[#0A0A0A] leading-tight">Bachazouk Teachers Course</p>
-              <p class="font-normal text-[0.75rem] text-[#6B6B6B] mt-[2px]">by Masa &amp; Polina</p>
+              <p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Bachazouk Teachers Course</p>
+              <p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Masa &amp; Polina</p>
             </div>
           </div>
         </div>
@@ -937,7 +932,6 @@
     </div>
 
     <div class="slider-track no-select reveal d1" id="slider">
-
       <div class="event-card">
         <div class="event-img-box">
           <img src="img/nonoycarlosbon2024.jpg" alt="Festival event flyer" loading="lazy" />
@@ -1003,7 +997,6 @@
           <div class="event-card-date">2026</div>
         </div>
       </div>
-      
     </div>
 
     <p style="color:rgba(255,255,255,.2); font-size:0.8rem; font-weight:300; margin-top:.75rem;">
@@ -1048,7 +1041,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
       </svg>
       <p style="color:rgba(255,255,255,.75); font-size:0.95rem; font-weight:300;">
-        Enquiry sent! We'll get back to you within 24 hours. 🎶
+        Enquiry sent! We'll get back to you within 24 hours.
       </p>
     </div>
 
