@@ -341,33 +341,8 @@
     }
 
     /* ─── BOOKING SECTION ───────────────────────── */
-    #booking { background: var(--ink); }
-    #booking .sec-title { color: #fff; }
-    .f-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-    @media(min-width:600px) { .f-row.two { grid-template-columns: 1fr 1fr; } }
-    .f-group { display: flex; flex-direction: column; gap: .45rem; }
-    .f-label { font-size: 0.75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); }
-    .f-input {
-      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 1rem; font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem; font-weight: 300; color: #fff; outline: none; transition: border-color .2s, background .2s, box-shadow .2s;
-    }
-    .f-input::placeholder { color: rgba(255,255,255,.22); }
-    .f-input:focus { border-color: var(--red); background: rgba(227,66,66,.05); box-shadow: 0 0 0 3px rgba(227,66,66,.1); }
-    textarea.f-input { resize: vertical; min-height: 130px; }
-    
-    #form-success-epk { display: none; }
-    #form-success-epk.show { display: flex; }
-
-    /* Botón oscuro elegante para Instagram (Estilo Mockup) */
-    .btn-dark {
-      background: #0A0A0A; color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
-      padding: 1rem 2rem; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: .75rem;
-      transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
-    }
-    .btn-dark:hover {
-      background: #1a1a1a; border-color: rgba(255,255,255,0.3); transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }
+    #booking { background: #fff; }
+    #booking .sec-title { color: var(--ink); }
 
     /* ─── FOOTER ─────────────────────────────── */
     footer { background: #070707; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
@@ -636,32 +611,34 @@
 </section>
 
 <section id="booking" class="sec">
-  <div class="sec-inner">
+  <div class="sec-inner flex flex-col items-center">
+    
     <div class="reveal mb-12 text-center">
-      <span class="tag italic font-serif">Bachata Elite</span>
-      <h2 class="sec-title text-4xl md:text-6xl uppercase tracking-tighter" style="color:#fff;">
+      <span class="tag italic font-serif" style="text-transform: none; letter-spacing: 0;">Bachata Elite</span>
+      <h2 class="sec-title text-4xl md:text-6xl uppercase tracking-tighter">
         Let's Work<br/>Together
       </h2>
     </div>
 
-    <div class="flex justify-center">
-      <div class="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-        
-        <div class="flex-1 z-20">
-          <h3 class="text-3xl font-black uppercase tracking-tight mb-4 text-white">Fast Track</h3>
-          <p class="text-white/70 text-sm font-light mb-8 leading-relaxed max-w-sm">
-            We manage our own social media and usually reply to professional DMs within a few hours. Click below to start the conversation directly.
-          </p>
-          <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" class="btn-dark">
-            DM us on Instagram 
-          </a>
-        </div>
-
-        <div class="w-full md:w-1/2 h-64 md:h-full relative">
-          <img src="/img/urbandedotransparent.png" alt="Nono & Carlos" 
-               class="w-full h-full object-contain object-right-bottom" />
-        </div>
+    <div class="relative w-full max-w-5xl rounded-3xl overflow-hidden border border-black/5 bg-white p-10 md:p-16 flex flex-col md:flex-row items-stretch gap-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]" style="min-height: 450px;">
+      
+      <div class="flex-1 flex flex-col justify-center relative z-20">
+        <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-[#0A0A0A] leading-tight">
+          Direct<br/>Contact
+        </h3>
+        <p class="text-[#6B6B6B] text-base font-light mb-10 leading-relaxed max-w-sm">
+          We manage our own social media and usually reply to professional DMs within a few hours. Click below to start the conversation directly.
+        </p>
+        <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" class="btn-glow w-max py-4 px-8 text-sm tracking-[0.2em] flex items-center border-0 gap-3 relative z-30">
+          Instagram DM <span>→</span>
+        </a>
       </div>
+
+      <div class="absolute bottom-0 right-0 h-[60%] md:h-full w-[100%] md:w-[65%] z-10 pointer-events-none flex items-end justify-end">
+        <img src="img/urbandedotransparent.png" alt="Nono & Carlos" 
+             class="h-full w-full object-contain object-right-bottom" style="object-position: right bottom;" />
+      </div>
+
     </div>
   </div>
 </section>
@@ -685,15 +662,6 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-  document.getElementById('epk-form').addEventListener('submit', e => {
-    e.preventDefault();
-    const ev = document.getElementById('ep-event').value;
-    const em = document.getElementById('ep-email').value;
-    if (!ev || !em.includes('@') || !document.getElementById('ep-privacy').checked) { alert("Please fill all fields and accept policy."); return; }
-    e.target.style.opacity = '0.3';
-    setTimeout(() => { alert("Message sent!"); location.reload(); }, 1000);
-  });
-
   document.querySelectorAll('.prod-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
@@ -702,7 +670,7 @@
   });
 
   const carousels = {};
-  function moveCarousel(id, dir) { /* Lógica de carrusel omitida por brevedad, igual a la anterior */ }
+  function moveCarousel(id, dir) { /* Lógica de carrusel omitida por brevedad */ }
 
   document.addEventListener("DOMContentLoaded", () => {
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
