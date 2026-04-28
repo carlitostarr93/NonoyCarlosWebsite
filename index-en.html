@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NONO & CARLOS — International Bachata Artists · Organizers</title>
   <meta name="description" content="Nono & Carlos — International Bachata Artists & Instructors based in Barcelona. Certified sensual bachata, bachazouk and urban fusion." />
+  
+  <link rel="icon" type="image/png" href="./img/favicon.png?v=6" />
+  <link rel="apple-touch-icon" href="./img/favicon.png?v=6" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -359,11 +363,11 @@
     /* ─── CERTIFICACIONES ESTILO APPLE ─── */
     .cert-badge {
       border: 1px solid rgba(0,0,0,0.04);
-      border-radius: 20px; 
-      padding: 1rem 1.5rem;
+      border-radius: 14px; 
+      padding: 0.75rem 1.25rem;
       background: #fff; 
       box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-      display: flex; align-items: center; gap: .75rem;
+      display: flex; align-items: center; gap: .6rem;
       width: 100%; justify-content: flex-start; text-align: left;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
       cursor: default;
@@ -375,8 +379,8 @@
       border-color: rgba(0,0,0,0.08);
       box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
     }
-    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
-    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
+    .cert-title { font-size: 0.85rem; font-weight: 700; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: 0.7rem; font-weight: 400; color: #6B6B6B; margin-top: 2px; }
 
     .stats-row {
       display: flex; gap: 2.5rem;
@@ -578,6 +582,21 @@
     }
     .ig-btn svg { width: 20px; height: 20px; }
 
+   /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
+    @media (max-width: 768px) {
+      #ig-cta {
+        flex-direction: column;
+      }
+      /* Aseguramos que la columna de texto ocupe el 100% en móvil */
+      #ig-cta > div:nth-child(1) {
+        width: 100%;
+      }
+      /* Ocultamos la columna derecha (la imagen) en móvil */
+      #ig-cta > div:nth-child(2) {
+        display: none;
+      }
+    }
+
     /* ─── FOOTER ──────────────────── */
     footer {
       background: #060606; padding: 4rem 2rem;
@@ -659,10 +678,10 @@
 <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="nav-links">
-    <a href="#about-strip" class="nav-link">Nosotros</a>
-    <a href="#offerings"   class="nav-link">Qué ofrecemos</a>
+    <a href="#about-strip" class="nav-link">About Us</a>
+    <a href="#offerings"   class="nav-link">Offerings</a>
     <a href="organizers.html" class="nav-link">Organizers</a>
-    <a href="students.html" class="nav-pill">Estudiantes</a>
+    <a href="students.html" class="nav-pill">Students</a>
   </div>
 
   <button id="hbg" aria-label="Menú">
@@ -674,11 +693,11 @@
   <button class="mob-close" id="mob-close" aria-label="Cerrar">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
-  <a href="#about-strip"    class="mob-link" data-close>Nosotros</a>
-  <a href="#offerings"      class="mob-link" data-close>Qué ofrecemos</a>
-  <a href="#testimonials"   class="mob-link" data-close>Testimonios</a>
+  <a href="#about-strip"    class="mob-link" data-close>About Us</a>
+  <a href="#offerings"      class="mob-link" data-close>Offerings</a>
+  <a href="#testimonials"   class="mob-link" data-close>Testimonials</a>
   <a href="organizers.html" class="mob-link" data-close>Organizers</a>
-  <a href="students.html"   class="mob-link" data-close style="color:var(--red);">Estudiantes →</a>
+  <a href="students.html"   class="mob-link" data-close style="color:var(--red);">Students →</a>
 </div>
 
 
@@ -697,15 +716,15 @@
     </h1>
 
     <p class="hero-tagline">
-      Profesores de Bachata en Barcelona, especializada en bachata fusión urbana, conocidos por sus clases accesibles, su estilo único y su fuerte presencia social en festivales.<br/>
-      Una sola pasión: la bachata.
+      Bachata teachers in Barcelona, specializing in urban fusion bachata, known for their accessible classes, unique style, and strong social presence at festivals.<br/>
+      One single passion: bachata.
     </p>
 
-    <p class="hero-cta-hint">¿A quién va dirigido?</p>
+    <p class="hero-cta-hint">Who is it for?</p>
   </div>
 
   <div class="hero-scroll-arrow">
-    <span>Explorar</span>
+    <span>Explore</span>
     <svg class="arrow-anim w-5 h-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
     </svg>
@@ -724,14 +743,14 @@
     <div class="path-content">
       <div class="path-number">01</div>
       <div class="path-label">
-        Soy<br/>
-        <em>Organizador</em>
+        I am an<br/>
+        <em>Organizer</em>
       </div>
       <p class="path-desc">
-        Festivales, congresos, shows en vivo, workshops internacionales. Contrata a Nono &amp; Carlos para tu próximo evento.
+        Festivals, congresses, live shows, international workshops. Hire Nono &amp; Carlos for your next event.
       </p>
       <div class="path-arrow">
-        Ver EPK &amp; Booking
+        View Dossier and Booking
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
@@ -750,14 +769,14 @@
     <div class="path-content">
       <div class="path-number">02</div>
       <div class="path-label">
-        Soy<br/>
-        <em>Estudiante</em>
+        I am a<br/>
+        <em>Student</em>
       </div>
       <p class="path-desc">
-        Clases privadas, packs y metodología certificada. Desde principiante hasta avanzado, en Barcelona.
+        Private classes, packages, and certified methodology. From beginner to advanced, in Barcelona.
       </p>
       <div class="path-arrow">
-        Ver clases &amp; tarifas
+        View classes &amp; rates
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
@@ -780,41 +799,41 @@
     </div>
 
     <div class="reveal d2">
-      <p class="about-text-tag">Quiénes somos</p>
+      <p class="about-text-tag">Who we are</p>
       <h2 class="about-text-h">
-        Más de una década<br/>
-        de <em>pasión y técnica</em>
+        More than a decade<br/>
+        of <em>passion and technique</em>
       </h2>
       <div class="redbar"></div>
       <p class="about-text-body" style="margin-bottom: 1rem;">
-        Nuestra propuesta nace de más de una década de baile y una trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez de la sensual y el bachazouk.
+        Our proposal stems from over a decade of dancing and an international career touring workshops and stages as a professional couple. We have designed our own style that merges the essence of bachata with the strength of urban dance and the fluidity of sensual bachata and bachazouk.
       </p>
       <p class="about-text-body">
-        Basados en Barcelona y certificados por referentes mundiales del género, trasladamos un nivel de enseñanza de alto rendimiento adaptado a cada alumno — sea cual sea su punto de partida.
+        Based in Barcelona and certified by global referents of the genre, we deliver a high-performance teaching level tailored to each student — regardless of their starting point.
       </p>
       
       <div class="flex flex-col md:flex-row flex-wrap gap-4 mt-6">
         <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
             <p class="cert-title">Esencia Bachata Method</p>
-            <p class="cert-sub">Certificación oficial</p>
+            <p class="cert-sub">by Gero &amp; Migle Marco &amp; Sara</p>
           </div>
         </div>
         
         <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
-            <p class="cert-title">Korke &amp; Judith</p>
-            <p class="cert-sub">Bachata Sensual lvl 1</p>
+            <p class="cert-title">Bachata Sensual Lvl 1</p>
+            <p class="cert-sub">by Korke &amp; Judith</p>
           </div>
         </div>
         
         <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.25rem;">🎓</span>
+          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
-            <p class="cert-title">Bachazouk</p>
-            <p class="cert-sub">Masa &amp; Polina</p>
+            <p class="cert-title">Bachazouk Teachers Course</p>
+            <p class="cert-sub">by Masa &amp; Polina</p>
           </div>
         </div>
       </div>
@@ -822,15 +841,15 @@
       <div class="stats-row">
         <div>
           <div class="stat-num">10+</div>
-          <div class="stat-lbl">Años bailando</div>
+          <div class="stat-lbl">Years dancing</div>
         </div>
         <div>
           <div class="stat-num">500+</div>
-          <div class="stat-lbl">Alumnos formados</div>
+          <div class="stat-lbl">Students trained</div>
         </div>
         <div>
           <div class="stat-num">BCN</div>
-          <div class="stat-lbl">Base en Barcelona</div>
+          <div class="stat-lbl">Based in Barcelona</div>
         </div>
       </div>
     </div>
@@ -843,8 +862,8 @@
   <div class="offerings-inner">
 
     <div class="offerings-header reveal">
-      <p class="off-tag">Qué ofrecemos</p>
-      <h2 class="off-h">Dos mundos. <em>Una pasión.</em></h2>
+      <p class="off-tag">What we offer</p>
+      <h2 class="off-h">Two worlds. <em>One passion.</em></h2>
       <div style="width:36px;height:3px;background:var(--red);margin:1.1rem auto 0;"></div>
     </div>
 
@@ -857,10 +876,10 @@
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </div>
-        <div class="off-card-title">Workshops Internacionales</div>
-        <div class="off-card-desc">Talleres intensivos para festivales y congresos. Formato adaptable a cualquier nivel y duración.</div>
+        <div class="off-card-title">International Workshops</div>
+        <div class="off-card-desc">Intensive workshops for festivals and congresses. Adaptable format for any level and duration.</div>
         <a href="organizers.html" class="off-card-link">
-          Contratar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Hire us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
@@ -871,10 +890,10 @@
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
         </div>
-        <div class="off-card-title">Clases Privadas</div>
-        <div class="off-card-desc">Individual o en pareja, con metodología certificada y progresión real. Desde principiante hasta avanzado.</div>
+        <div class="off-card-title">Private Classes</div>
+        <div class="off-card-desc">Individual or in pairs, with certified methodology and real progression. From beginner to advanced.</div>
         <a href="students.html" class="off-card-link">
-          Ver tarifas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          View rates <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
@@ -885,10 +904,10 @@
             <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
           </svg>
         </div>
-        <div class="off-card-title">Packs de Horas</div>
-        <div class="off-card-desc">Pack 5h (250€) o Pack 10h (500€). La opción más eficiente para acelerar tu progreso y ahorrar.</div>
+        <div class="off-card-title">Hour Packages</div>
+        <div class="off-card-desc">5h Pack (250€) or 10h Pack (500€). The most efficient option to accelerate your progress and save.</div>
         <a href="students.html#pricing" class="off-card-link">
-          Ver packs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          View packages <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
@@ -901,8 +920,8 @@
   <div class="test-inner">
 
     <div class="test-header reveal">
-      <p class="test-tag">Testimonios</p>
-      <h2 class="test-h">Lo que dicen sobre <em>Nono &amp; Carlos</em></h2>
+      <p class="test-tag">Testimonials</p>
+      <h2 class="test-h">What they say about <em>Nono &amp; Carlos</em></h2>
       <div style="width:36px;height:3px;background:var(--red);margin:1.1rem auto 0;"></div>
     </div>
 
@@ -911,13 +930,13 @@
       <div class="test-card reveal d1">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
-        <span class="test-badge badge-student">Alumna · Superprof</span>
+        <span class="test-badge badge-student">Student · Superprof</span>
         <p class="test-text">
-          "Carlos es un profesor excelente. Sabe adaptarse perfectamente a mi nivel y explica de forma muy clara y cercana. Cada clase aprendo algo nuevo y siempre salgo con más ganas de bailar."
+          "Carlos is an excellent teacher. He knows how to adapt perfectly to my level and explains things clearly and warmly. Every class I learn something new and always leave with a greater desire to dance."
         </p>
         <div class="test-author">
           <div class="test-name">Jennifer</div>
-          <div class="test-role">Alumna de clases privadas</div>
+          <div class="test-role">Private class student</div>
         </div>
       </div>
 
@@ -926,27 +945,33 @@
         <div class="test-stars">★★★★★</div>
         <span class="test-badge badge-organizer">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Organizador · Festival
+          Worldwide · Artists
         </span>
         <p class="test-text">
-          "Booked Nono &amp; Carlos for our main showcase — the crowd response was incredible. Their show was the most-talked-about moment of the weekend. Sold-out workshops, zero complaints. Re-booked on the spot."
+          "Carlos and Nono represent the new generation of Bachata artists—driven, curious, and constantly evolving.
+
+They are committed learners, always pushing their understanding of technique, musicality, and teaching. Beyond performance, they are powerful social dancers who bring real connection to the floor.
+
+After spending more than 10 hours training together with us in Bachazouk, they’ve contributed meaningful insights into making the style more social, fluid, and adaptable. Carlos supported a lot of nascent stage of Bachazouk to formalize this style.
+
+With multiple Jack &amp; Jill victories, they are undeniably one of the rising stars to watch."
         </p>
         <div class="test-author">
-          <div class="test-name">Marta González</div>
-          <div class="test-role">Directora, Barcelona Bachata Festival</div>
+          <div class="test-name">Masa &amp; Polina</div>
+          <div class="test-role">Bachazouk Referents</div>
         </div>
       </div>
 
       <div class="test-card reveal d3">
         <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
-        <span class="test-badge badge-student">Alumno · Superprof</span>
+        <span class="test-badge badge-student">Student · Superprof</span>
         <p class="test-text">
-          "Clases muy dinámicas y divertidas. Se preocupa de verdad por que aprendas bien la técnica sin que pierda la parte lúdica del baile. Lo recomiendo totalmente a cualquier nivel."
+          "Very dynamic and fun classes. He genuinely cares that you learn the technique well without losing the playful side of dancing. I highly recommend him for any level."
         </p>
         <div class="test-author">
           <div class="test-name">Maxi</div>
-          <div class="test-role">Alumno de clases privadas</div>
+          <div class="test-role">Private class student</div>
         </div>
       </div>
 
@@ -954,11 +979,11 @@
 
     <div class="flex flex-wrap gap-4 justify-center mt-12 reveal">
       <a href="organizers.html" class="btn-ghost-dark">
-        Ver EPK completo
+        View full dossier
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="students.html" class="btn-primary">
-        Ver clases y tarifas
+        View classes and rates
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -967,22 +992,27 @@
 </section>
 
 
-<section id="ig-cta">
-  <div class="ig-inner">
-    <p class="ig-label">Síguenos</p>
-    <h2 class="ig-h">Únete a nuestra comunidad</h2>
-    <p class="ig-sub">
-      Videos, workshops, eventos y la vida detrás del escenario.<br/>
-      Todo en nuestro Instagram.
-    </p>
-    <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-      @nonoycarlosbachata
-    </a>
+<section id="ig-cta" style="padding: 0; display: flex; align-items: stretch; background: var(--red);">
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem; position: relative;">
+    <div class="ig-inner" style="text-align: center;">
+      <p class="ig-label">Follow us</p>
+      <h2 class="ig-h">Join our community</h2>
+      <p class="ig-sub">
+        Videos, workshops, events, and life behind the scenes.<br/>
+        Everything on our Instagram.
+      </p>
+      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @nonoycarlosbachata
+      </a>
+    </div>
+  </div>
+
+  <div style="flex: 1; background-image: url('https://github.com/carlitostarr93/NonoyCarlosWebsite/blob/main/img/urbandedo.jpg?raw=true'); background-size: cover; background-position: top center; min-height: 400px;">
   </div>
 </section>
 
@@ -996,18 +1026,24 @@
     </div>
 
     <nav class="foot-nav">
-      <a href="#about-strip"    class="foot-link">Nosotros</a>
-      <a href="#offerings"      class="foot-link">Qué ofrecemos</a>
+      <a href="#about-strip"    class="foot-link">About Us</a>
+      <a href="#offerings"      class="foot-link">Offerings</a>
       <a href="organizers.html" class="foot-link">Organizers</a>
-      <a href="students.html"   class="foot-link">Estudiantes</a>
+      <a href="students.html"   class="foot-link">Students</a>
       <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="foot-link">Instagram</a>
     </nav>
+    
+    <div class="flex gap-4 text-[0.65rem] text-white/30 uppercase tracking-widest mt-4 md:mt-0 justify-center">
+      <a href="legal-notice.html" class="hover:text-white transition-colors">Legal Notice</a>
+      <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+      <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookie Policy</a>
+    </div>
 
     <div>
-      <a href="mailto:hola@nonoycarlosbachata.com" class="foot-copy block hover:text-white/50 transition-colors">
-        hola@nonoycarlosbachata.com
+      <a href="mailto: Nonoycarlosbachata@gmail.com" class="foot-copy block hover:text-white/50 transition-colors">
+        Nonoycarlosbachata@gmail.com
       </a>
-      <p class="foot-copy" style="margin-top:.3rem;">© 2025 All rights reserved</p>
+      <p class="foot-copy" style="margin-top:.3rem;">© 2026 All rights reserved</p>
     </div>
 
   </div>
