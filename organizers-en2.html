@@ -287,6 +287,17 @@
 
     @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
+    /* ─── KEYFRAMES DE ANIMACIÓN AÑADIDOS AQUÍ ─── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes scanLine {
+      0%   { left:-100%; }
+      50%  { left:0%; }
+      100% { left:100%; }
+    }
+
     /* ─── SOCIAL PROOF ───────────────────────── */
     #proof { background: var(--pale); }
     .proof-grid { display: grid; gap: 3rem; }
@@ -310,7 +321,7 @@
     .peer-avatar {
       width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--red), #8b0000);
       display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
-      overflow: hidden; /* Asegura que la imagen sea circular */
+      overflow: hidden; 
     }
     .peer-avatar img {
       width: 100%; height: 100%; object-fit: cover;
