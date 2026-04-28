@@ -1168,4 +1168,608 @@
       filter: grayscale(1) opacity(.45); transition: filter .3s;
     }
     .org-card:hover .org-logo-inner { filter: grayscale(0) opacity(1); }
-    .org-text { font-size: 0.
+    .org-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; }
+    .org-author-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1rem; }
+    .org-author-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
+    
+    .org-festival-tag {
+      display: inline-flex; align-items: center; gap: 0.3rem; margin-top: .75rem; font-size: .65rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; background: rgba(212, 175, 55, 0.12); color: #D4AF37;
+      border: 1px solid rgba(212, 175, 55, 0.25); padding: .35rem .8rem; border-radius: 4px;
+    }
+
+    /* ─── BOOKING SECTION (INTEGRATED COMPOSITION) ─── */
+    #booking { background: var(--ink); position: relative; overflow: hidden;}
+    #booking .sec-title { color: #fff; }
+    .f-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media(min-width:600px) { .f-row.two { grid-template-columns: 1fr 1fr; } }
+    .f-group { display: flex; flex-direction: column; gap: .45rem; }
+    .f-label { font-size: 0.75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .f-input {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 1rem; font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem; font-weight: 300; color: #fff; outline: none; transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .f-input::placeholder { color: rgba(255,255,255,.22); }
+    .f-input:focus { border-color: var(--red); background: rgba(227,66,66,.05); box-shadow: 0 0 0 3px rgba(227,66,66,.1); }
+    textarea.f-input { resize: vertical; min-height: 130px; }
+    
+    #form-success-epk { display: none; }
+    #form-success-epk.show { display: flex; }
+
+    /* ─── FAST TRACK INTEGRATED EXPERIENCE ────── */
+    .booking-integrated-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 0;
+    }
+    @media(min-width: 1024px) {
+      .booking-integrated-grid {
+        grid-template-columns: 1fr 1.2fr; /* Columna de la derecha ligeramente más ancha para los artistas */
+        gap: 0; /* Sin gap para integración total */
+      }
+    }
+    
+    /* El escenario de los artistas: de pie a la derecha */
+    .fast-track-integrated-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right top; /* Imprescindible: de pie a la derecha */
+      opacity: 1;
+      z-index: 1; 
+      display: block;
+    }
+    @media(max-width: 1023px) {
+      .fast-track-integrated-bg {
+        opacity: 0.5; /* En móvil oscurecemos más el fondo genérico */
+      }
+    }
+    
+    /* Double Gradient: Ink a la izquierda (formulario legible) y transparente a la derecha (artistas claros) */
+    .fast-track-integrated-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(10,10,10,1) 40%, rgba(10,10,10,0.6) 65%, transparent 100%);
+      z-index: 2;
+    }
+    @media(max-width: 1023px) {
+      .fast-track-integrated-overlay {
+        background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 100%);
+      }
+    }
+    
+    /* El Target del Dedo: Texto central perfectamente apuntado */
+    .pointer-target-box {
+      grid-column: 1; /* Por defecto, en la misma columna */
+      position: relative;
+      z-index: 3;
+      padding: 3rem 1.5rem;
+      max-width: 420px;
+    }
+    @media(min-width: 1024px) {
+      .pointer-target-box {
+        grid-column: 2; /* En desktop, el texto se mueve a la columna 2 para alinearse perfectamente */
+        justify-self: start; /* Se alinea al inicio de su columna, justo al lado del dedo */
+        padding-left: 0; /* Sin padding izquierdo para que el dedo casi toque el texto */
+        padding-right: 3rem;
+        margin-left: 0; 
+        margin-top: 60px; /* Alineación vertical perfecta con el dedo apuntando */
+      }
+    }
+    
+    /* Botón oscuro elegante para Instagram (Estilo Mockup) */
+    .btn-dark {
+      background: #0A0A0A; color: #fff; font-size: 0.8rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+      padding: 1rem 2rem; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: .75rem;
+      transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
+    }
+    .btn-dark:hover {
+      background: #1a1a1a; border-color: rgba(255,255,255,0.3); transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer { background: #070707; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
+    .foot-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+    @media(min-width:768px) { .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
+    .foot-logo { font-size: 1rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; color: #fff; }
+    .foot-logo span { color: var(--red); }
+    .foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
+
+    /* ─── SCROLL REVEAL PREMIUM ─── */
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+
+    /* ─── KEYFRAMES ──────────────────────────── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes scanLine { 0% { left:-100%; } 50% { left:0%; } 100% { left:100%; } }
+
+    /* ─── MOBILE MENU ────────────────────────── */
+    #mob-menu { max-height:0; opacity:0; overflow:hidden; transition:max-height .3s, opacity .3s; }
+    #mob-menu.open { max-height:240px; opacity:1; }
+    .no-select { user-select:none; }
+
+    /* ─── CERTIFICACIONES ─── */
+    .cert-badge {
+      border: 1px solid rgba(0,0,0,0.04); border-radius: 14px; padding: 0.75rem 1.25rem;
+      background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03); display: flex; align-items: center; gap: .6rem;
+      width: 100%; justify-content: flex-start; text-align: left;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease; cursor: default;
+    }
+    @media (min-width: 768px) { .cert-badge { width: auto; } }
+    .cert-badge:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index-en.html" class="nav-logo">Nono <span>&</span> Carlos</a>
+
+  <div class="hidden md:flex items-center gap-6">
+    <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
+    <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
+    <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
+    <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
+    
+    <div class="lang-switch ml-2 mr-2">
+      <a href="organizers.html" class="text-white/40 hover:text-white">ES</a>
+      <span>|</span>
+      <a href="#" class="active">EN</a>
+      <span>|</span>
+      <span class="opacity-20 cursor-not-allowed" title="Coming Soon">FR</span>
+    </div>
+
+    <a href="#booking" class="nav-cta">Contact Us</a>
+  </div>
+
+  <div class="flex items-center gap-4 md:hidden">
+    <div class="lang-switch">
+      <a href="organizers.html" class="text-white/40 hover:text-white">ES</a>
+      <span>|</span>
+      <a href="#" class="active">EN</a>
+    </div>
+
+    <button id="hbg" class="text-white" aria-label="Menu">
+      <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="hbg-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
+  <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">About</a>
+  <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Events</a>
+  <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Reviews</a>
+  <a href="#booking" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Booking</a>
+</div>
+
+<section id="hero">
+  <video id="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="https://res.cloudinary.com/ddtfmivfv/video/upload/q_auto,f_auto/v1777299643/header_web_promo_o3kaab.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1 class="hero-h1">
+      International<br/>
+      Bachata<br/>
+      <em>Artists</em> &amp;<br/>
+      Instructors
+    </h1>
+    <p class="hero-sub">
+      Based in Barcelona, specialized in urban fusion bachata. Known for accessible pedagogy, unique stylistic identity, and a magnetic social presence at worldwide festivals. One single passion: bachata.
+    </p>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sec">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="tag">About Us</span>
+        <h2 class="sec-title">Our Passion<br/>for Fusion</h2>
+        <div class="red-line"></div>
+        <p>Our approach is born from over a decade of dancing and a year of international experience touring workshops and stages as a professional couple.</p>
+        <p>We have designed our own style that merges the essence of bachata with the power of urban dance and the fluidity of sensual and bachazouk — creating an artistic proposition that connects with audiences across all latitudes.</p>
+
+        <div class="flex flex-col md:flex-row flex-wrap gap-3 mt-6">
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+            <div><p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Esencia Bachata Method</p><p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Gero &amp; Migle Marco &amp; Sara</p></div>
+          </div>
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+            <div><p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Bachata Sensual Lvl 1</p><p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Korke &amp; Judith</p></div>
+          </div>
+          <div class="cert-badge">
+            <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+            <div><p class="font-bold text-[0.85rem] text-[#0A0A0A] leading-tight">Bachazouk Teachers Course</p><p class="font-normal text-[0.7rem] text-[#6B6B6B] mt-[2px]">by Masa &amp; Polina</p></div>
+          </div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years<br/>dancing</div></div>
+          <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Students<br/>trained</div></div>
+        </div>
+      </div>
+      <div class="about-img-wrap reveal d2">
+        <img src="img/carlosynono%20elegant.jpg" alt="Nono and Carlos — professional bachata artists" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="producto" class="sec">
+  <div class="sec-inner">
+    <div class="reveal mb-10">
+      <span class="tag">Our Portfolio</span>
+      <h2 class="sec-title" style="color:white">What we can<br/><em style="color:var(--red);font-style:italic;">offer you</em></h2>
+      <div class="red-line"></div>
+      <p style="color:white; font-size:0.95rem; font-weight:300; max-width:520px; line-height:1.8;">
+        We understand how a festival works from the inside: organizers need artists who add value. That's why we don't hide in the backstage; we dance on the floor with your attendees until closing time, keeping the energy high until the very end.
+       <br><br>Four disciplines. One team. We adapt each workshop to the profile of your event and your audience.
+      </p>
+    </div>
+
+    <div class="prod-tabs reveal d1" role="tablist">
+      <button class="prod-tab active" data-tab="bachata"   role="tab">💃 Bachata</button>
+      <button class="prod-tab"        data-tab="reggaeton" role="tab">🎤 Reggaeton</button>
+      <button class="prod-tab"        data-tab="lady"      role="tab">👑 Lady Style</button>
+      <button class="prod-tab"        data-tab="man"       role="tab">🕺 Man Style</button>
+    </div>
+
+    <div class="prod-panel active reveal" id="panel-bachata">
+      <div class="photo-carousel" id="carousel-bachata">
+        <div class="carousel-slide active"><div class="aspect-video w-full h-full"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/a9l0NJBH63Q?rel=0&modestbranding=1" allowfullscreen></iframe></div></div>
+        <div class="carousel-slide"><div class="aspect-video w-full h-full"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/bR9-0cEg7FM?rel=0&modestbranding=1" allowfullscreen></iframe></div></div>
+        <div class="carousel-slide"><div class="aspect-video w-full h-full"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/wBjygdqPxtU?rel=0&modestbranding=1" allowfullscreen></iframe></div></div>
+        <div class="carousel-slide"><div class="aspect-video w-full h-full"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/B32ogTf2PfA?rel=0&modestbranding=1" allowfullscreen></iframe></div></div>
+        <div class="carousel-arrows">
+          <button class="c-arrow" onclick="moveCarousel('bachata',-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button class="c-arrow" onclick="moveCarousel('bachata',1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel-dots" id="dots-bachata"></div>
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Bachata Workshop</div>
+          <p class="prod-meta-desc">Our main discipline. Our specialty is urban fusion, but we can also teach sensual and bachazouk. Flexible formats: 45 min, 1h, or 1h30 for all levels.</p>
+          <div class="prod-pills">
+            <span class="prod-pill">Sensual Bachata</span>
+            <span class="prod-pill">Urban Fusion</span>
+            <span class="prod-pill">Bachazouk</span>
+            <span class="prod-pill">All levels</span>
+          </div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" class="btn-glow">Book this workshop <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-reggaeton">
+      <div class="video-embed-wrap" id="wrap-reggaeton"><iframe loading="lazy" class="w-full h-full" src="https://www.youtube-nocookie.com/embed/rFUxYk3RzpQ?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Reggaeton Workshop</div>
+          <p class="prod-meta-desc">Energy, attitude, and movement. A reggaeton workshop with street technique and choreographies adapted to the group's level. Perfect for mixed crowds and high-energy events.</p>
+          <div class="prod-pills"><span class="prod-pill">Choreography</span><span class="prod-pill">Urban</span><span class="prod-pill">Beginner / Intermediate</span></div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" class="btn-glow">Book this workshop <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-lady">
+      <div class="video-embed-wrap" id="wrap-lady">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <span class="video-placeholder-badge">Video coming soon</span>
+          <p class="video-placeholder-text">Upload your video to YouTube and replace the placeholder with the video ID.<br/><code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_LADYSTYLE</code></p>
+        </div>
+      </div>
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Lady Style Workshop</div>
+          <p class="prod-meta-desc">Femininity, elegance, and expression. A workshop designed for women of all levels who want to develop their own body language within bachata and urban rhythms.</p>
+          <div class="prod-pills"><span class="prod-pill">Femininity</span><span class="prod-pill">Body expression</span><span class="prod-pill">All levels</span></div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" class="btn-glow">Book this workshop <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="panel-man">
+      <div class="video-embed-wrap" id="wrap-man">
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <span class="video-placeholder-badge">Video coming soon</span>
+          <p class="video-placeholder-text">Upload your video to YouTube and replace the placeholder with the video ID.<br/><code style="color:var(--red);font-size:0.85rem;">VIDEO_ID_MANSTYLE</code></p>
+        </div>
+      </div>
+      <div class="prod-meta">
+        <div>
+          <div class="prod-meta-title">Man Style Workshop</div>
+          <p class="prod-meta-desc">Technique, attitude, and masculine presence. A workshop specialized in the man's role in sensual bachata: leadership, musicality, and movement control.</p>
+          <div class="prod-pills"><span class="prod-pill">Leading</span><span class="prod-pill">Musicality</span><span class="prod-pill">Advanced technique</span></div>
+        </div>
+        <div class="prod-cta-col">
+          <a href="#booking" class="btn-glow">Book this workshop <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events" class="sec">
+  <div class="sec-inner">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 reveal">
+      <div>
+        <span class="tag">Featured Events</span>
+        <div class="red-line"></div>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-3">
+        <p style="color:rgba(255,255,255,.35); font-size:0.85rem; font-weight:300; margin-right:1rem;">Scroll to explore</p>
+        <button class="slider-nav-btn" onclick="document.getElementById('slider').scrollBy({left: -320, behavior: 'smooth'})" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="slider-nav-btn" onclick="document.getElementById('slider').scrollBy({left: 320, behavior: 'smooth'})" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="slider-track no-select reveal d1" id="slider">
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlosbon2024.jpg" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Bachata a Otro Nivel</div><div class="event-card-loc">Toulouse🇫🇷</div><div class="event-card-date">2024</div></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlospassion2025.jpg" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Passion Bachata Festival</div><div class="event-card-loc">Bessançon 🇫🇷</div><div class="event-card-date">2025</div></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlos%20bachataaddict.png" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Bachata Addict</div><div class="event-card-loc">Montpellier 🇫🇷</div><div class="event-card-date">2025</div></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlos%20danceup2024.webp" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Dance Up Congress</div><div class="event-card-loc">Lyon 🇫🇷</div><div class="event-card-date">2025</div></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlos%20bachateame.jpeg" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Bachatéame</div><div class="event-card-loc">Stuttgart🇩🇪</div><div class="event-card-date">2026</div></div></div>
+      <div class="event-card"><div class="event-img-box"><img src="img/nonoycarlossuave2026.jpg" alt="Festival event flyer" loading="lazy" /></div><div class="event-card-body"><div class="event-card-title">Bachata Suave</div><div class="event-card-loc">Marseille 🇫🇷</div><div class="event-card-date">2026</div></div></div>
+    </div>
+    <p class="md:hidden" style="color:rgba(255,255,255,.2); font-size:0.8rem; font-weight:300; margin-top:.75rem;">← Drag to scroll →</p>
+  </div>
+</section>
+
+<section id="proof" class="sec" style="background:#FAFAFA;">
+  <div class="sec-inner">
+    <div class="text-center mb-12 reveal">
+      <span class="tag">Social Proof</span>
+      <h2 class="sec-title">What People<br/>Are Saying</h2>
+      <div class="red-line" style="margin:1.1rem auto;"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="reviews-master-container">
+      <div id="reviews-col-1"></div>
+      <div id="reviews-col-2"></div>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="sec sec-integrated">
+  <img src="img/urbandedo.jpg" alt="Nono & Carlos pointing" class="fast-track-integrated-bg" />
+  <div class="fast-track-integrated-overlay"></div>
+  
+  <div class="sec-inner relative z-10">
+    <div class="booking-integrated-grid">
+      
+      <div class="reveal d1 p-8 lg:p-0">
+        <div class="mb-10">
+          <span class="tag italic font-serif" style="text-transform: none; letter-spacing: 0;">Bachata Elite</span>
+          <h2 class="sec-title text-4xl md:text-6xl uppercase tracking-tighter" style="color:#fff;">Book Nono &amp;<br/>Carlos</h2>
+        </div>
+        <form id="epk-form" novalidate>
+          <div class="f-row two mb-5">
+            <div class="f-group"><label class="f-label">Event Name</label><input type="text" id="ep-event" class="f-input" placeholder="Festival / Event name" required /></div>
+            <div class="f-group"><label class="f-label">City &amp; Country</label><input type="text" id="ep-city" class="f-input" placeholder="Paris, France" required /></div>
+          </div>
+          <div class="f-row two mb-5">
+            <div class="f-group"><label class="f-label">Proposed Dates</label><input type="text" id="ep-dates" class="f-input" placeholder="Sep 2025" /></div>
+            <div class="f-group"><label class="f-label">Your Email</label><input type="email" id="ep-email" class="f-input" placeholder="organizer@festival.com" required /></div>
+          </div>
+          <div class="f-group mb-6">
+            <label class="f-label">Details</label>
+            <textarea id="ep-msg" class="f-input" placeholder="What are you looking for? (show, workshop...)"></textarea>
+          </div>
+          
+          <div class="f-group mb-6" style="flex-direction: row; gap: 0.75rem; align-items: flex-start;">
+            <input type="checkbox" id="ep-privacy" required style="margin-top: 4px; flex-shrink: 0; cursor: pointer;" />
+            <label for="ep-privacy" class="text-xs text-white/40 font-light" style="text-transform: none; letter-spacing: 0;">I have read and accept the <a href="privacy-policy.html" class="underline text-red">Privacy Policy</a>.</label>
+          </div>
+          
+          <button type="submit" class="btn-glow border-0">
+            Send Enquiry
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="reveal d2 pointer-target-box">
+        <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2 text-white">Fast Track</h3>
+        <p class="text-white/70 text-sm font-light mb-10 leading-relaxed">
+          Available for congresses, festivals, shows, workshops and special events worldwide.
+          Prefer a faster reply? Usually reply professional DMs within a few hours.
+        </p>
+        <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" class="btn-dark border border-white/10">
+          DM us on Instagram 
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="sec-inner flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="nav-logo">Nono <span>&</span> Carlos</div>
+    <div class="flex gap-4 md:gap-6 mt-2 md:mt-0 text-center">
+      <a href="legal-notice.html" class="text-[0.7rem] text-white/40 hover:text-white/80 transition-colors uppercase tracking-widest">Legal Notice</a>
+      <a href="privacy-policy.html" class="text-[0.7rem] text-white/40 hover:text-white/80 transition-colors uppercase tracking-widest">Privacy Policy</a>
+      <a href="cookie-policy.html" class="text-[0.7rem] text-white/40 hover:text-white/80 transition-colors uppercase tracking-widest">Cookie Policy</a>
+    </div>
+    <div class="text-center md:text-end mt-4 md:mt-0">
+      <p class="foot-copy" style="margin-bottom: 4px;">International Bachata Artists · Barcelona</p>
+      <p class="foot-copy">© 2026 All rights reserved</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── Navbar scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+  /* ── Mobile menu ── */
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mob-menu');
+  const io  = document.getElementById('hbg-open');
+  const ic  = document.getElementById('hbg-close');
+  hbg.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    io.classList.toggle('hidden', open);
+    ic.classList.toggle('hidden', !open);
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    io.classList.remove('hidden');
+    ic.classList.add('hidden');
+  }));
+
+  /* ── Scroll reveal ── */
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* ── Slider drag-to-scroll ── */
+  const slider = document.getElementById('slider');
+  let isDown = false, startX, scrollLeft;
+  slider.addEventListener('mousedown', e => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  ['mouseleave','mouseup'].forEach(ev => slider.addEventListener(ev, () => { isDown = false; }));
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    slider.scrollLeft = scrollLeft - (x - startX) * 1.4;
+  });
+
+  /* ── Booking form CON VALIDACIÓN ──────────────── */
+  document.getElementById('epk-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const ev  = document.getElementById('ep-event').value.trim();
+    const em  = document.getElementById('ep-email').value.trim();
+    const priv = document.getElementById('ep-privacy').checked;
+
+    if (!ev) { document.getElementById('ep-event').focus(); return; }
+    if (!em || !em.includes('@')) { document.getElementById('ep-email').focus(); return; }
+    if (!priv) { alert("Please accept the Privacy Policy to proceed."); return; }
+
+    const btn = e.target.querySelector('.btn-glow');
+    btn.innerHTML = 'Sending...'; btn.disabled = true; btn.style.opacity = '.6';
+    setTimeout(() => {
+      document.getElementById('epk-form').style.display = 'none';
+      document.getElementById('form-success-epk').style.display = 'flex';
+    }, 1300);
+  });
+
+  /* ── Producto tab switching ── */
+  document.querySelectorAll('.prod-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.prod-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  /* ── Bachata photo carousel ── */
+  const carousels = {};
+  function initCarousel(id) {
+    const el     = document.getElementById('carousel-' + id);
+    const slides = el ? el.querySelectorAll('.carousel-slide') : [];
+    const dotsEl = document.getElementById('dots-' + id);
+    if (!slides.length) return;
+    carousels[id] = { current: 0, total: slides.length };
+    if (dotsEl) {
+      dotsEl.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => goTo(id, i));
+        dotsEl.appendChild(d);
+      });
+    }
+  }
+
+  function goTo(id, idx) {
+    const c      = carousels[id];
+    const el     = document.getElementById('carousel-' + id);
+    const slides = el.querySelectorAll('.carousel-slide');
+    const dotsEl = document.getElementById('dots-' + id);
+    slides[c.current].classList.remove('active');
+    c.current = (idx + c.total) % c.total;
+    slides[c.current].classList.add('active');
+    if (dotsEl) {
+      dotsEl.querySelectorAll('.c-dot').forEach((d, i) => d.classList.toggle('active', i === c.current));
+    }
+  }
+
+  function moveCarousel(id, dir) {
+    if (!carousels[id]) return;
+    goTo(id, carousels[id].current + dir);
+  }
+  initCarousel('bachata');
+
+  /* ── EXCEL SPREADSHEET AUTOMATION (REVIEWS) ── */
+  document.addEventListener("DOMContentLoaded", () => {
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
+    fetch(csvUrl).then(r => r.text()).then(txt => {
+      const rows = parseCSV(txt); rows.shift();
+      const col1 = document.getElementById('reviews-col-1'); const col2 = document.getElementById('reviews-col-2');
+      rows.forEach((row, i) => {
+        if (row.length < 5) return;
+        const name = row[2], role = row[3], feedback = row[4], img = row[6]; if(!feedback) return;
+        const card = document.createElement('div'); card.className = 'peer-card reveal in';
+        let avatar = `<div class="peer-avatar text-avatar">${name.substring(0,2).toUpperCase()}</div>`;
+        if(img) { const safeImg = img.trim().replace(/ /g, '%20'); avatar = `<div class="peer-avatar"><img src="${safeImg}" alt="Avatar" loading="lazy"></div>`; }
+        card.innerHTML = `<div class="peer-author" style="margin-top: 0; margin-bottom: 1.25rem;">${avatar}<div><p class="peer-name">${name}</p><p class="peer-role"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="mr-1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>${role}</p></div></div><p class="peer-text" style="margin-top: 0;">${feedback.replace(/\n/g, '<br>')}</p>`;
+        if(i % 2 === 0) col1.appendChild(card); else col2.appendChild(card);
+      });
+    });
+  });
+  function parseCSV(s) {
+    const r = []; let q = false; let row = 0, col = 0;
+    for (let c = 0; c < s.length; c++) {
+      let cc = s[c], nc = s[c+1]; r[row] = r[row] || []; r[row][col] = r[row][col] || '';
+      if (cc == '"' && q && nc == '"') { r[row][col] += cc; ++c; continue; }
+      if (cc == '"') { q = !q; continue; }
+      if (cc == ',' && !q) { ++col; continue; }
+      if (cc == '\n' && !q) { ++row; col = 0; continue; }
+      if (cc == '\r' && !q) { ++row; col = 0; continue; }
+      r[row][col] += cc;
+    }
+    return r;
+  }
+</script>
+
+</body>
+</html>
