@@ -125,19 +125,12 @@
     }
     @media(min-width:768px) { .hero-content { padding: 0 2.5rem 5rem; } }
 
-    .hero-kicker {
-      font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 700;
-      letter-spacing: .15em; text-transform: uppercase;
-      color: var(--red); margin-bottom: .75rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      opacity: 0; animation: fadeUp .7s .3s forwards;
-    }
     .hero-h1 {
       font-size: clamp(2.2rem, 6vw, 5.5rem);
       font-weight: 900; line-height: 1.0;
       color: #fff; text-transform: uppercase;
       letter-spacing: -.01em;
-      opacity: 0; animation: fadeUp .8s .5s forwards;
+      opacity: 0; animation: fadeUp .8s .3s forwards;
     }
     .hero-h1 em { color: var(--red); font-style: normal; }
     .hero-sub {
@@ -145,11 +138,11 @@
       font-weight: 300; color: rgba(255,255,255,.9);
       max-width: 500px; margin-top: .9rem; line-height: 1.75;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-      opacity: 0; animation: fadeUp .8s .7s forwards;
+      opacity: 0; animation: fadeUp .8s .5s forwards;
     }
     .hero-scroll {
       margin-top: 2rem; display: flex; align-items: center; gap: .75rem;
-      opacity: 0; animation: fadeUp .8s .9s forwards;
+      opacity: 0; animation: fadeUp .8s .7s forwards;
     }
     .hero-scroll span {
       font-size: 0.75rem; font-weight: 500;
@@ -332,11 +325,9 @@
       position: absolute; inset: 0;
       opacity: 0; transition: opacity .7s ease;
       display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
     }
     .carousel-slide.active { opacity: 1; z-index: 10; pointer-events: auto;}
-    .carousel-slide img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
     
     .carousel-placeholder {
       width: 100%; height: 100%;
@@ -444,7 +435,15 @@
     .prod-cta-col { display: flex; flex-direction: column; justify-content: flex-end; gap: .75rem; align-items: flex-start; }
     @media(min-width:768px) { .prod-cta-col { align-items: flex-end; } }
 
-    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    /* Botón Glow */
+    .btn-glow {
+      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      padding: .8rem 1.75rem; border-radius: 3px; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
+      transition: all 0.4s ease; border: none; cursor: pointer;
+    }
+    .btn-glow:hover {
+      background: var(--red-dk); box-shadow: 0 0 15px rgba(227,66,66, 0.6); transform: translateY(-2px);
+    }
 
     /* ─── SOCIAL PROOF ───────────────────────── */
     #proof { background: var(--pale); }
@@ -459,7 +458,6 @@
       border-bottom: 1px solid rgba(227,66,66,.2);
     }
     
-    /* ─── TARJETAS ESTILO APPLE (Flotantes y Premium) ─── */
     .peer-card {
       padding: 2.25rem 2rem; 
       background: #ffffff;
@@ -488,28 +486,17 @@
       background: linear-gradient(135deg, var(--red), #8b0000);
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
-      overflow: hidden; /* Garantiza círculo perfecto */
+      overflow: hidden;
     }
     .peer-avatar img {
       width: 100%; height: 100%; object-fit: cover;
     }
     .peer-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
     
-    /* Dorado Premium B2B para artistas pares */
     .peer-role { 
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
       color: #D4AF37; margin-top: 0.3rem; 
-    }
-
-    /* Botón Glow */
-    .btn-glow {
-      background: var(--red); color: #fff; font-size: 0.8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      padding: .8rem 1.75rem; border-radius: 3px; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
-      transition: all 0.4s ease; border: none; cursor: pointer;
-    }
-    .btn-glow:hover {
-      background: var(--red-dk); box-shadow: 0 0 15px rgba(227,66,66, 0.6); transform: translateY(-2px);
     }
 
     /* ─── BOOKING SECTION ───────────────────────── */
@@ -533,7 +520,7 @@
     .foot-logo span { color: var(--red); }
     .foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
 
-    /* ─── SCROLL REVEAL PREMIUM ─── */
+    /* ─── SCROLL REVEAL & KEYFRAMES ─── */
     .reveal { 
       opacity: 0; 
       transform: translateY(35px); 
@@ -546,10 +533,13 @@
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-    /* ─── KEYFRAMES ──────────────────────────── */
     @keyframes fadeUp {
       from { opacity:0; transform:translateY(20px); }
       to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeIn { 
+      from { opacity:0; } 
+      to { opacity:1; } 
     }
     @keyframes scanLine {
       0%   { left:-100%; }
@@ -586,10 +576,10 @@
   <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="hidden md:flex items-center gap-6">
-    <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
-    <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
-    <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
-    <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
+    <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Nosotros</a>
+    <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Eventos</a>
+    <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Testimonios</a>
+    <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Contratación</a>
     <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="nav-cta">Contáctanos</a>
   </div>
 
@@ -600,10 +590,10 @@
 </nav>
 
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
-  <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">About</a>
-  <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Events</a>
-  <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Reviews</a>
-  <a href="#booking" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Booking</a>
+  <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Nosotros</a>
+  <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Eventos</a>
+  <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonios</a>
+  <a href="#booking" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Contratación</a>
   <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="block mt-3 text-center nav-cta">Contáctanos</a>
 </div>
 
@@ -615,7 +605,6 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <p class="hero-kicker">Electronic Press Kit · 2025 / 2026</p>
     <h1 class="hero-h1">
       International<br/>
       Bachata<br/>
@@ -632,7 +621,6 @@ Una sola pasión: la bachata.
     </div>
   </div>
 </section>
-
 
 <section id="about" class="sec">
   <div class="sec-inner">
@@ -678,11 +666,11 @@ Una sola pasión: la bachata.
         <div class="stat-row">
           <div class="stat">
             <div class="stat-num">10+</div>
-            <div class="stat-lbl">Years<br/>dancing</div>
+            <div class="stat-lbl">Años<br/>bailando</div>
           </div>
           <div class="stat">
             <div class="stat-num">500+</div>
-            <div class="stat-lbl">Students<br/>trained</div>
+            <div class="stat-lbl">Alumnos<br/>formados</div>
           </div>
         </div>
       </div>
@@ -1001,10 +989,17 @@ Una sola pasión: la bachata.
 
 <section id="booking" class="sec">
   <div class="sec-inner flex flex-col items-center">
+    
+    <div class="reveal mb-12 text-center">
+      <span class="tag italic font-serif" style="text-transform: none; letter-spacing: 0;">Bachata Elite</span>
+      <h2 class="sec-title text-4xl md:text-6xl uppercase tracking-tighter">
+        ¡Trabajemos<br/>Juntos!
+      </h2>
+    </div>
 
-    <div class="relative w-full max-w-5xl rounded-3xl overflow-hidden border border-black/5 bg-white flex flex-col md:flex-row shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]">
+    <div class="relative w-full max-w-5xl rounded-3xl overflow-hidden border border-black/5 bg-white p-10 md:p-16 flex flex-col md:flex-row items-stretch gap-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]" style="min-height: 450px;">
       
-      <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-20">
+      <div class="flex-1 flex flex-col justify-center relative z-20 w-full md:w-1/2">
         <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-[#0A0A0A] leading-tight">
           Contacto<br/>Directo
         </h3>
@@ -1016,9 +1011,9 @@ Una sola pasión: la bachata.
         </a>
       </div>
 
-      <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden pointer-events-none">
+      <div class="absolute bottom-0 right-0 h-[70%] md:h-full w-[100%] md:w-[50%] z-10 pointer-events-none flex items-end justify-end">
         <img src="img/urbandedotransparent.png" alt="Nono & Carlos" 
-             class="absolute bottom-0 right-0 w-full h-full object-contain object-right-bottom transform scale-[1.15] md:scale-[1.35] origin-bottom-right" />
+             class="h-full w-full object-contain object-right-bottom transform scale-125 md:scale-[1.60] origin-bottom-right" />
       </div>
 
     </div>
@@ -1161,6 +1156,7 @@ Una sola pasión: la bachata.
       });
     });
   });
+  
   function parseCSV(s) {
     const r = []; let q = false; let row = 0, col = 0;
     for (let c = 0; c < s.length; c++) {
@@ -1174,7 +1170,6 @@ Una sola pasión: la bachata.
     }
     return r;
   }
-
 </script>
 
 </body>
