@@ -582,14 +582,18 @@
     }
     .ig-btn svg { width: 20px; height: 20px; }
 
-    /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
+   /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
     @media (max-width: 768px) {
       #ig-cta {
         flex-direction: column;
       }
-      #ig-cta > div {
+      /* Aseguramos que la columna de texto ocupe el 100% en móvil */
+      #ig-cta > div:nth-child(1) {
         width: 100%;
-        min-height: 300px;
+      }
+      /* Ocultamos la columna derecha (la imagen) en móvil */
+      #ig-cta > div:nth-child(2) {
+        display: none;
       }
     }
 
