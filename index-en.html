@@ -94,6 +94,16 @@
     }
     .nav-pill:hover { background: var(--red-dk); transform: translateY(-1px); }
 
+    /* Selector de idiomas */
+    .lang-switch {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+    }
+    .lang-switch a { transition: color 0.3s ease; text-decoration: none; color: rgba(255,255,255,.55); }
+    .lang-switch a:hover { color: #fff; }
+    .lang-switch a.active { color: var(--red); pointer-events: none; }
+    .lang-switch span { color: rgba(255,255,255,0.2); }
+
     /* Mobile hamburger */
     #hbg { display: none; background: none; border: none; cursor: pointer; color: #fff; }
     #mob-menu {
@@ -127,6 +137,7 @@
       height: 100svh; min-height: 600px;
       overflow: hidden; display: flex;
       align-items: center; justify-content: center;
+      padding-top: 90px; /* <--- CORRECCIÓN DE SOLAPAMIENTO DE MENÚ */
     }
     #hero-video {
       position: absolute; inset: 0; z-index: 0;
@@ -534,23 +545,31 @@
     .test-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
     .test-role { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.5); }
 
-    /* ─── INSTAGRAM CTA ───────────── */
+    /* ─── INSTAGRAM CTA DIVIDIDO ───────────── */
     #ig-cta {
-      padding: 5rem 2rem;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
       background: var(--red);
+    }
+    .ig-col-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 2rem;
+      position: relative;
       text-align: center;
-      position: relative; overflow: hidden;
     }
-    #ig-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent, transparent 40px,
-        rgba(0,0,0,.04) 40px, rgba(0,0,0,.04) 41px
-      );
+    .ig-col-right {
+      flex: 1;
+      background-image: url('https://github.com/carlitostarr93/NonoyCarlosWebsite/blob/main/img/urbandedo.jpg?raw=true');
+      background-size: cover;
+      background-position: top center;
+      min-height: 400px;
     }
-    .ig-inner { position: relative; z-index: 1; }
+
     .ig-label {
       font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
       letter-spacing: .2em; text-transform: uppercase;
@@ -582,17 +601,15 @@
     }
     .ig-btn svg { width: 20px; height: 20px; }
 
-   /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
+    /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
     @media (max-width: 768px) {
       #ig-cta {
         flex-direction: column;
       }
-      /* Aseguramos que la columna de texto ocupe el 100% en móvil */
-      #ig-cta > div:nth-child(1) {
+      .ig-col-left {
         width: 100%;
       }
-      /* Ocultamos la columna derecha (la imagen) en móvil */
-      #ig-cta > div:nth-child(2) {
+      .ig-col-right {
         display: none;
       }
     }
@@ -675,27 +692,42 @@
 <body>
 
 <nav id="nav">
-<a href="index-en.html" class="nav-logo">Nono <span>&</span> Carlos</a>
+  <a href="index-en.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="nav-links">
     <a href="#about-strip" class="nav-link">About Us</a>
     <a href="#offerings"   class="nav-link">Offerings</a>
     <a href="organizers-en.html" class="nav-link">Organizers</a>
     <a href="students-en.html" class="nav-pill">Students</a>
+    
+    <div class="lang-switch">
+      <a href="index.html" class="text-white/40 hover:text-white">ES</a>
+      <span>|</span>
+      <a href="#" class="active">EN</a>
+      <span>|</span>
+      <span class="opacity-20 cursor-not-allowed" title="Coming Soon">FR</span>
+    </div>
   </div>
 
-  <button id="hbg" aria-label="Menú">
+  <button id="hbg" aria-label="Menu">
     <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
   </button>
 </nav>
 
 <div id="mob-menu">
-  <button class="mob-close" id="mob-close" aria-label="Cerrar">
+  <button class="mob-close" id="mob-close" aria-label="Close">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
-  <a href="#about-strip"    class="mob-link" data-close>About Us</a>
-  <a href="#offerings"      class="mob-link" data-close>Offerings</a>
-  <a href="#testimonials"   class="mob-link" data-close>Testimonials</a>
+
+  <div class="lang-switch" style="margin-bottom: 1.5rem;">
+    <a href="index.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">ES</a>
+    <span style="font-size: 1rem;">|</span>
+    <a href="#" class="active" style="font-size: 1rem;">EN</a>
+  </div>
+
+  <a href="#about-strip"      class="mob-link" data-close>About Us</a>
+  <a href="#offerings"        class="mob-link" data-close>Offerings</a>
+  <a href="#testimonials"     class="mob-link" data-close>Testimonials</a>
   <a href="organizers-en.html" class="mob-link" data-close>Organizers</a>
   <a href="students-en.html"   class="mob-link" data-close style="color:var(--red);">Students →</a>
 </div>
@@ -978,7 +1010,7 @@ With multiple Jack &amp; Jill victories, they are undeniably one of the rising s
     </div>
 
     <div class="flex flex-wrap gap-4 justify-center mt-12 reveal">
-      <a href="organizers.html" class="btn-ghost-dark">
+      <a href="organizers-en.html" class="btn-ghost-dark">
         View full dossier
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -992,9 +1024,9 @@ With multiple Jack &amp; Jill victories, they are undeniably one of the rising s
 </section>
 
 
-<section id="ig-cta" style="padding: 0; display: flex; align-items: stretch; background: var(--red);">
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem; position: relative;">
-    <div class="ig-inner" style="text-align: center;">
+<section id="ig-cta">
+  <div class="ig-col-left">
+    <div class="ig-inner">
       <p class="ig-label">Follow us</p>
       <h2 class="ig-h">Join our community</h2>
       <p class="ig-sub">
@@ -1012,8 +1044,7 @@ With multiple Jack &amp; Jill victories, they are undeniably one of the rising s
     </div>
   </div>
 
-  <div style="flex: 1; background-image: url('https://github.com/carlitostarr93/NonoyCarlosWebsite/blob/main/img/urbandedo.jpg?raw=true'); background-size: cover; background-position: top center; min-height: 400px;">
-  </div>
+  <div class="ig-col-right"></div>
 </section>
 
 
@@ -1034,9 +1065,9 @@ With multiple Jack &amp; Jill victories, they are undeniably one of the rising s
     </nav>
     
     <div class="flex gap-4 text-[0.65rem] text-white/30 uppercase tracking-widest mt-4 md:mt-0 justify-center">
-      <a href="legal-notice.html" class="hover:text-white transition-colors">Legal Notice</a>
-      <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-      <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookie Policy</a>
+      <a href="legal-notice-en.html" class="hover:text-white transition-colors">Legal Notice</a>
+      <a href="privacy-policy-en.html" class="hover:text-white transition-colors">Privacy Policy</a>
+      <a href="cookie-policy-en.html" class="hover:text-white transition-colors">Cookie Policy</a>
     </div>
 
     <div>
