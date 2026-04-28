@@ -84,7 +84,6 @@
       box-shadow: 0 0 15px rgba(227,66,66,0.6);
     }
 
-    /* Selector de Idiomas Premium */
     .lang-switch {
       display: flex; align-items: center; gap: 0.5rem;
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
@@ -302,42 +301,23 @@
       padding: 2.25rem 2rem; background: #ffffff; border: 1px solid rgba(0,0,0,0.04); border-radius: 24px; margin-bottom: 1.25rem; position: relative;
       box-shadow: 0 8px 24px rgba(0,0,0,0.03); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
     }
-    .org-card {
-      padding: 2rem; background: #ffffff; border: 1px solid rgba(0,0,0,0.04); border-radius: 24px; margin-bottom: 1.25rem;
-      display: flex; gap: 1.25rem; align-items: flex-start; box-shadow: 0 8px 24px rgba(0,0,0,0.03); 
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
-    }
-    .peer-card:hover, .org-card:hover { 
+    .peer-card:hover { 
       transform: translateY(-8px); border-color: rgba(0,0,0,0.08); box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
     }
     
-    .peer-quote-icon { font-size: 3.5rem; line-height: 1; color: var(--red); opacity: .12; font-family: Georgia, serif; position: absolute; top: .75rem; left: 1.25rem; }
     .peer-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; position: relative; z-index: 1; }
-    .peer-author { margin-top: 1.5rem; display: flex; align-items: center; gap: .75rem; }
+    .peer-author { display: flex; align-items: center; gap: .75rem; }
     .peer-avatar {
       width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--red), #8b0000);
       display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+      overflow: hidden; /* Asegura que la imagen sea circular */
+    }
+    .peer-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
     }
     .peer-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
     .peer-role { 
-      display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #D4AF37; margin-top: 0.3rem; 
-    }
-
-    .org-logo { width: 56px; height: 56px; flex-shrink: 0; border-radius: 6px; background: #F0F0F0; display: flex; align-items: center; justify-content: center; }
-    .org-logo-inner {
-      width: 44px; height: 44px; background: var(--ink); border-radius: 4px; display: flex; align-items: center; justify-content: center;
-      font-size: .55rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #fff; text-align: center; line-height: 1.3;
-      filter: grayscale(1) opacity(.45); transition: filter .3s;
-    }
-    .org-card:hover .org-logo-inner { filter: grayscale(0) opacity(1); }
-    .org-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; }
-    .org-author-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1rem; }
-    .org-author-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
-    
-    .org-festival-tag {
-      display: inline-flex; align-items: center; gap: 0.3rem; margin-top: .75rem; font-size: .65rem; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase; background: rgba(212, 175, 55, 0.12); color: #D4AF37;
-      border: 1px solid rgba(212, 175, 55, 0.25); padding: .35rem .8rem; border-radius: 4px;
+      display: inline-flex; align-items: center; font-size: 0.75rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: #D4AF37; margin-top: 0.3rem; 
     }
 
     /* ─── BOOKING SECTION ───────────────────────── */
@@ -620,9 +600,9 @@
       </h2>
     </div>
 
-    <div class="relative w-full max-w-5xl rounded-3xl overflow-hidden border border-black/5 bg-white p-10 md:p-16 flex flex-col md:flex-row items-stretch gap-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]" style="min-height: 450px;">
+    <div class="relative w-full max-w-5xl rounded-3xl overflow-hidden border border-black/5 bg-white flex flex-col md:flex-row shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)]">
       
-      <div class="flex-1 flex flex-col justify-center relative z-20">
+      <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-20">
         <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-6 text-[#0A0A0A] leading-tight">
           Direct<br/>Contact
         </h3>
@@ -634,9 +614,9 @@
         </a>
       </div>
 
-      <div class="absolute bottom-0 right-0 h-[60%] md:h-full w-[100%] md:w-[65%] z-10 pointer-events-none flex items-end justify-end">
+      <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden pointer-events-none">
         <img src="img/urbandedotransparent.png" alt="Nono & Carlos" 
-             class="h-full w-full object-contain object-right-bottom" style="object-position: right bottom;" />
+             class="absolute bottom-0 right-0 w-full h-full object-contain object-right-bottom transform scale-[1.15] md:scale-[1.35] origin-bottom-right" />
       </div>
 
     </div>
@@ -672,22 +652,36 @@
   const carousels = {};
   function moveCarousel(id, dir) { /* Lógica de carrusel omitida por brevedad */ }
 
+  /* ── EXCEL SPREADSHEET AUTOMATION (REVIEWS) ── */
   document.addEventListener("DOMContentLoaded", () => {
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
     fetch(csvUrl).then(r => r.text()).then(txt => {
-      const rows = txt.split('\n').slice(1);
-      const col1 = document.getElementById('reviews-col-1');
+      const rows = parseCSV(txt); rows.shift();
+      const col1 = document.getElementById('reviews-col-1'); const col2 = document.getElementById('reviews-col-2');
       rows.forEach((row, i) => {
-        const cols = row.split(',');
-        if (cols[4]) {
-          const card = document.createElement('div');
-          card.className = 'peer-card reveal in';
-          card.innerHTML = `<div class="peer-author"><div class="peer-avatar">${cols[2].substring(0,1)}</div><div><p class="font-bold text-sm text-ink">${cols[2]}</p><p class="peer-role">${cols[3]}</p></div></div><p class="text-sm text-muted font-light leading-relaxed">${cols[4]}</p>`;
-          col1.appendChild(card);
-        }
+        if (row.length < 5) return;
+        const name = row[2], role = row[3], feedback = row[4], img = row[6]; if(!feedback) return;
+        const card = document.createElement('div'); card.className = 'peer-card reveal in';
+        let avatar = `<div class="peer-avatar text-avatar">${name.substring(0,2).toUpperCase()}</div>`;
+        if(img) { const safeImg = img.trim().replace(/ /g, '%20'); avatar = `<div class="peer-avatar"><img src="${safeImg}" alt="Avatar" loading="lazy"></div>`; }
+        card.innerHTML = `<div class="peer-author" style="margin-top: 0; margin-bottom: 1.25rem;">${avatar}<div><p class="peer-name">${name}</p><p class="peer-role"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="mr-1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>${role}</p></div></div><p class="peer-text" style="margin-top: 0;">${feedback.replace(/\n/g, '<br>')}</p>`;
+        if(i % 2 === 0) col1.appendChild(card); else col2.appendChild(card);
       });
     });
   });
+  function parseCSV(s) {
+    const r = []; let q = false; let row = 0, col = 0;
+    for (let c = 0; c < s.length; c++) {
+      let cc = s[c], nc = s[c+1]; r[row] = r[row] || []; r[row][col] = r[row][col] || '';
+      if (cc == '"' && q && nc == '"') { r[row][col] += cc; ++c; continue; }
+      if (cc == '"') { q = !q; continue; }
+      if (cc == ',' && !q) { ++col; continue; }
+      if (cc == '\n' && !q) { ++row; col = 0; continue; }
+      if (cc == '\r' && !q) { ++row; col = 0; continue; }
+      r[row][col] += cc;
+    }
+    return r;
+  }
 </script>
 
 </body>
