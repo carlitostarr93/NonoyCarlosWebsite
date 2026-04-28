@@ -94,6 +94,16 @@
     }
     .nav-pill:hover { background: var(--red-dk); transform: translateY(-1px); }
 
+    /* Selector de idiomas */
+    .lang-switch {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+    }
+    .lang-switch a { transition: color 0.3s ease; text-decoration: none; color: rgba(255,255,255,.55); }
+    .lang-switch a:hover { color: #fff; }
+    .lang-switch a.active { color: var(--red); pointer-events: none; }
+    .lang-switch span { color: rgba(255,255,255,0.2); }
+
     /* Mobile hamburger */
     #hbg { display: none; background: none; border: none; cursor: pointer; color: #fff; }
     #mob-menu {
@@ -127,6 +137,7 @@
       height: 100svh; min-height: 600px;
       overflow: hidden; display: flex;
       align-items: center; justify-content: center;
+      padding-top: 90px; /* <--- CORRECCIÓN DE SOLAPAMIENTO DE MENÚ */
     }
     #hero-video {
       position: absolute; inset: 0; z-index: 0;
@@ -534,23 +545,31 @@
     .test-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
     .test-role { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.5); }
 
-    /* ─── INSTAGRAM CTA ───────────── */
+    /* ─── INSTAGRAM CTA DIVIDIDO ───────────── */
     #ig-cta {
-      padding: 5rem 2rem;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
       background: var(--red);
+    }
+    .ig-col-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5rem 2rem;
+      position: relative;
       text-align: center;
-      position: relative; overflow: hidden;
     }
-    #ig-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent, transparent 40px,
-        rgba(0,0,0,.04) 40px, rgba(0,0,0,.04) 41px
-      );
+    .ig-col-right {
+      flex: 1;
+      background-image: url('https://github.com/carlitostarr93/NonoyCarlosWebsite/blob/main/img/urbandedo.jpg?raw=true');
+      background-size: cover;
+      background-position: top center;
+      min-height: 400px;
     }
-    .ig-inner { position: relative; z-index: 1; }
+
     .ig-label {
       font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
       letter-spacing: .2em; text-transform: uppercase;
@@ -582,17 +601,15 @@
     }
     .ig-btn svg { width: 20px; height: 20px; }
 
-   /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
+    /* MEDIA QUERY PARA LA SECCIÓN DIVIDIDA EN MÓVILES */
     @media (max-width: 768px) {
       #ig-cta {
         flex-direction: column;
       }
-      /* Aseguramos que la columna de texto ocupe el 100% en móvil */
-      #ig-cta > div:nth-child(1) {
+      .ig-col-left {
         width: 100%;
       }
-      /* Ocultamos la columna derecha (la imagen) en móvil */
-      #ig-cta > div:nth-child(2) {
+      .ig-col-right {
         display: none;
       }
     }
@@ -675,13 +692,21 @@
 <body>
 
 <nav id="nav">
-<a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
+  <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="nav-links">
     <a href="#about-strip" class="nav-link">Nosotros</a>
     <a href="#offerings"   class="nav-link">Qué ofrecemos</a>
     <a href="organizers.html" class="nav-link">Organizadores</a>
     <a href="students.html" class="nav-pill">Estudiantes</a>
+    
+    <div class="lang-switch">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="index-en.html" class="text-white/40 hover:text-white">EN</a>
+      <span>|</span>
+      <span class="opacity-20 cursor-not-allowed" title="Próximamente">FR</span>
+    </div>
   </div>
 
   <button id="hbg" aria-label="Menú">
@@ -693,10 +718,17 @@
   <button class="mob-close" id="mob-close" aria-label="Cerrar">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
+
+  <div class="lang-switch" style="margin-bottom: 1.5rem;">
+    <a href="#" class="active" style="font-size: 1rem;">ES</a>
+    <span style="font-size: 1rem;">|</span>
+    <a href="index-en.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">EN</a>
+  </div>
+
   <a href="#about-strip"    class="mob-link" data-close>Nosotros</a>
   <a href="#offerings"      class="mob-link" data-close>Qué ofrecemos</a>
   <a href="#testimonials"   class="mob-link" data-close>Testimonios</a>
-  <a href="organizers.html" class="mob-link" data-close>Organizers</a>
+  <a href="organizers.html" class="mob-link" data-close>Organizadores</a>
   <a href="students.html"   class="mob-link" data-close style="color:var(--red);">Estudiantes →</a>
 </div>
 
@@ -992,9 +1024,9 @@ Con múltiples victorias en competiciones Jack & Jill, son, sin duda, una de las
 </section>
 
 
-<section id="ig-cta" style="padding: 0; display: flex; align-items: stretch; background: var(--red);">
-  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem; position: relative;">
-    <div class="ig-inner" style="text-align: center;">
+<section id="ig-cta">
+  <div class="ig-col-left">
+    <div class="ig-inner">
       <p class="ig-label">Síguenos</p>
       <h2 class="ig-h">Únete a nuestra comunidad</h2>
       <p class="ig-sub">
@@ -1012,8 +1044,7 @@ Con múltiples victorias en competiciones Jack & Jill, son, sin duda, una de las
     </div>
   </div>
 
-  <div style="flex: 1; background-image: url('https://github.com/carlitostarr93/NonoyCarlosWebsite/blob/main/img/urbandedo.jpg?raw=true'); background-size: cover; background-position: top center; min-height: 400px;">
-  </div>
+  <div class="ig-col-right"></div>
 </section>
 
 
