@@ -643,10 +643,10 @@
       <h2 class="sec-title text-4xl md:text-6xl uppercase tracking-tighter" style="color:#fff;">Book Nono &amp;<br/>Carlos</h2>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
       
-      <div class="reveal d1">
-        <form id="epk-form" novalidate>
+      <div class="reveal d1 flex flex-col">
+        <form id="epk-form" novalidate class="h-full flex flex-col">
           <div class="f-row two mb-5">
             <div class="f-group"><label class="f-label">Event Name</label><input type="text" id="ep-event" class="f-input" placeholder="Festival name" required /></div>
             <div class="f-group"><label class="f-label">City &amp; Country</label><input type="text" id="ep-city" class="f-input" placeholder="Paris, France" required /></div>
@@ -655,9 +655,9 @@
             <div class="f-group"><label class="f-label">Proposed Dates</label><input type="text" id="ep-dates" class="f-input" placeholder="Sep 2025" /></div>
             <div class="f-group"><label class="f-label">Your Email</label><input type="email" id="ep-email" class="f-input" placeholder="organizer@festival.com" required /></div>
           </div>
-          <div class="f-group mb-6">
+          <div class="f-group mb-6 flex-grow">
             <label class="f-label">Details</label>
-            <textarea id="ep-msg" class="f-input" placeholder="What are you looking for? (show, workshop...)"></textarea>
+            <textarea id="ep-msg" class="f-input h-full min-h-[130px]" placeholder="What are you looking for? (show, workshop...)"></textarea>
           </div>
           
           <div class="f-group mb-6" style="flex-direction: row; gap: 0.75rem; align-items: flex-start;">
@@ -665,21 +665,17 @@
             <label for="ep-privacy" class="text-xs text-white/40 font-light">I accept the <a href="privacy-policy.html" class="underline text-red">Privacy Policy</a>.</label>
           </div>
           
-          <button type="submit" class="btn-glow w-full py-4 text-sm tracking-[0.2em] flex justify-between px-8 items-center border-0">
+          <button type="submit" class="btn-glow w-full py-4 text-sm tracking-[0.2em] flex justify-between px-8 items-center border-0 mt-auto">
             Send Enquiry <span>→</span>
           </button>
         </form>
       </div>
 
-      <div class="reveal d2 flex flex-col">
-        <div class="relative w-full h-full min-h-[450px] rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]">
+      <div class="reveal d2 h-full">
+        <div class="relative flex flex-col md:flex-row w-full h-full min-h-[450px] md:min-h-full rounded-2xl overflow-hidden border border-white/10 bg-[#0A0A0A]">
           
-          <img src="img/urbandedo-banner.png" alt="Carlos pointing" class="absolute inset-0 w-full h-full object-cover object-right" />
-          
-          <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent z-[2]"></div>
-          
-          <div class="relative z-10 p-8 md:p-12 flex flex-col justify-center h-full w-full md:w-[60%]">
-            <h3 class="text-4xl font-black uppercase tracking-tight mb-2 text-white">Fast Track</h3>
+          <div class="relative z-10 flex flex-col justify-end md:justify-center p-8 md:p-10 h-full w-full md:w-[55%] order-2 md:order-1 mt-auto md:mt-0">
+            <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-2 text-white">Fast Track</h3>
             <p class="text-white/70 text-sm font-light mb-8 leading-relaxed">
               Prefer a faster reply? We manage our own social media and usually reply to professional DMs within a few hours.
             </p>
@@ -688,6 +684,13 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ml-1"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
           </div>
+
+          <div class="absolute md:relative inset-0 md:inset-auto w-full md:w-[45%] h-full order-1 md:order-2">
+            <img src="img/urbandedo.jpg" alt="Carlos pointing" class="w-full h-full object-cover object-right md:object-left" />
+            <div class="hidden md:block absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0A0A0A] to-transparent"></div>
+            <div class="md:hidden absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent"></div>
+          </div>
+          
         </div>
       </div>
 
