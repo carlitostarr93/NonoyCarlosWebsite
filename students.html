@@ -80,6 +80,15 @@
       box-shadow: 0 8px 20px rgba(227,66,66, 0.4); 
     }
 
+    /* Selector de idiomas */
+    .lang-switch {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+    }
+    .lang-switch a { transition: color 0.3s ease; text-decoration: none;}
+    .lang-switch a.active { color: var(--red); pointer-events: none; }
+    .lang-switch span { color: rgba(255,255,255,0.2); }
+
     /* Mobile hamburger */
     #hbg { background: none; border: none; cursor: pointer; color: #fff; }
     #mob-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
@@ -254,6 +263,54 @@
       border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
+    /* ─── INSTAGRAM CTA ───────────── */
+    #ig-cta {
+      padding: 5rem 2rem;
+      background: var(--red);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #ig-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(0,0,0,.04) 40px, rgba(0,0,0,.04) 41px
+      );
+    }
+    .ig-inner { position: relative; z-index: 1; }
+    .ig-label {
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.8); margin-bottom: .75rem;
+    }
+    .ig-h {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900; color: #fff;
+      letter-spacing: -.02em;
+    }
+    .ig-sub {
+      margin-top: .75rem;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300;
+      color: rgba(255,255,255,.9); line-height: 1.7;
+    }
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      margin-top: 2.5rem;
+      background: #fff; color: var(--red);
+      font-size: 0.85rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 1rem 2.5rem; border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ig-btn:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 8px 16px -4px rgba(0,0,0,0.2); 
+    }
+    .ig-btn svg { width: 20px; height: 20px; }
+
     /* ─── FOOTER ──────────────────── */
     footer {
       background: #060606; padding: 4rem 2rem;
@@ -299,12 +356,26 @@
     <a href="#testimonials" class="nav-link">Testimonios</a>
     <a href="#pricing"      class="nav-link">Tarifas</a>
     <a href="#contact"      class="nav-pill">Contáctanos</a>
+    
+    <div class="lang-switch ml-2">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="students-en.html" class="text-white/40 hover:text-white">EN</a>
+    </div>
   </div>
 
-  <button id="hbg" class="md:hidden" aria-label="Menú">
-    <svg id="ico-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    <svg id="ico-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-  </button>
+  <div class="flex items-center gap-4 md:hidden">
+    <div class="lang-switch">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="students-en.html" class="text-white/40 hover:text-white">EN</a>
+    </div>
+
+    <button id="hbg" aria-label="Menú" class="text-white">
+      <svg id="ico-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="ico-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
 </nav>
 
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
