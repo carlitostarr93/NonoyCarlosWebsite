@@ -435,10 +435,11 @@
       padding: 3rem; border: 1px solid rgba(255,255,255,0.05);
     }
     .fast-track-bg {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: top right; /* Empuja a Carlos a la derecha */
-      transform: scale(1.05); transform-origin: top right;
-      opacity: 0.8; z-index: 1; 
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top left;
+  transform: scale(1.05) scaleX(-1);
+  transform-origin: bottom left;
+  opacity: 0.8; z-index: 1; 
     }
     .fast-track-overlay {
       position: absolute; inset: 0;
