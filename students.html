@@ -126,6 +126,7 @@
       font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900; line-height: .95;
       text-transform: uppercase; letter-spacing: -.02em; color: #fff;
       opacity: 0; animation: fadeUp .7s .55s forwards;
+      margin-bottom: 2rem;
     }
     .hero-title em { color: var(--red); font-style: normal; display: block; }
     .hero-tagline {
@@ -133,11 +134,12 @@
       color: rgba(255,255,255,.9); letter-spacing: .02em; line-height: 1.7;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       opacity: 0; animation: fadeUp .7s .7s forwards;
-      margin-bottom: 2rem;
+      margin-bottom: 3.5rem;
     }
     .hero-cta-row {
-      display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
       opacity: 0; animation: fadeUp .7s .9s forwards;
+      margin-top: 0rem;
     }
 
     /* ─── BOTONES Y ETIQUETAS PREMIUM ─── */
@@ -229,7 +231,7 @@
     }
     .test-author { 
       margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.05); 
-      display: flex; align-items: center; text-align: left;
+      display: flex; align-items: center; gap: .75rem; text-align: left;
     }
     .test-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
     .test-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
@@ -258,6 +260,54 @@
       border-radius: 6px; display: block;
       border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
+
+    /* ─── INSTAGRAM CTA (FIXED PREM LAYOUT) ───────────── */
+    #ig-cta {
+      padding: 5rem 2rem;
+      background: var(--ink); /* PREMIUM SOLID INK BK */
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ig-inner { 
+      position: relative; z-index: 1; text-align: left;
+      display: flex; gap: 4rem; align-items: center; justify-content: space-between;
+      width: 100%; max-width: 1200px;
+    }
+    .ig-text-col { flex: 1; }
+    .ig-label {
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.8); margin-bottom: .75rem;
+    }
+    .ig-h {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900; color: #fff;
+      letter-spacing: -.02em;
+    }
+    .ig-sub {
+      margin-top: .75rem;
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300;
+      color: rgba(255,255,255,.9); line-height: 1.7;
+    }
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: .75rem;
+      margin-top: 2.5rem;
+      background: #fff; color: var(--red);
+      font-size: 0.85rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 1rem 2.5rem; border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ig-btn:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 8px 16px -4px rgba(0,0,0,0.2); 
+    }
+    .ig-btn svg { width: 20px; height: 20px; }
+
+    .ig-grid-col { flex: 1; display: grid; grid-cols-2; gap: 1rem; opacity: 0.2; pointer-events: none; }
+    /* Visual visual structures (no new images) */
+    .ig-placeholder { aspect-ratio: 1/1; bg-white/20; rounded: 8px; }
 
     /* ─── FOOTER ──────────────────── */
     footer {
@@ -391,7 +441,7 @@
         </h3>
         
         <p class="text-muted font-light leading-relaxed mb-6" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
-          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la essence de la bachata con la fuerza de lo urbano y la fluidez del bachazouk. 
+          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez del bachazouk. 
         </p>
         <p class="text-muted font-light leading-relaxed mb-10" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
           Como instructores certificados por referentes como Korke & Judith y Masa & Polina, nuestra misión es trasladarte una metodología de élite adaptada a tu ritmo, donde el rigor técnico y el disfrute van de la mano.
@@ -487,7 +537,7 @@
       <div class="red-bar"></div>
       <span class="section-label">Testimonios reales</span>
       <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight" style="letter-spacing: -.02em;">
-        Lo que dicen n <span style="color:var(--red); font-style:italic;">nuestros alumnos</span>
+        Lo que dicen <span style="color:var(--red); font-style:italic;">nuestros alumnos</span>
       </h2>
       <p class="text-muted font-light mt-4" style="font-size: 0.95rem;">Opiniones verificadas en Superprof</p>
     </div>
@@ -495,7 +545,13 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
       <div class="card-premium t-card reveal">
-        <div class="test-stars">★★★★★</div>
+        <div class="test-stars">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
         <div class="mb-6"><span class="badge-student">Alumna · Superprof</span></div>
         <p class="test-text italic">
           Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!
@@ -509,10 +565,16 @@
       </div>
 
       <div class="card-premium t-card reveal" style="transition-delay: 0.1s;">
-        <div class="test-stars">★★★★★</div>
+        <div class="test-stars">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
         <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
         <p class="test-text italic">
-          I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
+          I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’re serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
         </p>
         <div class="test-author mt-auto">
           <div>
@@ -523,7 +585,13 @@
       </div>
 
       <div class="card-premium t-card md:col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.2s;">
-        <div class="test-stars">★★★★★</div>
+        <div class="test-stars">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
         <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
         <p class="test-text italic">
           Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5.
@@ -626,52 +694,98 @@
 </section>
 
 <section id="contact" class="py-24 md:py-32 px-6" style="background:#FAFAFA">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-12 reveal">
+    <div class="text-center mb-16 md:mb-24 reveal">
       <div class="red-bar"></div>
       <span class="section-label">Contacto</span>
-      <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="letter-spacing: -.02em;">
+      <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style="letter-spacing: -.02em;">
         Hablemos y <span style="color:var(--red); font-style:italic;">empecemos a bailar</span>
       </h2>
-      <p class="text-muted font-light leading-relaxed mx-auto max-w-2xl" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
-        ¿Dudas sobre qué nivel es el tuyo? ¿Buscas clases para un evento especial? Escríbenos y te respondemos en menos de 24 horas.
-      </p>
     </div>
 
-    <div class="flex justify-center reveal">
-      <div class="flex items-center gap-4 text-left">
-        <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
-        </div>
-        <div>
-          <p class="font-bold text-ink text-base mb-1">Ubicación</p>
-          <p class="text-muted text-base font-light">Barcelona, España</p>
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div class="reveal">
+        <p class="text-muted font-light leading-relaxed mb-12" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
+          ¿Dudas sobre qué nivel es el tuyo? ¿Buscas clases para un evento especial? Escríbenos y te respondemos en menos de 24 horas.
+        </p>
+
+        <div class="space-y-10">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div class="mt-1">
+              <p class="font-bold text-ink text-base mb-1">Ubicación</p>
+              <p class="text-muted text-base font-light">Barcelona, España</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <div class="mt-1">
+              <p class="font-bold text-ink text-base mb-1">Instagram</p>
+              <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="text-muted text-base font-light hover:text-red-600 transition-colors">
+                @nonoycarlosbachata
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="card-premium p-10 md:p-14 lg:p-16 text-center flex flex-col justify-center h-full reveal d2">
+        <div class="w-20 h-20 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <h3 class="text-ink text-2xl font-bold mb-4" style="letter-spacing: -.02em;">Escríbenos por Instagram</h3>
+        <p class="text-muted font-light mb-10 leading-relaxed" style="font-size: 0.95rem;">La forma más rápida de reservar tu clase o resolver cualquier duda. Te contestaremos al momento.</p>
+        
+        <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="btn-red w-full py-4 text-sm shadow-lg hover:shadow-red-600/30">
+          Enviar Mensaje Directo
+        </a>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <section id="ig-cta">
   <div class="ig-inner reveal">
-    <p class="ig-label">Síguenos</p>
-    <h2 class="ig-h">Únete a nuestra comunidad</h2>
-    <p class="ig-sub">
-      Videos, workshops, eventos y la vida detrás del escenario.<br/>
-      Todo en nuestro Instagram.
-    </p>
-    <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-      @nonoycarlosbachata
-    </a>
+    
+    <div class="ig-text-col">
+      <p class="ig-label">Síguenos</p>
+      <h2 class="ig-h">Únete a nuestra comunidad</h2>
+      <p class="ig-sub">
+        Videos, workshops, eventos y la vida detrás del escenario.<br/>
+        Todo en nuestro Instagram.
+      </p>
+      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @nonoycarlosbachata
+      </a>
+    </div>
+
+    <div class="ig-grid-col md:grid md:grid-cols-2 gap-4">
+      <div class="ig-placeholder bg-white/10 rounded-md aspect-square"></div>
+      <div class="ig-placeholder bg-white/10 rounded-md aspect-square"></div>
+      <div class="ig-placeholder bg-white/10 rounded-md aspect-square"></div>
+      <div class="ig-placeholder bg-white/10 rounded-md aspect-square"></div>
+    </div>
+
   </div>
 </section>
 
