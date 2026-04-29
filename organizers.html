@@ -82,6 +82,7 @@
       position: relative;
       overflow: hidden;
       background: #000;
+      padding-top: 90px; /* <-- CORRECCIÓN DE SOLAPAMIENTO DE MENÚ */
     }
 
     @media (max-width: 767px) {
@@ -573,18 +574,13 @@
 
     /* ─── CERTIFICACIONES ─── */
     .cert-badge {
-      border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
-      background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
-      display: flex; align-items: center; gap: .75rem;
+      border: 1px solid rgba(0,0,0,0.04); border-radius: 14px; padding: 0.75rem 1.25rem;
+      background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03); display: flex; align-items: center; gap: .6rem;
       width: 100%; justify-content: flex-start; text-align: left;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
-      cursor: default;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease; cursor: default;
     }
     @media (min-width: 768px) { .cert-badge { width: auto; } }
-    .cert-badge:hover {
-      transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
-      box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
-    }
+    .cert-badge:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); }
     .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
     .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
@@ -600,15 +596,35 @@
     <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Testimonios</a>
     <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Contratación</a>
     <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="nav-cta">Contáctanos</a>
+    
+    <div class="lang-switch ml-4">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="organizers-en.html" class="text-white/40 hover:text-white">EN</a>
+    </div>
   </div>
 
-  <button id="hbg" class="md:hidden text-white" aria-label="Menu">
-    <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    <svg id="hbg-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-  </button>
+  <div class="flex items-center gap-4 md:hidden">
+    <div class="lang-switch">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="organizers-en.html" class="text-white/40 hover:text-white">EN</a>
+    </div>
+
+    <button id="hbg" class="text-white" aria-label="Menu">
+      <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="hbg-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
 </nav>
 
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
+  <div class="lang-switch" style="margin-bottom: 1.5rem;">
+    <a href="#" class="active" style="font-size: 1rem;">ES</a>
+    <span style="font-size: 1rem;">|</span>
+    <a href="organizers-en.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">EN</a>
+  </div>
+
   <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Nosotros</a>
   <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Eventos</a>
   <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonios</a>
