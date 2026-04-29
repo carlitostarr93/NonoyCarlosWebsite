@@ -1,796 +1,1525 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NonoyCarlos Bachata – Estudiantes</title>
-  <meta name="description" content="Clases de bachata privadas en Barcelona. Metodología certificada por Esencia y Korke & Judith. Packs de horas adaptables a tu nivel." />
+
+  <title>NonoyCarlos Bachata – Students</title>
+
+  <meta name="description" content="Private bachata classes in Barcelona. Certified methodology by Esencia and Korke & Judith. Hour packages adaptable to your level." />
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600&display=swap" rel="stylesheet" />
 
+
+
   <script>
+
     tailwind.config = {
+
       theme: {
+
         extend: {
+
           colors: {
+
             red:       '#E34242',
+
             'red-dk':  '#C42F2F',
+
             ink:       '#0A0A0A',
+
             pale:      '#FAFAFA',
+
             muted:     '#6B6B6B',
+
           },
+
           fontFamily: {
+
             sans: ['Poppins', 'sans-serif'],
+
           },
+
         },
+
       },
+
     };
+
   </script>
 
+
+
   <style>
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { scroll-behavior: smooth; }
+
     body { font-family: 'Poppins', sans-serif; color: #1A1A1A; background: #FAFAFA; overflow-x: hidden; }
 
+
+
     :root {
+
       --red:    #E34242;
+
       --red-dk: #C42F2F;
+
       --ink:    #0A0A0A;
+
       --pale:   #FAFAFA;
+
     }
+
+
 
     /* ─── NAVBAR ──────────────────── */
+
     #nav {
+
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+
       display: flex; align-items: center; justify-content: space-between;
+
       padding: 1.4rem 2rem;
+
       transition: background .4s, backdrop-filter .4s;
+
     }
+
     #nav.scrolled {
+
       background: rgba(10,10,10,.95);
+
       backdrop-filter: blur(16px);
+
       border-bottom: 1px solid rgba(255,255,255,.06);
+
     }
+
     .nav-logo {
+
       font-size: clamp(1rem, 2vw, 1.1rem); font-weight: 800;
+
       letter-spacing: .15em; text-transform: uppercase; color: #fff;
+
       text-decoration: none;
+
     }
+
     .nav-logo span { color: var(--red); }
+
     .nav-link {
+
       font-size: 0.8rem; font-weight: 600;
+
       letter-spacing: .12em; text-transform: uppercase;
+
       color: rgba(255,255,255,.6);
+
       transition: color .2s; text-decoration: none;
+
     }
+
     .nav-link:hover { color: #fff; }
+
     .nav-pill {
+
       font-size: 0.8rem; font-weight: 700;
+
       letter-spacing: .12em; text-transform: uppercase;
+
       color: #fff; background: var(--red);
+
       padding: .5rem 1.2rem; border-radius: 2px;
+
       transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
       text-decoration: none;
+
     }
+
     .nav-pill:hover { 
+
       background: var(--red-dk); 
+
       transform: translateY(-2px);
+
       box-shadow: 0 8px 20px rgba(227,66,66, 0.4); 
+
     }
+
+
 
     /* Selector de idiomas */
+
     .lang-switch {
+
       display: flex; align-items: center; gap: 0.5rem;
+
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+
     }
+
     .lang-switch a { transition: color 0.3s ease; text-decoration: none;}
+
     .lang-switch a.active { color: var(--red); pointer-events: none; }
+
     .lang-switch span { color: rgba(255,255,255,0.2); }
 
+
+
     /* Mobile hamburger */
+
     #hbg { background: none; border: none; cursor: pointer; color: #fff; }
+
     #mob-menu { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .3s ease, opacity .3s ease; }
+
     #mob-menu.open { max-height: 320px; opacity: 1; }
 
+
+
     /* ─── HERO CINEMÁTICO ─────────── */
+
     #hero {
+
       position: relative; height: 100svh; min-height: 600px;
+
       overflow: hidden; display: flex; align-items: center; justify-content: center;
+
       background: #000;
-      padding-top: 90px;
+
+      padding-top: 90px; /* <-- CORRECCIÓN DE SOLAPAMIENTO DE MENÚ */
+
     }
+
     #hero-video {
+
       position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%;
+
       object-fit: cover; 
+
       object-position: center 10%;
+
       opacity: .4; pointer-events: none;
+
     }
+
     .hero-overlay {
+
       position: absolute; inset: 0; z-index: 1;
+
       background: radial-gradient(ellipse at center bottom, rgba(227,66,66,.12) 0%, rgba(0,0,0,0) 60%),
+
                   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.8) 100%);
+
     }
+
     .hero-inner {
+
       position: relative; z-index: 2; text-align: center; padding: 0 1.5rem; max-width: 900px;
+
     }
+
     .hero-eyebrow {
+
       font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+
       letter-spacing: .2em; text-transform: uppercase;
+
       color: var(--red); margin-bottom: 1.25rem;
+
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+
       opacity: 0; animation: fadeUp .6s .4s forwards;
+
     }
+
     .hero-title {
+
       font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900; line-height: .95;
+
       text-transform: uppercase; letter-spacing: -.02em; color: #fff;
+
       opacity: 0; animation: fadeUp .7s .55s forwards;
+
     }
+
     .hero-title em { color: var(--red); font-style: normal; display: block; }
+
     .hero-tagline {
+
       margin-top: 1.5rem; font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 300;
+
       color: rgba(255,255,255,.9); letter-spacing: .02em; line-height: 1.7;
+
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+
       opacity: 0; animation: fadeUp .7s .7s forwards;
+
     }
+
     .hero-cta-row {
+
       display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;
+
       opacity: 0; animation: fadeUp .7s .9s forwards;
+
     }
+
+
 
     /* ─── BOTONES Y ETIQUETAS PREMIUM ─── */
+
     .btn-red {
+
       display: inline-flex; justify-content: center; align-items: center;
+
       background: var(--red); color: #fff;
+
       padding: .85rem 2.25rem; border-radius: 4px;
+
       font-size: 0.85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+
       transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
     }
+
     .btn-red:hover { 
+
       background: var(--red-dk); 
+
       transform: translateY(-3px); 
+
       box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); 
+
     }
+
     .btn-ghost {
+
       display: inline-flex; justify-content: center; align-items: center;
+
       border: 1.5px solid rgba(255,255,255,.4); color: #fff;
+
       padding: .83rem 2.25rem; border-radius: 4px;
+
       font-size: 0.85rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+
       transition: border-color .2s, background .2s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
     }
+
     .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
 
+
+
     .section-label {
+
       display: block; font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
+
       letter-spacing: .2em; text-transform: uppercase;
+
       color: var(--red); margin-bottom: .75rem;
+
     }
+
     .red-bar { width: 40px; height: 3px; background: var(--red); margin: 0 auto 1.25rem; }
 
+
+
     /* ─── TARJETAS APPLE STYLE (Claras) ─── */
+
     .card-premium {
+
       background: #fff; border: 1px solid rgba(0,0,0,0.04); border-radius: 24px;
+
       box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
+
     }
+
     .card-premium:hover { 
+
       transform: translateY(-8px); border-color: rgba(0,0,0,0.08);
+
       box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); 
+
     }
+
+
 
     /* ── CERT BADGE APPLE ── */
+
     .cert-badge {
+
       border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem;
+
       background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03);
+
       display: flex; align-items: center; gap: .75rem;
+
       width: 100%; justify-content: flex-start; text-align: left;
+
       transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+
       cursor: default;
+
     }
+
     @media (min-width: 768px) { .cert-badge { width: auto; } }
+
     .cert-badge:hover {
+
       transform: translateY(-4px); border-color: rgba(0,0,0,0.08);
+
       box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06);
+
     }
+
     .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+
     .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
 
+
+
     /* ── PRICE CARD ── */
+
     .p-card {
+
       padding: 2.5rem 2rem; display: flex; flex-direction: column; height: 100%;
-    }
-    .p-card.featured {
-      border: 2px solid rgba(227,66,66,0.3);
-      box-shadow: 0 16px 40px rgba(227,66,66,0.08);
-    }
-    .p-card.featured:hover {
-      border-color: var(--red);
-      box-shadow: 0 32px 64px -12px rgba(227,66,66,0.25), 0 16px 32px -8px rgba(227,66,66,0.15);
-    }
-    .popular-badge {
-      background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      padding: .35rem 1rem; border-radius: 20px;
+
     }
 
-    /* ── TESTIMONIAL CARDS ── */
+    .p-card.featured {
+
+      border: 2px solid rgba(227,66,66,0.3);
+
+      box-shadow: 0 16px 40px rgba(227,66,66,0.08);
+
+    }
+
+    .p-card.featured:hover {
+
+      border-color: var(--red);
+
+      box-shadow: 0 32px 64px -12px rgba(227,66,66,0.25), 0 16px 32px -8px rgba(227,66,66,0.15);
+
+    }
+
+    .popular-badge {
+
+      background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700;
+
+      letter-spacing: .12em; text-transform: uppercase;
+
+      padding: .35rem 1rem; border-radius: 20px;
+
+    }
+
+
+
+    /* ── TESTIMONIAL CARDS (RESTORED) ── */
+
     .t-card {
+
       display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden;
+
     }
+
+    .test-quote {
+
+      font-size: 3.5rem; line-height: 1;
+
+      color: var(--red); opacity: .15;
+
+      font-family: Georgia, serif;
+
+      position: absolute; top: 1rem; left: 1.5rem;
+
+      pointer-events: none;
+
+    }
+
+    .test-stars { color: var(--red); font-size: 1rem; letter-spacing: 2px; margin-bottom: .75rem; }
+
     .test-text {
+
       font-size: 0.95rem; font-weight: 300;
+
       line-height: 1.8; color: #444; 
+
       position: relative; z-index: 1;
+
       flex-grow: 1;
+
     }
+
     .test-author { 
+
       margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.05); 
+
       display: flex; align-items: center; gap: .75rem; 
+
     }
+
     .test-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+
     .test-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
 
+
+
     .badge-student {
+
       display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
+
       font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+
       background: rgba(227,66,66,.15); color: var(--red);
+
       border: 1px solid rgba(227,66,66,.2); padding: .25rem .75rem; border-radius: 4px;
+
     }
+
+    
+
+    .badge-organizer {
+
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
+
+      font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+
+      background: rgba(212, 175, 55, 0.12); color: #D4AF37;
+
+      border: 1px solid rgba(212, 175, 55, 0.25); padding: .25rem .75rem; border-radius: 4px;
+
+    }
+
+
 
     /* ─── ABOUT IMG PERFECT SQUARE ─── */
+
     .about-img-wrap {
+
       position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto;
-    }
-    .about-img-wrap img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-      border-radius: 6px; display: block;
-      border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+
     }
 
-    /* ─── INSTAGRAM CTA ───────────── */
-    #ig-cta {
-      padding: 5rem 2rem;
-      background: var(--red);
-      text-align: center;
-      position: relative; overflow: hidden;
+    .about-img-wrap img {
+
+      position: absolute; inset: 0; width: 100%; height: 100%;
+
+      object-fit: cover; object-position: center top;
+
+      border-radius: 6px; display: block;
+
+      border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+
     }
-    #ig-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent, transparent 40px,
-        rgba(0,0,0,.04) 40px, rgba(0,0,0,.04) 41px
-      );
-    }
-    .ig-inner { position: relative; z-index: 1; }
-    .ig-label {
-      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.8); margin-bottom: .75rem;
-    }
-    .ig-h {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 900; color: #fff;
-      letter-spacing: -.02em;
-    }
-    .ig-sub {
-      margin-top: .75rem;
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300;
-      color: rgba(255,255,255,.9); line-height: 1.7;
-    }
-    .ig-btn {
-      display: inline-flex; align-items: center; gap: .75rem;
-      margin-top: 2.5rem;
-      background: #fff; color: var(--red);
-      font-size: 0.85rem; font-weight: 800;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: 1rem 2.5rem; border-radius: 4px;
-      text-decoration: none;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .ig-btn:hover { 
-      transform: translateY(-4px); 
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 8px 16px -4px rgba(0,0,0,0.2); 
-    }
-    .ig-btn svg { width: 20px; height: 20px; }
+
+
 
     /* ─── FOOTER ──────────────────── */
+
     footer {
+
       background: #060606; padding: 4rem 2rem;
+
       border-top: 1px solid rgba(255,255,255,.05);
+
     }
+
     .foot-inner {
+
       max-width: 1200px; margin: 0 auto;
+
       display: flex; flex-direction: column;
+
       align-items: center; gap: 1.5rem;
+
       text-align: center;
+
     }
+
     @media(min-width:768px) {
+
       .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+
     }
+
     .foot-logo { font-size: 1rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: #fff; }
+
     .foot-logo span { color: var(--red); }
+
     .foot-nav { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+
     .foot-link {
+
       font-size: 0.8rem; font-weight: 500;
+
       letter-spacing: .1em; text-transform: uppercase;
+
       color: rgba(255,255,255,.5); text-decoration: none;
+
       transition: color .2s;
+
     }
+
     .foot-link:hover { color: var(--red); }
+
     .foot-copy {
+
       font-size: 0.8rem; font-weight: 300;
+
       color: rgba(255,255,255,.4);
+
     }
+
+
 
     /* ─── ANIMATIONS ─── */
+
     .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+
     .reveal.in { opacity: 1; transform: translateY(0); }
+
     @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+
   </style>
+
 </head>
+
 <body>
 
+
+
 <nav id="nav">
-  <a href="index.html" class="nav-logo">Nono <span>&</span> Carlos</a>
+
+  <a href="index-en.html" class="nav-logo">Nono <span>&</span> Carlos</a>
+
+
 
   <div class="hidden md:flex items-center gap-6">
-    <a href="#about"        class="nav-link">Nosotros</a>
-    <a href="#testimonials" class="nav-link">Testimonios</a>
-    <a href="#pricing"      class="nav-link">Tarifas</a>
-    <a href="#contact"      class="nav-pill">Contáctanos</a>
-    
+
+    <a href="#about"        class="nav-link">About Us</a>
+
+    <a href="#testimonials" class="nav-link">Testimonials</a>
+
+    <a href="#pricing"      class="nav-link">Rates</a>
+
+    <a href="#contact"      class="nav-pill">Contact Us</a>
+
+
+
     <div class="lang-switch ml-4">
-      <a href="#" class="active">ES</a>
+
+      <a href="students.html" class="text-white/40 hover:text-white">ES</a>
+
       <span>|</span>
-      <a href="students-en.html" class="text-white/40 hover:text-white">EN</a>
+
+      <a href="#" class="active">EN</a>
+
     </div>
+
   </div>
+
+
 
   <div class="flex items-center gap-4 md:hidden">
+
     <div class="lang-switch">
-      <a href="#" class="active">ES</a>
+
+      <a href="students.html" class="text-white/40 hover:text-white">ES</a>
+
       <span>|</span>
-      <a href="students-en.html" class="text-white/40 hover:text-white">EN</a>
+
+      <a href="#" class="active">EN</a>
+
     </div>
+
+
 
     <button id="hbg" class="text-white" aria-label="Menu">
+
       <svg id="ico-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
       <svg id="ico-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+
     </button>
+
   </div>
+
 </nav>
 
+
+
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
+
   <div class="lang-switch" style="margin-bottom: 1.5rem;">
-    <a href="#" class="active" style="font-size: 1rem;">ES</a>
+
+    <a href="students.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">ES</a>
+
     <span style="font-size: 1rem;">|</span>
-    <a href="students-en.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">EN</a>
+
+    <a href="#" class="active" style="font-size: 1rem;">EN</a>
+
   </div>
 
-  <a href="#about"        class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Nosotros</a>
-  <a href="#testimonials" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonios</a>
-  <a href="#pricing"      class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Tarifas</a>
-  <a href="#contact"      class="block mt-3 text-center nav-pill w-full">Contáctanos</a>
+
+
+  <a href="#about"        class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">About Us</a>
+
+  <a href="#testimonials" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonials</a>
+
+  <a href="#pricing"      class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Rates</a>
+
+  <a href="#contact"      class="block mt-3 text-center nav-pill w-full">Contact Us</a>
+
 </div>
 
+
+
 <section id="hero">
+
   <video id="hero-video" autoplay muted loop playsinline preload="auto"
+
     src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4">
+
   </video>
+
   <div class="hero-overlay"></div>
 
+
+
   <div class="hero-inner">
+
     <p class="hero-eyebrow">Urban Bachata · Sensual &amp; Bachazouk</p>
 
+
+
     <h1 class="hero-title">
-      Lleva tu Bachata<br/>
-      <em>al siguiente nivel</em>
+
+      Take your Bachata<br/>
+
+      <em>to the next level</em>
+
     </h1>
 
+
+
     <p class="hero-tagline">
-      Artistas y profesores de Barcelona certificados con una metodología profesional y cercana.
+
+      Certified artists and teachers from Barcelona with a professional and close methodology.
+
     </p>
 
+
+
     <div class="hero-cta-row">
-      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="btn-red">Descúbrenos</a>
-      <a href="#pricing" class="btn-ghost">Nuestras tarifas</a>
+
+      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="btn-red">Discover Us</a>
+
+      <a href="#pricing" class="btn-ghost">Our Rates</a>
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <section id="about" class="py-24 md:py-32 px-6 bg-white">
+
   <div class="max-w-6xl mx-auto">
+
+
 
     <div class="text-center mb-16 md:mb-24 reveal">
+
       <div class="red-bar"></div>
-      <span class="section-label">Quiénes somos</span>
+
+      <span class="section-label">Who we are</span>
+
       <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5" style="letter-spacing: -.02em;">
-        Pasión, técnica<br/><span style="color:var(--red); font-style:italic;">y corazón</span>
+
+        Passion, technique<br/><span style="color:var(--red); font-style:italic;">and heart</span>
+
       </h2>
+
       <p class="text-muted font-light max-w-2xl mx-auto leading-relaxed" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
-        NonoyCarlos Bachata nació de la unión de dos artistas con una sola misión:<br class="hidden md:block"/>
-        transmitir el alma de la bachata con rigor, autenticidad y mucho feeling.
+
+        NonoyCarlos Bachata was born from the union of two artists with a single mission:<br class="hidden md:block"/>
+
+        to transmit the soul of bachata with rigor, authenticity, and a lot of feeling.
+
       </p>
+
     </div>
+
+
 
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+
       <div class="about-img-wrap reveal">
-        <img src="https://i.imgur.com/qfAEP8J.jpeg" alt="Nonoy y Carlos Bachata" loading="lazy">
+
+        <img src="https://i.imgur.com/qfAEP8J.jpeg" alt="Nonoy and Carlos Bachata" loading="lazy">
+
       </div>
+
+
 
       <div class="reveal">
+
         <h3 class="text-3xl lg:text-4xl font-bold text-ink leading-snug mb-6" style="letter-spacing: -.02em;">
-          Nuestra Pasión por la Fusión <br/>
-          <span class="font-light italic text-xl lg:text-2xl" style="color:var(--red);">una base sólida que fusiona estilos</span>
+
+          Our Passion for Fusion <br/>
+
+          <span class="font-light italic text-xl lg:text-2xl" style="color:var(--red);">a solid base that fuses styles</span>
+
         </h3>
+
         
+
         <p class="text-muted font-light leading-relaxed mb-6" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
-          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez del bachazouk. 
+
+          Our proposal stems from over a decade of dancing and an international career touring workshops and stages as a professional couple. We have designed our own style that merges the essence of bachata with the strength of urban dance and the fluidity of bachazouk. 
+
         </p>
+
         <p class="text-muted font-light leading-relaxed mb-10" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
-          Como instructores certificados por referentes como Korke & Judith y Masa & Polina, nuestra misión es trasladarte una metodología de élite adaptada a tu ritmo, donde el rigor técnico y el disfrute van de la mano.
+
+          As certified instructors by referents like Korke & Judith and Masa & Polina, our mission is to provide an elite methodology adapted to your pace, where technical rigor and enjoyment go hand in hand.
+
         </p>
+
+
 
         <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-100">
+
           <div class="text-center">
+
             <p class="text-4xl font-bold" style="color:var(--red);">10+</p>
-            <p class="text-xs text-muted mt-2 uppercase tracking-widest font-bold">Años</p>
+
+            <p class="text-xs text-muted mt-2 uppercase tracking-widest font-bold">Years</p>
+
           </div>
+
           <div class="text-center border-x border-gray-100">
+
             <p class="text-4xl font-bold" style="color:var(--red);">500+</p>
-            <p class="text-xs text-muted mt-2 uppercase tracking-widest font-bold">Alumnos</p>
+
+            <p class="text-xs text-muted mt-2 uppercase tracking-widest font-bold">Students</p>
+
           </div>
+
           <div class="text-center">
+
             <p class="text-4xl font-bold" style="color:var(--red);">BCN</p>
+
             <p class="text-xs text-muted mt-2 uppercase tracking-widest font-bold">Base</p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
+
 
     <div class="mb-24 reveal">
-      <p class="text-center section-label mb-8">Certificaciones Oficiales</p>
+
+      <p class="text-center section-label mb-8">Official Certifications</p>
+
       <div class="flex flex-col md:flex-row flex-wrap justify-center gap-4 lg:gap-8">
+
         
+
         <div class="cert-badge">
+
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+
           <div>
+
             <p class="cert-title">Esencia Bachata Method</p>
-            <p class="cert-sub">Certificación oficial</p>
+
+            <p class="cert-sub">by Gero &amp; Migle Marco &amp; Sara</p>
+
           </div>
+
         </div>
+
         
+
         <div class="cert-badge">
+
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+
           <div>
-            <p class="cert-title">Korke &amp; Judith</p>
-            <p class="cert-sub">Bachata Sensual lvl 1</p>
+
+            <p class="cert-title">Bachata Sensual Lvl 1</p>
+
+            <p class="cert-sub">by Korke &amp; Judith</p>
+
           </div>
+
         </div>
+
         
+
         <div class="cert-badge">
+
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
+
           <div>
-            <p class="cert-title">Bachazouk</p>
-            <p class="cert-sub">Masa &amp; Polina</p>
+
+            <p class="cert-title">Bachazouk Teachers Course</p>
+
+            <p class="cert-sub">by Masa &amp; Polina</p>
+
           </div>
+
         </div>
+
         
+
       </div>
+
     </div>
+
+
 
     <div class="grid md:grid-cols-3 gap-6 lg:gap-10">
+
       <div class="text-center p-8 lg:p-10 card-premium reveal">
+
         <div class="w-14 h-14 rounded-lg bg-red-50 flex items-center justify-center mx-auto mb-6">
+
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" style="color:var(--red);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+
           </svg>
+
         </div>
-        <h4 class="font-bold text-ink text-lg mb-3">Metodología Certificada</h4>
-        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">Programa estructurado y progresivo que garantiza avances reales desde el primer día.</p>
+
+        <h4 class="font-bold text-ink text-lg mb-3">Certified Methodology</h4>
+
+        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">Structured and progressive program that guarantees real progress from day one.</p>
+
       </div>
+
       
+
       <div class="text-center p-8 lg:p-10 card-premium reveal" style="transition-delay: 0.1s;">
+
         <div class="w-14 h-14 rounded-lg bg-red-50 flex items-center justify-center mx-auto mb-6">
+
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" style="color:var(--red);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+
           </svg>
+
         </div>
-        <h4 class="font-bold text-ink text-lg mb-3">Trato Cercano</h4>
-        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">Un ambiente cálido y familiar donde aprender es sinónimo de disfrutar sin presiones.</p>
+
+        <h4 class="font-bold text-ink text-lg mb-3">Close Approach</h4>
+
+        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">A warm and familiar environment where learning means enjoying without pressure.</p>
+
       </div>
+
       
+
       <div class="text-center p-8 lg:p-10 card-premium reveal" style="transition-delay: 0.2s;">
+
         <div class="w-14 h-14 rounded-lg bg-red-50 flex items-center justify-center mx-auto mb-6">
+
           <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" style="color:var(--red);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+
           </svg>
+
         </div>
-        <h4 class="font-bold text-ink text-lg mb-3">Progresión Real</h4>
-        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">Seguimiento individualizado de cada alumno para maximizar su evolución semana a semana.</p>
+
+        <h4 class="font-bold text-ink text-lg mb-3">Real Progression</h4>
+
+        <p class="text-muted font-light leading-relaxed" style="font-size: 0.95rem;">Individualized tracking of each student to maximize their evolution week by week.</p>
+
       </div>
+
     </div>
+
+
 
   </div>
+
 </section>
 
+
+
 <section id="testimonials" class="py-24 md:py-32 px-6" style="background:#FAFAFA">
+
   <div class="max-w-6xl mx-auto">
 
+
+
     <div class="text-center mb-16 md:mb-20 reveal">
+
       <div class="red-bar"></div>
-      <span class="section-label">Testimonios reales</span>
+
+      <span class="section-label">Real testimonials</span>
+
       <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight" style="letter-spacing: -.02em;">
-        Lo que dicen <span style="color:var(--red); font-style:italic;">nuestros alumnos</span>
+
+        What our <span style="color:var(--red); font-style:italic;">students say</span>
+
       </h2>
-      <p class="text-muted font-light mt-4" style="font-size: 0.95rem;">Opiniones verificadas en Superprof</p>
+
+      <p class="text-muted font-light mt-4" style="font-size: 0.95rem;">Verified reviews on Superprof</p>
+
     </div>
+
+
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
+
+
       <div class="card-premium t-card reveal">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumna · Superprof</span></div>
+
+        <div class="test-quote">"</div>
+
+        <div class="test-stars">★★★★★</div>
+
+        <div class="mb-6"><span class="badge-student">Student · Superprof</span></div>
+
         <p class="test-text italic">
-          Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!
+
+          "Carlos is an excellent teacher. He adapts perfectly to my level and explains in a very clear and close way. I learn something new every class and always leave wanting to dance more. Highly recommended!"
+
         </p>
+
         <div class="test-author mt-auto">
+
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">J</div>
+
           <div>
+
             <p class="test-name">Jennifer</p>
-            <p class="test-role">Alumna de clases privadas</p>
+
+            <p class="test-role">Private class student</p>
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <div class="card-premium t-card reveal" style="transition-delay: 0.1s;">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
+
+        <div class="test-quote">"</div>
+
+        <div class="test-stars">★★★★★</div>
+
+        <div class="mb-6"><span class="badge-student">Student · Superprof</span></div>
+
         <p class="test-text italic">
-          I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’re serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
+
+          "I've only had a few classes with Carlos and I already notice a huge improvement. He is very patient, explains the movements step by step and creates a very pleasant atmosphere. I will definitely continue with him."
+
         </p>
+
         <div class="test-author mt-auto">
+
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">A</div>
+
           <div>
+
             <p class="test-name">Alhareth</p>
-            <p class="test-role">Alumno de clases privadas</p>
+
+            <p class="test-role">Private class student</p>
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <div class="card-premium t-card md:col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.2s;">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
+
+        <div class="test-quote">"</div>
+
+        <div class="test-stars">★★★★★</div>
+
+        <div class="mb-6"><span class="badge-student">Student · Superprof</span></div>
+
         <p class="test-text italic">
-          Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5.
+
+          "Very dynamic and fun classes. Carlos really cares that you learn the technique well without losing the playful part of the dance. I totally recommend him for any level."
+
         </p>
+
         <div class="test-author mt-auto">
+
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 font-bold text-base flex-shrink-0">M</div>
+
           <div>
+
             <p class="test-name">Maxi</p>
-            <p class="test-role">Alumno de clases privadas</p>
+
+            <p class="test-role">Private class student</p>
+
           </div>
+
         </div>
+
       </div>
 
+
+
     </div>
+
   </div>
+
 </section>
 
+
+
 <section id="pricing" class="py-24 md:py-32 px-6 bg-white">
+
   <div class="max-w-6xl mx-auto">
 
+
+
     <div class="text-center mb-16 md:mb-20 reveal">
+
       <div class="red-bar"></div>
-      <span class="section-label">Tarifas</span>
+
+      <span class="section-label">Rates</span>
+
       <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight mb-5" style="letter-spacing: -.02em;">
-        Encuentra tu <span style="color:var(--red); font-style:italic;">plan ideal</span>
+
+        Find your <span style="color:var(--red); font-style:italic;">ideal plan</span>
+
       </h2>
+
       <p class="text-muted font-light max-w-xl mx-auto" style="font-size: 0.95rem;">
-        Clases diseñadas para todos los niveles y ritmos de vida.<br class="hidden md:block"/>Sin permanencia, sin letra pequeña.
+
+        Classes designed for all levels and lifestyles.<br class="hidden md:block"/>No commitments, no hidden terms.
+
       </p>
+
     </div>
+
+
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
+
+
       <div class="card-premium p-card reveal">
+
         <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Individual</p>
+
         <div class="flex items-end gap-1 mb-2">
+
           <span class="text-5xl lg:text-6xl font-bold text-ink">60</span>
+
           <span class="text-2xl text-muted mb-1">€</span>
+
         </div>
-        <p class="text-muted text-sm font-light mb-8">por hora</p>
+
+        <p class="text-muted text-sm font-light mb-8">per hour</p>
+
         <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Clase privada 1 a 1</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Horario flexible</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Todos los niveles</li>
-          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Descuento por pack</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 1 on 1 private class</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Flexible schedule</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> All levels</li>
+
+          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Package discount</li>
+
         </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
+
+        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Book</a>
+
       </div>
+
+
 
       <div class="card-premium p-card reveal" style="transition-delay: 0.1s;">
-        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Pareja</p>
+
+        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Couple</p>
+
         <div class="flex items-end gap-1 mb-2">
+
           <span class="text-5xl lg:text-6xl font-bold text-ink">90</span>
+
           <span class="text-2xl text-muted mb-1">€</span>
+
         </div>
-        <p class="text-muted text-sm font-light mb-8">por hora</p>
+
+        <p class="text-muted text-sm font-light mb-8">per hour</p>
+
         <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Clase para 2 personas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Dinámica de pareja</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Horario flexible</li>
-          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Descuento por pack</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Class for 2 people</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Couple dynamics</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Flexible schedule</li>
+
+          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Package discount</li>
+
         </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
+
+        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Book</a>
+
       </div>
+
+
 
       <div class="card-premium p-card featured relative transform md:-translate-y-4 reveal" style="transition-delay: 0.2s;">
-        <span class="popular-badge absolute -top-3 right-5 md:right-8">Más popular</span>
-        <p class="font-bold tracking-widest uppercase mb-6" style="color:var(--red); font-size: 0.75rem;">Pack 5 horas</p>
+
+        <span class="popular-badge absolute -top-3 right-5 md:right-8">Most popular</span>
+
+        <p class="font-bold tracking-widest uppercase mb-6" style="color:var(--red); font-size: 0.75rem;">5 hours pack</p>
+
         <div class="flex items-end gap-1 mb-2">
+
           <span class="text-5xl lg:text-6xl font-bold text-ink">250</span>
+
           <span class="text-2xl text-muted mb-1">€</span>
+
         </div>
+
         <p class="text-muted text-sm font-light mb-8">pack · <span class="font-bold" style="color:var(--red);">50 €/h</span></p>
+
         <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 5 clases privadas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Ahorra 50 € vs. sueltas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Seguimiento detallado</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Validez 3 meses</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 5 private classes</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Save 50 € vs. single classes</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Detailed tracking</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Valid for 3 months</li>
+
         </ul>
-        <a href="#contact" class="block w-full text-center py-3 text-white text-sm font-bold tracking-widest uppercase rounded mt-auto shadow-md transition" style="background:var(--red);">Empezar ahora</a>
+
+        <a href="#contact" class="block w-full text-center py-3 text-white text-sm font-bold tracking-widest uppercase rounded mt-auto shadow-md transition" style="background:var(--red);">Start now</a>
+
       </div>
+
+
 
       <div class="card-premium p-card reveal" style="transition-delay: 0.3s;">
-        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Pack 10 horas</p>
+
+        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">10 hours pack</p>
+
         <div class="flex items-end gap-1 mb-2">
+
           <span class="text-5xl lg:text-6xl font-bold text-ink">500</span>
+
           <span class="text-2xl text-muted mb-1">€</span>
+
         </div>
+
         <p class="text-muted text-sm font-light mb-8">pack · <span class="font-bold" style="color:var(--red);">50 €/h</span></p>
+
         <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 10 clases privadas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Ahorra 100 € vs. sueltas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Plan de progresión</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Validez 6 meses</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 10 private classes</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Save 100 € vs. single classes</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Progression plan</li>
+
+          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Valid for 6 months</li>
+
         </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
+
+        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Book</a>
+
       </div>
 
+
+
     </div>
+
   </div>
+
 </section>
+
+
 
 <section id="contact" class="py-24 md:py-32 px-6" style="background:#FAFAFA">
-  <div class="max-w-4xl mx-auto">
 
-    <div class="text-center mb-12 reveal">
+  <div class="max-w-6xl mx-auto">
+
+
+
+    <div class="text-center mb-16 md:mb-24 reveal">
+
       <div class="red-bar"></div>
-      <span class="section-label">Contacto</span>
-      <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="letter-spacing: -.02em;">
-        Hablemos y <span style="color:var(--red); font-style:italic;">empecemos a bailar</span>
+
+      <span class="section-label">Contact</span>
+
+      <h2 class="text-ink text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style="letter-spacing: -.02em;">
+
+        Let's talk and <span style="color:var(--red); font-style:italic;">start dancing</span>
+
       </h2>
-      <p class="text-muted font-light leading-relaxed mx-auto max-w-2xl" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
-        ¿Dudas sobre qué nivel es el tuyo? ¿Buscas clases para un evento especial? Escríbenos y te respondemos en menos de 24 horas.
-      </p>
+
     </div>
 
-    <div class="flex justify-center reveal">
-      <div class="flex items-center gap-4 text-left">
-        <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
+
+
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+      <div class="reveal">
+
+        <p class="text-muted font-light leading-relaxed mb-12" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
+
+          Doubts about your level? Looking for classes for a special event? Write to us and we will reply in less than 24 hours.
+
+        </p>
+
+
+
+        <div class="space-y-10">
+
+          <div class="flex items-start gap-5">
+
+            <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-1">
+
+              <p class="font-bold text-ink text-base mb-1">Location</p>
+
+              <p class="text-muted text-base font-light">Barcelona, Spain</p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="flex items-start gap-5">
+
+            <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0">
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+
+                <circle cx="12" cy="12" r="4" stroke-width="2"/>
+
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+
+              </svg>
+
+            </div>
+
+            <div class="mt-1">
+
+              <p class="font-bold text-ink text-base mb-1">Instagram</p>
+
+              <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="text-muted text-base font-light hover:text-red-600 transition-colors">
+
+                @nonoycarlosbachata
+
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
-        <div>
-          <p class="font-bold text-ink text-base mb-1">Ubicación</p>
-          <p class="text-muted text-base font-light">Barcelona, España</p>
-        </div>
+
       </div>
+
+
+
+      <div class="card-premium p-10 md:p-14 lg:p-16 text-center flex flex-col justify-center h-full reveal d2">
+
+        <div class="w-20 h-20 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-6">
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="text-ink text-2xl font-bold mb-4" style="letter-spacing: -.02em;">Write us on Instagram</h3>
+
+        <p class="text-muted font-light mb-10 leading-relaxed" style="font-size: 0.95rem;">The fastest way to book your class or resolve any doubts. We will answer you right away.</p>
+
+        
+
+        <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="btn-red w-full py-4 text-sm shadow-lg hover:shadow-red-600/30">
+
+          Send Direct Message
+
+        </a>
+
+      </div>
+
+
+
     </div>
 
   </div>
+
 </section>
 
-<section id="ig-cta">
-  <div class="ig-inner reveal">
-    <p class="ig-label">Síguenos</p>
-    <h2 class="ig-h">Únete a nuestra comunidad</h2>
-    <p class="ig-sub">
-      Videos, workshops, eventos y la vida detrás del escenario.<br/>
-      Todo en nuestro Instagram.
-    </p>
-    <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-      @nonoycarlosbachata
-    </a>
+
+
+<footer style="background:#0A0A0A" class="py-16 px-6">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+      <a href="index-en.html" class="text-white font-semibold tracking-wide" style="font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase;">
+
+        Nono<span style="color:var(--red)">&</span>Carlos
+
+      </a>
+
+      <div class="flex flex-wrap justify-center md:justify-end items-center gap-8">
+
+        <a href="index-en.html#about-strip"    class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">About Us</a>
+
+        <a href="index-en.html#offerings"      class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Offerings</a>
+
+        <a href="organizers-en.html" class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Organizers</a>
+
+        <a href="students-en.html"   class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Students</a>
+
+        <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="text-white/45 text-xs tracking-widest uppercase hover:text-white transition-colors font-semibold">Instagram</a>
+
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8 text-center flex flex-col items-center gap-4">
+
+      <div class="flex gap-4 text-[0.65rem] text-white/30 uppercase tracking-widest justify-center">
+
+        <a href="legal-notice.html" class="hover:text-white transition-colors">Legal Notice</a>
+
+        <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+
+        <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookie Policy</a>
+
+      </div>
+
+      <p class="text-white/25 text-xs font-light">© 2026 NonoyCarlos Bachata · Barcelona · All rights reserved</p>
+
+    </div>
+
   </div>
-</section>
 
-<footer>
-  <div class="foot-inner">
-
-    <div>
-      <div class="foot-logo">Nono <span>&</span> Carlos</div>
-      <p class="foot-copy" style="margin-top:.4rem;">Barcelona · International Bachata Artists</p>
-    </div>
-
-    <nav class="foot-nav">
-      <a href="index.html#about-strip"    class="foot-link">Nosotros</a>
-      <a href="index.html#offerings"      class="foot-link">Qué ofrecemos</a>
-      <a href="organizers.html" class="foot-link">Organizadores</a>
-      <a href="students.html"   class="foot-link">Estudiantes</a>
-      <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="foot-link">Instagram</a>
-    </nav>
-    
-    <div class="flex gap-4 text-[0.65rem] text-white/30 uppercase tracking-widest mt-4 md:mt-0 justify-center">
-      <a href="legal-notice.html" class="hover:text-white transition-colors">Aviso Legal</a>
-      <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacidad</a>
-      <a href="cookie-policy.html" class="hover:text-white transition-colors">Cookies</a>
-    </div>
-
-    <div>
-      <p class="foot-copy" style="margin-top:.3rem;">© 2026 Todos los derechos reservados</p>
-    </div>
-
-  </div>
 </footer>
 
+
+
 <script>
+
   /* Navbar scroll */
+
   const nav = document.getElementById('nav');
+
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
+
+
   /* Mobile menu */
+
   const hbg = document.getElementById('hbg');
+
   const mob = document.getElementById('mob-menu');
+
   const io  = document.getElementById('ico-open');
+
   const ic  = document.getElementById('ico-close');
+
   hbg.addEventListener('click', () => {
+
     const open = mob.classList.toggle('open');
+
     io.classList.toggle('hidden', open);
+
     ic.classList.toggle('hidden', !open);
+
   });
+
   mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+
     mob.classList.remove('open');
+
     io.classList.remove('hidden');
+
     ic.classList.add('hidden');
+
   }));
 
+
+
   /* Scroll reveal */
+
   const revObs = new IntersectionObserver(entries => {
+
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+
   }, { threshold: 0.08 });
+
   document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
+
+
   /* Video autoplay fallback */
+
   const vid = document.getElementById('hero-video');
+
   if (vid) vid.play().catch(() => {});
+
 </script>
 
+
+
 </body>
+
 </html>
