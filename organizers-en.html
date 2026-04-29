@@ -361,6 +361,8 @@
     }
     @media (min-width: 768px) { .cert-badge { width: auto; } }
     .cert-badge:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); }
+    .cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+    .cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -369,10 +371,10 @@
   <a href="index-en.html" class="nav-logo">Nono <span>&</span> Carlos</a>
 
   <div class="hidden md:flex items-center gap-6">
-    <a href="#about"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
-    <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
-    <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
-    <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
+    <a href="#about"       class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">About</a>
+    <a href="#events"      class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Events</a>
+    <a href="#proof"       class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Reviews</a>
+    <a href="#booking"     class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Booking</a>
     
     <div class="lang-switch ml-2 mr-2">
       <a href="organizers.html" class="text-white/40 hover:text-white">ES</a>
@@ -623,7 +625,7 @@
         </a>
       </div>
 
-      <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden pointer-events-none">
+      <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden pointer-events-none hidden md:block">
         <img src="img/urbandedotransparent.png" alt="Nono & Carlos" 
              class="absolute bottom-0 right-0 w-full h-full object-contain object-right-bottom transform scale-[1.15] md:scale-[1.35] origin-bottom-right" />
       </div>
