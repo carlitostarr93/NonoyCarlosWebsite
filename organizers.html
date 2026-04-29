@@ -68,21 +68,28 @@
     }
     .nav-logo span { color: var(--red); }
     .nav-cta {
-      font-size: 0.8rem; font-weight: 600;
+      font-size: 0.8rem; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
       color: #fff; border: 1px solid rgba(255,255,255,.35);
-      padding: .5rem 1.25rem; border-radius: 2px;
+      padding: .6rem 1.4rem; border-radius: 2px;
       transition: background .2s, border-color .2s;
       text-decoration: none;
     }
     .nav-cta:hover { background: var(--red); border-color: var(--red); }
+
+    .lang-switch {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+    }
+    .lang-switch a { transition: color 0.3s ease; text-decoration: none;}
+    .lang-switch a.active { color: var(--red); pointer-events: none; }
+    .lang-switch span { color: rgba(255,255,255,0.2); }
 
     /* ─── HERO ───────────────────────────────── */
     #hero {
       position: relative;
       overflow: hidden;
       background: #000;
-      padding-top: 90px; /* <-- CORRECCIÓN DE SOLAPAMIENTO DE MENÚ */
     }
 
     @media (max-width: 767px) {
@@ -128,14 +135,16 @@
         rgba(0,0,0,.05) 35%,
         rgba(0,0,0,.65) 100%);
     }
+    
+    /* Ajuste perfecto para el encuadre del texto */
     .hero-content {
       position: relative; z-index: 2;
       height: 100%; display: flex;
-      flex-direction: column; justify-content: flex-end;
-      padding: 0 1.5rem 3.5rem;
+      flex-direction: column; justify-content: center;
+      padding: 100px 1.5rem 0;
       max-width: 1200px; margin: 0 auto;
     }
-    @media(min-width:768px) { .hero-content { padding: 0 2.5rem 5rem; } }
+    @media(min-width:768px) { .hero-content { padding: 120px 2.5rem 0; } }
 
     .hero-kicker {
       font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 700;
@@ -595,13 +604,14 @@
     <a href="#events"  class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Eventos</a>
     <a href="#proof"   class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Testimonios</a>
     <a href="#booking" class="text-white/60 text-xs font-medium tracking-widest uppercase hover:text-white transition-colors">Contratación</a>
-    <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="nav-cta">Contáctanos</a>
     
-    <div class="lang-switch ml-4">
+    <div class="lang-switch ml-4 mr-2">
       <a href="#" class="active">ES</a>
       <span>|</span>
       <a href="organizers-en.html" class="text-white/40 hover:text-white">EN</a>
     </div>
+
+    <a href="https://ig.me/m/nonoycarlosbachata" target="_blank" rel="noopener noreferrer" class="nav-cta">Contáctanos</a>
   </div>
 
   <div class="flex items-center gap-4 md:hidden">
@@ -619,12 +629,6 @@
 </nav>
 
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
-  <div class="lang-switch" style="margin-bottom: 1.5rem;">
-    <a href="#" class="active" style="font-size: 1rem;">ES</a>
-    <span style="font-size: 1rem;">|</span>
-    <a href="organizers-en.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">EN</a>
-  </div>
-
   <a href="#about"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Nosotros</a>
   <a href="#events"  class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Eventos</a>
   <a href="#proof"   class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonios</a>
