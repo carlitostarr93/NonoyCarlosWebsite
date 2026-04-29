@@ -99,7 +99,13 @@ body::after {
 @media(min-width:768px) { .sec { padding: 6.5rem 2.5rem; } }
 .sec-inner { max-width: 1200px; margin: 0 auto; }
 .tag { display: inline-block; font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .5rem; }
-.sec-title { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -.02em; }
+.sec-title { 
+  font-size: clamp(1.7rem, 3.5vw, 2.8rem); 
+  font-weight: 900; 
+  line-height: 1.1; 
+  color: var(--ink); /* <--- Aquí está el color oscuro que faltaba */
+  letter-spacing: -.02em; 
+}
 .red-line { width: 40px; height: 2px; background: var(--red); margin: 1.1rem 0; }
 
 /* ─── BOTONES ─── */
@@ -147,3 +153,19 @@ footer { background: #060606; padding: 4rem 2rem; border-top: 1px solid rgba(255
 @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+/* ─── BOTÓN CONTACT US (Clase .nav-cta) ─── */
+.nav-cta {
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #fff; border: 1px solid rgba(255,255,255,.35);
+  padding: .5rem 1.25rem; border-radius: 2px;
+  transition: all .3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-cta:hover { 
+  background: var(--red); 
+  border-color: var(--red); 
+  box-shadow: 0 0 15px rgba(227,66,66,0.6);
+}
