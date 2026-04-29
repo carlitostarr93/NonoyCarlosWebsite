@@ -133,6 +133,7 @@
       color: rgba(255,255,255,.9); letter-spacing: .02em; line-height: 1.7;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
       opacity: 0; animation: fadeUp .7s .7s forwards;
+      margin-bottom: 2rem;
     }
     .hero-cta-row {
       display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;
@@ -214,22 +215,38 @@
       padding: .35rem 1rem; border-radius: 20px;
     }
 
-    /* ── PREMIUM TESTIMONIAL SLIDER ── */
-    #testimonials { background: #0A0A0A; position: relative; overflow: hidden; }
-    .testi-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
-    .testi-slide { width: 100%; flex-shrink: 0; padding: 0 1rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .t-quote-icon { font-size: 5rem; color: var(--red); opacity: 0.15; line-height: 1; font-family: Georgia, serif; margin-bottom: -1.5rem; }
-    .t-dot { width: 10px; height: 10px; border-radius: 50%; transition: all 0.3s ease; padding: 0; border: none; cursor: pointer; }
-    .t-dot.active { background: var(--red); transform: scale(1.3); }
-    .t-dot.inactive { background: rgba(255,255,255,0.2); }
-    .t-dot.inactive:hover { background: rgba(255,255,255,0.5); }
-    .t-nav-btn {
-      width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); background: transparent;
-      display: flex; align-items: center; justify-content: center; color: #fff;
-      transition: all 0.3s ease; cursor: pointer;
+    /* ── TESTIMONIAL CARDS (RESTORED) ── */
+    .t-card {
+      display: flex; flex-direction: column; height: auto; position: relative; overflow: hidden;
+      padding: 2.5rem;
     }
-    .t-nav-btn:hover { background: var(--red); border-color: var(--red); transform: scale(1.05); box-shadow: 0 0 15px rgba(227,66,66,0.4); }
+    .test-stars { color: #FFD700; font-size: 1.25rem; letter-spacing: 0.2rem; margin-bottom: .75rem; }
+    .test-text {
+      font-size: 0.95rem; font-weight: 300;
+      line-height: 1.8; color: #444; 
+      position: relative; z-index: 1;
+      flex-grow: 1;
+    }
+    .test-author { 
+      margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.05); 
+      display: flex; align-items: center; text-align: left;
+    }
+    .test-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+    .test-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
 
+    .badge-student {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      background: rgba(227,66,66,.15); color: var(--red);
+      border: 1px solid rgba(227,66,66,.2); padding: .25rem .75rem; border-radius: 4px;
+    }
+    
+    .badge-organizer {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      background: rgba(212, 175, 55, 0.12); color: #D4AF37;
+      border: 1px solid rgba(212, 175, 55, 0.25); padding: .25rem .75rem; border-radius: 4px;
+    }
 
     /* ─── ABOUT IMG PERFECT SQUARE ─── */
     .about-img-wrap {
@@ -241,54 +258,6 @@
       border-radius: 6px; display: block;
       border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
-
-    /* ─── INSTAGRAM CTA ───────────── */
-    #ig-cta {
-      padding: 5rem 2rem;
-      background: var(--red);
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    #ig-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent, transparent 40px,
-        rgba(0,0,0,.04) 40px, rgba(0,0,0,.04) 41px
-      );
-    }
-    .ig-inner { position: relative; z-index: 1; }
-    .ig-label {
-      font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: rgba(255,255,255,.8); margin-bottom: .75rem;
-    }
-    .ig-h {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 900; color: #fff;
-      letter-spacing: -.02em;
-    }
-    .ig-sub {
-      margin-top: .75rem;
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 300;
-      color: rgba(255,255,255,.9); line-height: 1.7;
-    }
-    .ig-btn {
-      display: inline-flex; align-items: center; gap: .75rem;
-      margin-top: 2.5rem;
-      background: #fff; color: var(--red);
-      font-size: 0.85rem; font-weight: 800;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: 1rem 2.5rem; border-radius: 4px;
-      text-decoration: none;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .ig-btn:hover { 
-      transform: translateY(-4px); 
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4), 0 8px 16px -4px rgba(0,0,0,0.2); 
-    }
-    .ig-btn svg { width: 20px; height: 20px; }
 
     /* ─── FOOTER ──────────────────── */
     footer {
@@ -319,14 +288,10 @@
       color: rgba(255,255,255,.4);
     }
 
-    /* ─── SCROLL REVEAL ───────────── */
+    /* ─── ANIMATIONS ─── */
     .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.in { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
-
-    /* ─── KEYFRAMES ───────────────── */
-    @keyframes fadeUp  { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
   </style>
 </head>
 <body>
@@ -426,7 +391,7 @@
         </h3>
         
         <p class="text-muted font-light leading-relaxed mb-6" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
-          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez del bachazouk. 
+          Nuestra propuesta nace de más de una década de baile y un año de trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la essence de la bachata con la fuerza de lo urbano y la fluidez del bachazouk. 
         </p>
         <p class="text-muted font-light leading-relaxed mb-10" style="font-size: clamp(0.95rem, 1.5vw, 1.05rem);">
           Como instructores certificados por referentes como Korke & Judith y Masa & Polina, nuestra misión es trasladarte una metodología de élite adaptada a tu ritmo, donde el rigor técnico y el disfrute van de la mano.
@@ -457,23 +422,23 @@
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
             <p class="cert-title">Esencia Bachata Method</p>
-            <p class="cert-sub">Certificación oficial</p>
+            <p class="cert-sub">by Gero &amp; Migle Marco &amp; Sara</p>
           </div>
         </div>
         
         <div class="cert-badge">
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
-            <p class="cert-title">Korke &amp; Judith</p>
-            <p class="cert-sub">Bachata Sensual lvl 1</p>
+            <p class="cert-title">Bachata Sensual Lvl 1</p>
+            <p class="cert-sub">by Korke &amp; Judith</p>
           </div>
         </div>
         
         <div class="cert-badge">
           <span style="color:var(--red); font-size:1.15rem;">🎓</span>
           <div>
-            <p class="cert-title">Bachazouk</p>
-            <p class="cert-sub">Masa &amp; Polina</p>
+            <p class="cert-title">Bachazouk Teachers Course</p>
+            <p class="cert-sub">by Masa &amp; Polina</p>
           </div>
         </div>
         
@@ -515,87 +480,63 @@
   </div>
 </section>
 
-<section id="testimonials" class="py-24 md:py-32 px-6 relative">
-  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-     <div class="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-red-600/10 blur-[120px] rounded-full"></div>
-     <div class="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] bg-red-600/10 blur-[120px] rounded-full"></div>
-  </div>
+<section id="testimonials" class="py-16 md:py-20 px-6" style="background:#FAFAFA">
+  <div class="max-w-6xl mx-auto">
 
-  <div class="max-w-5xl mx-auto relative z-10">
-    <div class="text-center mb-16 reveal">
-      <div class="red-bar mx-auto"></div>
+    <div class="text-center mb-16 md:mb-20 reveal">
+      <div class="red-bar"></div>
       <span class="section-label">Testimonios reales</span>
-      <h2 class="text-white text-4xl md:text-5xl font-bold leading-tight" style="letter-spacing: -.02em;">
-        Lo que dicen <span style="color:var(--red); font-style:italic;">nuestros alumnos</span>
+      <h2 class="text-ink text-4xl md:text-5xl font-bold leading-tight" style="letter-spacing: -.02em;">
+        Lo que dicen n <span style="color:var(--red); font-style:italic;">nuestros alumnos</span>
       </h2>
-      <p class="text-white/40 font-light mt-4" style="font-size: 0.95rem;">Opiniones verificadas en Superprof</p>
+      <p class="text-muted font-light mt-4" style="font-size: 0.95rem;">Opiniones verificadas en Superprof</p>
     </div>
 
-    <div class="overflow-hidden w-full reveal" id="testi-wrapper">
-      <div class="testi-track" id="testi-track">
-        
-        <div class="testi-slide">
-          <div class="t-quote-icon">"</div>
-          <div class="text-red-500 tracking-[0.2em] mb-6 text-xl">★★★★★</div>
-          <p class="text-white/90 text-lg md:text-2xl font-light leading-relaxed max-w-3xl text-center mb-10">
-            Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!
-          </p>
-          <div class="flex items-center justify-center gap-4">
-            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">J</div>
-            <div class="text-left">
-              <p class="font-bold text-white text-lg leading-tight">Jennifer</p>
-              <p class="text-red-400 text-xs font-bold tracking-widest uppercase mt-1">Alumna · Superprof</p>
-            </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+      <div class="card-premium t-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <div class="mb-6"><span class="badge-student">Alumna · Superprof</span></div>
+        <p class="test-text italic">
+          Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!
+        </p>
+        <div class="test-author mt-auto">
+          <div>
+            <p class="test-name">Jennifer</p>
+            <p class="test-role">Alumna de clases privadas</p>
           </div>
         </div>
-
-        <div class="testi-slide">
-          <div class="t-quote-icon">"</div>
-          <div class="text-red-500 tracking-[0.2em] mb-6 text-xl">★★★★★</div>
-          <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-4xl text-center mb-10">
-            I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’re serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
-          </p>
-          <div class="flex items-center justify-center gap-4">
-            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">A</div>
-            <div class="text-left">
-              <p class="font-bold text-white text-lg leading-tight">Alhareth</p>
-              <p class="text-red-400 text-xs font-bold tracking-widest uppercase mt-1">Alumno · Superprof</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-slide">
-          <div class="t-quote-icon">"</div>
-          <div class="text-red-500 tracking-[0.2em] mb-6 text-xl">★★★★★</div>
-          <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-4xl text-center mb-10">
-            Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5.
-          </p>
-          <div class="flex items-center justify-center gap-4">
-            <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl">M</div>
-            <div class="text-left">
-              <p class="font-bold text-white text-lg leading-tight">Maxi</p>
-              <p class="text-red-400 text-xs font-bold tracking-widest uppercase mt-1">Alumno · Superprof</p>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="flex justify-center items-center gap-8 mt-16 reveal">
-      <button onclick="prevTesti()" class="t-nav-btn" aria-label="Anterior">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="flex gap-3" id="testi-dots">
-        <button onclick="goToTesti(0)" class="t-dot active" aria-label="Testimonio 1"></button>
-        <button onclick="goToTesti(1)" class="t-dot inactive" aria-label="Testimonio 2"></button>
-        <button onclick="goToTesti(2)" class="t-dot inactive" aria-label="Testimonio 3"></button>
+      <div class="card-premium t-card reveal" style="transition-delay: 0.1s;">
+        <div class="test-stars">★★★★★</div>
+        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
+        <p class="test-text italic">
+          I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
+        </p>
+        <div class="test-author mt-auto">
+          <div>
+            <p class="test-name">Alhareth</p>
+            <p class="test-role">Alumno de clases privadas</p>
+          </div>
+        </div>
       </div>
-      <button onclick="nextTesti()" class="t-nav-btn" aria-label="Siguiente">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </div>
 
+      <div class="card-premium t-card md:col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.2s;">
+        <div class="test-stars">★★★★★</div>
+        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
+        <p class="test-text italic">
+          Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5.
+        </p>
+        <div class="test-author mt-auto">
+          <div>
+            <p class="test-name">Maxi</p>
+            <p class="test-role">Alumno de clases privadas</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -793,44 +734,6 @@
   /* Video autoplay fallback */
   const vid = document.getElementById('hero-video');
   if (vid) vid.play().catch(() => {});
-
-  /* ── Testimonial Slider ── */
-  let currentTesti = 0;
-  const totalTesti = 3;
-  
-  function updateTesti() {
-    const track = document.getElementById('testi-track');
-    const dots = document.querySelectorAll('.t-dot');
-    
-    if(track) {
-      track.style.transform = `translateX(-${currentTesti * 100}%)`;
-    }
-    
-    dots.forEach((dot, index) => {
-      if(index === currentTesti) {
-        dot.classList.add('active');
-        dot.classList.remove('inactive');
-      } else {
-        dot.classList.remove('active');
-        dot.classList.add('inactive');
-      }
-    });
-  }
-  
-  function nextTesti() {
-    currentTesti = (currentTesti + 1) % totalTesti;
-    updateTesti();
-  }
-  
-  function prevTesti() {
-    currentTesti = (currentTesti - 1 + totalTesti) % totalTesti;
-    updateTesti();
-  }
-  
-  function goToTesti(idx) {
-    currentTesti = idx;
-    updateTesti();
-  }
 </script>
 
 </body>
