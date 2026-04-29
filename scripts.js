@@ -96,3 +96,28 @@ function parseCSV(s) {
   }
   return r;
 }
+/* ─── MENÚ MÓVIL ─── */
+const hbg = document.getElementById('hbg');
+const mobMenu = document.getElementById('mob-menu');
+const mobClose = document.getElementById('mob-close');
+
+// Abrir menú al tocar la hamburguesa
+if(hbg && mobMenu) {
+  hbg.addEventListener('click', () => {
+    mobMenu.classList.add('open');
+  });
+}
+
+// Cerrar menú al tocar la "X" (si existe en la página)
+if(mobClose && mobMenu) {
+  mobClose.addEventListener('click', () => {
+    mobMenu.classList.remove('open');
+  });
+}
+
+// Cerrar el menú automáticamente cuando tocas cualquier enlace
+document.querySelectorAll('.mob-link, [data-close], #mob-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    if(mobMenu) mobMenu.classList.remove('open');
+  });
+});
