@@ -121,3 +121,16 @@ document.querySelectorAll('.mob-link, [data-close], #mob-menu a').forEach(link =
     if(mobMenu) mobMenu.classList.remove('open');
   });
 });
+// Función para inyectar reseñas si los contenedores existen en la página
+function renderReviews() {
+    const containers = ['reviews-col-1', 'reviews-col-2', 'reviews-col-3'];
+    containers.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            // Aquí puedes añadir la lógica que rellena el contenido
+            // O si ya tienes las reseñas en el HTML español, 
+            // asegúrate de que el script apunte a los IDs correctos.
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', renderReviews);
