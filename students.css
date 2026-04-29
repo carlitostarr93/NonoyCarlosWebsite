@@ -1,0 +1,47 @@
+/* ─── HERO CINEMÁTICO (Específico de Estudiantes) ─── */
+#hero { position: relative; height: 100svh; min-height: 600px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000; padding-top: 90px; }
+#hero-video { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 10%; opacity: .4; pointer-events: none; }
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: radial-gradient(ellipse at center bottom, rgba(227,66,66,.12) 0%, rgba(0,0,0,0) 60%), linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 40%, rgba(0,0,0,.8) 100%); }
+.hero-inner { position: relative; z-index: 2; text-align: center; padding: 0 1.5rem; max-width: 900px; }
+.hero-eyebrow { font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1.25rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); opacity: 0; animation: fadeUp .6s .4s forwards; }
+.hero-title { font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900; line-height: .95; text-transform: uppercase; letter-spacing: -.02em; color: #fff; opacity: 0; animation: fadeUp .7s .55s forwards; }
+.hero-title em { color: var(--red); font-style: normal; display: block; }
+.hero-tagline { margin-top: 1.5rem; font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 300; color: rgba(255,255,255,.9); letter-spacing: .02em; line-height: 1.7; text-shadow: 0 2px 12px rgba(0,0,0,0.6); opacity: 0; animation: fadeUp .7s .7s forwards; }
+.hero-cta-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; opacity: 0; animation: fadeUp .7s .9s forwards; }
+
+/* ─── BOTONES Y ETIQUETAS PREMIUM ─── */
+.btn-red { display: inline-flex; justify-content: center; align-items: center; background: var(--red); color: #fff; padding: .85rem 2.25rem; border-radius: 4px; font-size: 0.85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.btn-red:hover { background: var(--red-dk); transform: translateY(-3px); box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5), 0 5px 15px rgba(227,66,66, 0.3); }
+.btn-ghost { display: inline-flex; justify-content: center; align-items: center; border: 1.5px solid rgba(255,255,255,.4); color: #fff; padding: .83rem 2.25rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; transition: border-color .2s, background .2s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+.section-label { display: block; font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .75rem; }
+.red-bar { width: 40px; height: 3px; background: var(--red); margin: 0 auto 1.25rem; }
+
+/* ─── TARJETAS APPLE STYLE (Claras) ─── */
+.card-premium { background: #fff; border: 1px solid rgba(0,0,0,0.04); border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.03); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease; }
+.card-premium:hover { transform: translateY(-8px); border-color: rgba(0,0,0,0.08); box-shadow: 0 32px 64px -12px rgba(0,0,0,0.14), 0 16px 32px -8px rgba(0,0,0,0.08); }
+
+/* ── CERT BADGE APPLE ── */
+.cert-badge { border: 1px solid rgba(0,0,0,0.04); border-radius: 20px; padding: 1rem 1.5rem; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.03); display: flex; align-items: center; gap: .75rem; width: 100%; justify-content: flex-start; text-align: left; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease; cursor: default; }
+@media (min-width: 768px) { .cert-badge { width: auto; } }
+.cert-badge:hover { transform: translateY(-4px); border-color: rgba(0,0,0,0.08); box-shadow: 0 16px 32px -8px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.06); }
+.cert-title { font-size: 0.9rem; font-weight: 600; color: #0A0A0A; line-height: 1.2; }
+.cert-sub { font-size: 0.75rem; font-weight: 300; color: #6B6B6B; margin-top: 2px; }
+
+/* ── PRICE CARD ── */
+.p-card { padding: 2.5rem 2rem; display: flex; flex-direction: column; height: 100%; }
+.p-card.featured { border: 2px solid rgba(227,66,66,0.3); box-shadow: 0 16px 40px rgba(227,66,66,0.08); }
+.p-card.featured:hover { border-color: var(--red); box-shadow: 0 32px 64px -12px rgba(227,66,66,0.25), 0 16px 32px -8px rgba(227,66,66,0.15); }
+.popular-badge { background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; }
+
+/* ── TESTIMONIAL CARDS ── */
+.t-card { display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden; padding: 2.5rem; }
+.test-text { font-size: 0.95rem; font-weight: 300; line-height: 1.8; color: #444; position: relative; z-index: 1; flex-grow: 1; }
+.test-author { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(0,0,0,.05); display: flex; align-items: center; text-align: left; }
+.test-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.test-role { font-size: 0.8rem; font-weight: 300; color: #6B6B6B; }
+.badge-student { display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem; font-size: 0.7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: rgba(227,66,66,.15); color: var(--red); border: 1px solid rgba(227,66,66,.2); padding: .25rem .75rem; border-radius: 4px; }
+
+/* ─── ABOUT IMG PERFECT SQUARE ─── */
+.about-img-wrap { position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto; }
+.about-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block; border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
