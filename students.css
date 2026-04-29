@@ -45,3 +45,15 @@
 /* ─── ABOUT IMG PERFECT SQUARE ─── */
 .about-img-wrap { position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto; }
 .about-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 6px; display: block; border: 2px solid var(--red); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+/* ─── CONTACT SECTION (Iconos) ─── */
+#contact svg,
+a[href*="instagram.com"] svg,
+a[href*="ig.me"] svg {
+  color: var(--red);
+  transition: transform 0.3s ease;
+}
+
+a[href*="instagram.com"]:hover svg,
+a[href*="ig.me"]:hover svg {
+  transform: scale(1.1);
+}
