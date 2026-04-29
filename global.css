@@ -1,0 +1,149 @@
+/* ─── VARIABLES Y BASE ─── */
+:root {
+  --red:    #E34242;
+  --red-dk: #C42F2F;
+  --ink:    #0A0A0A;
+  --pale:   #FAFAFA;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0A0A0A;
+  color: #FAFAFA;
+  overflow-x: hidden;
+}
+
+/* ─── TEXTURA DE GRANO (Para toda la web) ─── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .025;
+}
+
+/* ─── NAVBAR (MENÚ SUPERIOR) ─── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 2rem;
+  transition: background .4s, backdrop-filter .4s;
+}
+#nav.scrolled {
+  background: rgba(10,10,10,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-logo {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: .15em; text-transform: uppercase; color: #fff;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-link {
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  transition: color .2s; text-decoration: none;
+}
+.nav-link:hover { color: #fff; }
+.nav-pill {
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #fff; background: var(--red);
+  padding: .5rem 1.2rem; border-radius: 2px;
+  transition: background .2s, transform .15s;
+  text-decoration: none;
+}
+.nav-pill:hover { background: var(--red-dk); transform: translateY(-1px); }
+
+/* ─── SELECTOR DE IDIOMAS ─── */
+.lang-switch {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+}
+.lang-switch a { transition: color 0.3s ease; text-decoration: none; color: rgba(255,255,255,.55); }
+.lang-switch a:hover { color: #fff; }
+.lang-switch a.active { color: var(--red); pointer-events: none; }
+.lang-switch span { color: rgba(255,255,255,0.2); }
+
+/* ─── MENÚ MÓVIL ─── */
+#hbg { display: none; background: none; border: none; cursor: pointer; color: #fff; }
+#mob-menu {
+  display: none; position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0; z-index: 190;
+  background: rgba(10,10,10,.97); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.5rem;
+}
+#mob-menu.open { display: flex; }
+.mob-link {
+  font-size: 1.4rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); text-decoration: none;
+  transition: color .2s;
+}
+.mob-link:hover { color: #fff; }
+
+@media(max-width:767px) {
+  .nav-links { display: none; }
+  #hbg { display: block; }
+}
+
+/* ─── SECCIONES COMPARTIDAS (Padding y Títulos) ─── */
+.sec { padding: 5rem 1.5rem; }
+@media(min-width:768px) { .sec { padding: 6.5rem 2.5rem; } }
+.sec-inner { max-width: 1200px; margin: 0 auto; }
+.tag { display: inline-block; font-size: clamp(0.75rem, 1.5vw, 0.85rem); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .5rem; }
+.sec-title { font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.1; letter-spacing: -.02em; }
+.red-line { width: 40px; height: 2px; background: var(--red); margin: 1.1rem 0; }
+
+/* ─── BOTONES ─── */
+.btn-primary, .btn-glow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--red); color: #fff;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 1rem 2.25rem; border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.btn-primary:hover, .btn-glow:hover {
+  background: var(--red-dk);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px -5px rgba(227,66,66, 0.5);
+}
+
+.btn-ghost-dark {
+  display: inline-flex; align-items: center; gap: .6rem;
+  border: 1.5px solid rgba(255,255,255,.35); color: rgba(255,255,255,.8);
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 0.95rem 2.25rem; border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,.08); transform: translateY(-2px); }
+
+/* ─── FOOTER ─── */
+footer { background: #060606; padding: 4rem 2rem; border-top: 1px solid rgba(255,255,255,.05); }
+.foot-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+@media(min-width:768px) { .foot-inner { flex-direction: row; justify-content: space-between; text-align: left; } }
+.foot-logo { font-size: 1rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: #fff; }
+.foot-nav { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+.foot-link { font-size: 0.8rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.foot-link:hover { color: var(--red); }
+.foot-copy { font-size: 0.8rem; font-weight: 300; color: rgba(255,255,255,.4); }
+
+/* ─── ANIMACIONES DE SCROLL ─── */
+.reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
