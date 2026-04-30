@@ -1,0 +1,99 @@
+{
+  "students": {
+    "reviews": [
+      {
+        "name": "Jennifer",
+        "role": "Alumna de clases privadas",
+        "badge": "Alumna · Superprof",
+        "badgeClass": "badge-student",
+        "text": "Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!"
+      },
+      {
+        "name": "Alhareth",
+        "role": "Alumno de clases privadas",
+        "badge": "Alumno · Superprof",
+        "badgeClass": "badge-student",
+        "text": "I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’re serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)"
+      },
+      {
+        "name": "Maxi",
+        "role": "Alumno de clases privadas",
+        "badge": "Alumno · Superprof",
+        "badgeClass": "badge-student",
+        "text": "Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5."
+      }
+    ],
+    "pricing": [
+      {
+        "id": "individual",
+        "label": "Individual",
+        "price": "60",
+        "currency": "€",
+        "period": "por hora",
+        "features": ["Clase privada 1 a 1", "Horario flexible", "Todos los niveles"],
+        "disabled_features": ["Descuento por pack"],
+        "button_text": "Reservar",
+        "is_featured": false
+      },
+      {
+        "id": "pareja",
+        "label": "Pareja",
+        "price": "90",
+        "currency": "€",
+        "period": "por hora",
+        "features": ["Clase para 2 personas", "Dinámica de pareja", "Horario flexible"],
+        "disabled_features": ["Descuento por pack"],
+        "button_text": "Reservar",
+        "is_featured": false
+      },
+      {
+        "id": "pack5",
+        "label": "Pack 5 horas",
+        "price": "250",
+        "currency": "€",
+        "period": "pack · <span class='font-bold' style='color:var(--red);'>50 €/h</span>",
+        "features": ["5 clases privadas", "Ahorra 50 € vs. sueltas", "Seguimiento detallado", "Validez 3 meses"],
+        "disabled_features": [],
+        "button_text": "Empezar ahora",
+        "is_featured": true,
+        "badge_text": "Más popular"
+      },
+      {
+        "id": "pack10",
+        "label": "Pack 10 horas",
+        "price": "500",
+        "currency": "€",
+        "period": "pack · <span class='font-bold' style='color:var(--red);'>50 €/h</span>",
+        "features": ["10 clases privadas", "Ahorra 100 € vs. sueltas", "Plan de progresión", "Validez 6 meses"],
+        "disabled_features": [],
+        "button_text": "Reservar",
+        "is_featured": false
+      }
+    ]
+  },
+  "home": {
+    "reviews": [
+      {
+        "name": "Jennifer",
+        "role": "Alumna de clases privadas",
+        "badge": "Alumna · Superprof",
+        "badgeClass": "badge-student",
+        "text": "\"Carlos es un profesor excelente. Sabe adaptarse perfectamente a mi nivel y explica de forma muy clara y cercana. Cada clase aprendo algo nuevo y siempre salgo con más ganas de bailar.\""
+      },
+      {
+        "name": "Masa & Polina",
+        "role": "Bachazouk Referents",
+        "badge": "Worldwide · Artists",
+        "badgeClass": "badge-organizer",
+        "text": "\"Carlos y Nono representan la nueva generación de artistas de bachata: ambiciosos, curiosos y en constante evolución.\n\nSon alumnos comprometidos que buscan continuamente profundizar en su técnica, musicalidad y capacidades docentes... Con múltiples victorias en competiciones Jack & Jill, son, sin duda, una de las estrellas emergentes a seguir.\""
+      },
+      {
+        "name": "Maxi",
+        "role": "Alumno de clases privadas",
+        "badge": "Alumno · Superprof",
+        "badgeClass": "badge-student",
+        "text": "\"Clases muy dinámicas y divertidas. Se preocupa de verdad por que aprendas bien la técnica sin que pierda la parte lúdica del baile. Lo recomiendo totalmente a cualquier nivel.\""
+      }
+    ]
+  }
+}
