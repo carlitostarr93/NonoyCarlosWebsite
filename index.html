@@ -30,7 +30,7 @@
       },
     };
   </script>
- <link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="global.css">
 <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -44,19 +44,22 @@
     <a href="organizers.html" class="nav-link">Organizadores</a>
     <a href="students.html" class="nav-pill">Estudiantes</a>
     
-<div class="lang-switch">
-  <a href="#" class="active">ES</a>
-  <span>|</span>
-  <a href="index-en.html">EN</a>
-  <span>|</span>
-  <a href="index-fr.html">FR</a>
-</div>
+    <div class="lang-switch ml-4">
+      <a href="#" class="active">ES</a>
+      <span>|</span>
+      <a href="index-en.html" class="text-white/40 hover:text-white transition-colors">EN</a>
+      <span>|</span>
+      <a href="index-fr.html" class="text-white/40 hover:text-white transition-colors">FR</a>
+    </div>
+  </div>
 
   <div class="flex items-center gap-4 md:hidden">
     <div class="flex items-center gap-2 text-xs font-bold tracking-[0.15em] text-white">
       <a href="#" class="text-[#E34242] cursor-default">ES</a>
       <span class="text-white/20">|</span>
       <a href="index-en.html" class="text-white/40 hover:text-white transition-colors">EN</a>
+      <span class="text-white/20">|</span>
+      <a href="index-fr.html" class="text-white/40 hover:text-white transition-colors">FR</a>
     </div>
     
     <button id="hbg" aria-label="Menú" class="text-white">
@@ -69,6 +72,14 @@
   <button class="mob-close" id="mob-close" aria-label="Cerrar">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
+
+  <div class="lang-switch mb-8">
+    <a href="#" class="active">ES</a>
+    <span>|</span>
+    <a href="index-en.html" class="text-white/40">EN</a>
+    <span>|</span>
+    <a href="index-fr.html" class="text-white/40">FR</a>
+  </div>
 
   <a href="#about-strip"    class="mob-link" data-close>Nosotros</a>
   <a href="#offerings"      class="mob-link" data-close>Qué ofrecemos</a>
@@ -107,208 +118,103 @@
 </section>
 
 <div id="paths">
-
   <a href="organizers.html" class="path-card path-organizers">
     <div class="path-bg"></div>
     <div class="path-photo" style="background-image: url('https://i.imgur.com/qfAEP8J.jpeg');"></div>
     <div class="path-overlay"></div>
     <div class="path-corner"></div>
-
     <div class="path-content">
       <div class="path-number">01</div>
-      <div class="path-label">
-        Soy<br/>
-        <em>Organizador</em>
-      </div>
-      <p class="path-desc">
-        Festivales, congresos, shows en vivo, workshops internacionales. Contrata a Nono &amp; Carlos para tu próximo evento.
-      </p>
-      <div class="path-arrow">
-        Ver Dossier y Contratación
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </div>
+      <div class="path-label">Soy<br/><em>Organizador</em></div>
+      <p class="path-desc">Festivales, congresos, shows en vivo, workshops internacionales. Contrata a Nono &amp; Carlos para tu próximo evento.</p>
+      <div class="path-arrow">Ver Dossier y Contratación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     </div>
   </a>
-
   <div class="path-divider"></div>
-
   <a href="students.html" class="path-card path-students">
     <div class="path-bg"></div>
     <div class="path-photo" style="background-image: url('https://i.imgur.com/TjWkbIi.jpeg'); background-position: center 30%;"></div>
     <div class="path-overlay"></div>
     <div class="path-corner"></div>
-
     <div class="path-content">
       <div class="path-number">02</div>
-      <div class="path-label">
-        Soy<br/>
-        <em>Estudiante</em>
-      </div>
-      <p class="path-desc">
-        Clases privadas, packs y metodología certificada. Desde principiante hasta avanzado, en Barcelona.
-      </p>
-      <div class="path-arrow">
-        Ver clases &amp; tarifas
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-        </svg>
-      </div>
+      <div class="path-label">Soy<br/><em>Estudiante</em></div>
+      <p class="path-desc">Clases privadas, packs y metodología certificada. Desde principiante hasta avanzado, en Barcelona.</p>
+      <div class="path-arrow">Ver clases &amp; tarifas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     </div>
   </a>
-
 </div>
 
 <section id="about-strip">
   <div class="about-strip-inner">
-
     <div class="about-img-wrap reveal">
-      <img
-        src="https://i.imgur.com/qfAEP8J.jpeg"
-        alt="Nono y Carlos — artistas de bachata"
-        loading="lazy"
-      />
+      <img src="https://i.imgur.com/qfAEP8J.jpeg" alt="Nono y Carlos — artistas de bachata" loading="lazy" />
     </div>
-
     <div class="reveal d2">
       <p class="about-text-tag">Quiénes somos</p>
-      <h2 class="about-text-h">
-        Más de una década<br/>
-        de <em>pasión y técnica</em>
-      </h2>
+      <h2 class="about-text-h">Más de una década<br/>de <em>pasión y técnica</em></h2>
       <div class="redbar"></div>
-      <p class="about-text-body" style="margin-bottom: 1rem;">
-        Nuestra propuesta nace de más de una década de baile y una trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez de la sensual y el bachazouk.
-      </p>
-      <p class="about-text-body">
-        Basados en Barcelona y certificados por referentes mundiales del género, trasladamos un nivel de enseñanza de alto rendimiento adaptado a cada alumno — sea cual sea su punto de partida.
-      </p>
-      
+      <p class="about-text-body" style="margin-bottom: 1rem;">Nuestra propuesta nace de más de una década de baile y una trayectoria internacional recorriendo workshops y escenarios como pareja profesional. Hemos diseñado un estilo propio que une la esencia de la bachata con la fuerza de lo urbano y la fluidez de la sensual y el bachazouk.</p>
+      <p class="about-text-body">Basados en Barcelona y certificados por referentes mundiales del género, trasladamos un nivel de enseñanza de alto rendimiento adaptado a cada alumno — sea cual sea su punto de partida.</p>
       <div class="flex flex-col md:flex-row flex-wrap gap-4 mt-6">
-        <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
-          <div>
-            <p class="cert-title">Esencia Bachata Method</p>
-            <p class="cert-sub">by Gero &amp; Migle Marco &amp; Sara</p>
-          </div>
-        </div>
-        
-        <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
-          <div>
-            <p class="cert-title">Bachata Sensual Lvl 1</p>
-            <p class="cert-sub">by Korke &amp; Judith</p>
-          </div>
-        </div>
-        
-        <div class="cert-badge">
-          <span style="color:var(--red); font-size:1.15rem;">🎓</span>
-          <div>
-            <p class="cert-title">Bachazouk Teachers Course</p>
-            <p class="cert-sub">by Masa &amp; Polina</p>
-          </div>
-        </div>
+        <div class="cert-badge"><span>🎓</span><div><p class="cert-title">Esencia Bachata Method</p><p class="cert-sub">by Gero & Migle Marco & Sara</p></div></div>
+        <div class="cert-badge"><span>🎓</span><div><p class="cert-title">Bachata Sensual Lvl 1</p><p class="cert-sub">by Korke & Judith</p></div></div>
+        <div class="cert-badge"><span>🎓</span><div><p class="cert-title">Bachazouk Teachers Course</p><p class="cert-sub">by Masa & Polina</p></div></div>
       </div>
-
       <div class="stats-row">
-        <div>
-          <div class="stat-num">10+</div>
-          <div class="stat-lbl">Años bailando</div>
-        </div>
-        <div>
-          <div class="stat-num">500+</div>
-          <div class="stat-lbl">Alumnos formados</div>
-        </div>
-        <div>
-          <div class="stat-num">BCN</div>
-          <div class="stat-lbl">Base en Barcelona</div>
-        </div>
+        <div><div class="stat-num">10+</div><div class="stat-lbl">Años bailando</div></div>
+        <div><div class="stat-num">500+</div><div class="stat-lbl">Alumnos formados</div></div>
+        <div><div class="stat-num">BCN</div><div class="stat-lbl">Base en Barcelona</div></div>
       </div>
     </div>
-
   </div>
 </section>
 
 <section id="offerings">
   <div class="offerings-inner">
-
     <div class="offerings-header reveal">
       <p class="off-tag">Qué ofrecemos</p>
       <h2 class="off-h">Dos mundos. <em>Una pasión.</em></h2>
       <div style="width:36px;height:3px;background:var(--red);margin:1.1rem auto 0;"></div>
     </div>
-
     <div class="offerings-grid">
-
       <div class="off-card reveal d1">
         <div class="off-card-num">01</div>
-        <div class="off-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
+        <div class="off-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="off-card-title">Workshops Internacionales</div>
         <div class="off-card-desc">Talleres intensivos para festivales y congresos. Formato adaptable a cualquier nivel y duración.</div>
-        <a href="organizers.html" class="off-card-link">
-          Contratar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <a href="organizers.html" class="off-card-link">Contratar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
       <div class="off-card reveal d2">
         <div class="off-card-num">02</div>
-        <div class="off-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-        </div>
+        <div class="off-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <div class="off-card-title">Clases Privadas</div>
         <div class="off-card-desc">Individual o en pareja, con metodología certificada y progresión real. Desde principiante hasta avanzado.</div>
-        <a href="students.html" class="off-card-link">
-          Ver tarifas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <a href="students.html" class="off-card-link">Ver tarifas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
       <div class="off-card reveal d3">
         <div class="off-card-num">03</div>
-        <div class="off-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
-        </div>
+        <div class="off-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <div class="off-card-title">Packs de Horas</div>
         <div class="off-card-desc">Pack 5h (250€) o Pack 10h (500€). La opción más eficiente para acelerar tu progreso y ahorrar.</div>
-        <a href="students.html#pricing" class="off-card-link">
-          Ver packs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <a href="students.html#pricing" class="off-card-link">Ver packs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-
     </div>
   </div>
 </section>
 
 <section id="testimonials">
   <div class="test-inner">
-
     <div class="test-header reveal">
       <p class="test-tag">Testimonios</p>
       <h2 class="test-h">Lo que dicen sobre <em>Nono &amp; Carlos</em></h2>
       <div style="width:36px;height:3px;background:var(--red);margin:1.1rem auto 0;"></div>
     </div>
-
     <div class="test-grid" id="home-reviews-container"></div>
-
     <div class="flex flex-wrap gap-4 justify-center mt-12 reveal">
-      <a href="organizers.html" class="btn-ghost-dark">
-        Ver dossier completo
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="students.html" class="btn-primary">
-        Ver clases y tarifas
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <a href="organizers.html" class="btn-ghost-dark">Ver dossier completo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="students.html" class="btn-primary">Ver clases y tarifas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
-
   </div>
 </section>
 
@@ -317,55 +223,34 @@
     <div class="ig-inner">
       <p class="ig-label">Síguenos</p>
       <h2 class="ig-h">Únete a nuestra comunidad</h2>
-      <p class="ig-sub">
-        Videos, workshops, eventos y la vida detrás del escenario.<br/>
-        Todo en nuestro Instagram.
-      </p>
+      <p class="ig-sub">Videos, workshops, eventos y la vida detrás del escenario.<br/>Todo en nuestro Instagram.</p>
       <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" rel="noopener" class="ig-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
         @nonoycarlosbachata
       </a>
     </div>
   </div>
-
   <div class="ig-col-right"></div>
 </section>
 
 <footer>
   <div class="foot-inner">
-
-    <div>
-      <div class="foot-logo">Nono <span>&</span> Carlos</div>
-      <p class="foot-copy" style="margin-top:.4rem;">Barcelona · International Bachata Artists</p>
-    </div>
-
+    <div><div class="foot-logo">Nono <span>&</span> Carlos</div><p class="foot-copy" style="margin-top:.4rem;">Barcelona · International Bachata Artists</p></div>
     <nav class="foot-nav">
-      <a href="#about-strip"    class="foot-link">Nosotros</a>
-      <a href="#offerings"      class="foot-link">Qué ofrecemos</a>
+      <a href="#about-strip" class="foot-link">Nosotros</a>
+      <a href="#offerings" class="foot-link">Qué ofrecemos</a>
       <a href="organizers.html" class="foot-link">Organizadores</a>
-      <a href="students.html"   class="foot-link">Estudiantes</a>
+      <a href="students.html" class="foot-link">Estudiantes</a>
       <a href="https://www.instagram.com/nonoycarlosbachata" target="_blank" class="foot-link">Instagram</a>
     </nav>
-    
     <div class="flex gap-4 text-[0.65rem] text-white/30 uppercase tracking-widest mt-4 md:mt-0 justify-center">
-     <a href="aviso-legal.html" class="hover:text-white transition-colors">Aviso Legal</a>
+      <a href="aviso-legal.html" class="hover:text-white transition-colors">Aviso Legal</a>
       <a href="politica-privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
       <a href="politica-cookies.html" class="hover:text-white transition-colors">Cookies</a>
     </div>
-
-    <div>
-      <a href="mailto: Nonoycarlosbachata@gmail.com" class="foot-copy block hover:text-white/50 transition-colors">
-        Nonoycarlosbachata@gmail.com
-      </a>
-      <p class="foot-copy" style="margin-top:.3rem;">© 2026 All rights reserved</p>
-    </div>
-
+    <div><a href="mailto:Nonoycarlosbachata@gmail.com" class="foot-copy block hover:text-white/50 transition-colors">Nonoycarlosbachata@gmail.com</a><p class="foot-copy" style="margin-top:.3rem;">© 2026 All rights reserved</p></div>
   </div>
 </footer>
-  <script src="scripts.js"></script>
-  </body>
+<script src="scripts.js"></script>
+</body>
 </html>
