@@ -71,7 +71,7 @@
       }
     ]
   },
-  "home": {
+"home": {
     "reviews": [
       {
         "name": "Jennifer",
@@ -85,15 +85,14 @@
         "role": "Bachazouk Referents",
         "badge": "Worldwide · Artists",
         "badgeClass": "badge-organizer",
-        "text": "\"Carlos y Nono representan la nueva generación de artistas de bachata: ambiciosos, curiosos y en constante evolución.\n\nSon alumnos comprometidos que buscan continuamente profundizar en su técnica, musicalidad y capacidades docentes... Con múltiples victorias en competiciones Jack & Jill, son, sin duda, una de las estrellas emergentes a seguir.\""
+        "text": "Carlos y Nono representan la nueva generación de artistas de bachata: ambiciosos, curiosos y en constante evolución. Son alumnos comprometidos que buscan continuamente profundizar en su técnica, musicalidad y capacidades docentes... Con múltiples victorias en competiciones Jack & Jill, son, sin duda, una de las estrellas emergentes a seguir."
       },
       {
         "name": "Maxi",
         "role": "Alumno de clases privadas",
         "badge": "Alumno · Superprof",
         "badgeClass": "badge-student",
-        "text":"Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5."
+        "text": "Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido... 5 no... 7 estrellas de 5."
       }
     ]
   }
-}
