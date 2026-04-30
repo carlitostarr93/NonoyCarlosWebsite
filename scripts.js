@@ -32,7 +32,6 @@ function renderHomeReviews(reviews) {
   reviews.forEach((review, index) => {
     container.innerHTML += `
       <div class="test-card reveal" style="transition-delay: ${index * 0.1}s;">
-        <div class="test-quote">"</div>
         <div class="test-stars">★★★★★</div>
         <span class="test-badge ${review.badgeClass}">${review.badge}</span>
         <p class="test-text">${review.text.replace(/\n/g, '<br>')}</p>
