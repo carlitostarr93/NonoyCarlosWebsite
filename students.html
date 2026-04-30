@@ -50,10 +50,10 @@
   </div>
 
   <div class="flex items-center gap-4 md:hidden">
-    <div class="lang-switch">
-      <a href="#" class="active">ES</a>
-      <span>|</span>
-      <a href="students-en.html" class="text-white/40 hover:text-white">EN</a>
+    <div class="flex items-center gap-2 text-xs font-bold tracking-[0.15em] text-white">
+      <a href="#" class="text-[#E34242] cursor-default">ES</a>
+      <span class="text-white/20">|</span>
+      <a href="students-en.html" class="text-white/40 hover:text-white transition-colors">EN</a>
     </div>
 
     <button id="hbg" class="text-white" aria-label="Menu">
@@ -64,12 +64,6 @@
 </nav>
 
 <div id="mob-menu" class="fixed top-[72px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md px-6 py-4 md:hidden">
-  <div class="lang-switch" style="margin-bottom: 1.5rem;">
-    <a href="#" class="active" style="font-size: 1rem;">ES</a>
-    <span style="font-size: 1rem;">|</span>
-    <a href="students-en.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">EN</a>
-  </div>
-
   <a href="#about"        class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Nosotros</a>
   <a href="#testimonials" class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Testimonios</a>
   <a href="#pricing"      class="block py-3 text-white/70 text-sm tracking-widest uppercase border-b border-white/[.08] hover:text-white">Tarifas</a>
@@ -229,69 +223,8 @@
       <p class="text-muted font-light mt-4" style="font-size: 0.95rem;">Opiniones verificadas en Superprof</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="students-reviews-container"></div>
 
-      <div class="card-premium t-card reveal">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumna · Superprof</span></div>
-        <p class="test-text italic">
-          Excelente profesor! He tomado varias clases particulares con él y he mejorado un montón. Es muy paciente y atento a los detalles técnicos. Explica cada paso con mucha claridad y siempre me da ejercicios útiles para seguir practicando por mi cuenta en casa. Súper recomendado!
-        </p>
-        <div class="test-author mt-auto">
-          <div>
-            <p class="test-name">Jennifer</p>
-            <p class="test-role">Alumna de clases privadas</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-premium t-card reveal" style="transition-delay: 0.1s;">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
-        <p class="test-text italic">
-          I’ve been dancing bachata for just over two years , and taking classes with Carlito and Nunu was honestly the turning point. My whole dance level upgraded within just a few classes. He’s super technical but makes it fun, takes his time with every detail, and teaches with a lot of love and passion. If you’re serious about bachata in Barcelona, he is the real deal plus his style is one of the best in the world :)
-        </p>
-        <div class="test-author mt-auto">
-          <div>
-            <p class="test-name">Alhareth</p>
-            <p class="test-role">Alumno de clases privadas</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-premium t-card md:col-span-2 lg:col-span-1 reveal" style="transition-delay: 0.2s;">
-        <div class="flex flex-row gap-1 mb-6 text-[#FFD700]">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-        </div>
-        <div class="mb-6"><span class="badge-student">Alumno · Superprof</span></div>
-        <p class="test-text italic">
-          Nos conocimos en un taller de Vivaldi. Al ver cómo bailaba y la sonrisa que ponía al bailar con todo el mundo y enseñar, pensé: ese es la persona de la que quiero aprender. Y si me preguntan, siento y sé que no me equivoqué. Uno de los mejores profesores que he conocido y del cual espero seguir aprendiendo muchísimo tiempo más. Simplemente quiero decir gracias, Carlos, por el tipo de persona y gran maestro que te considero. 5 no... 7 estrellas de 5.
-        </p>
-        <div class="test-author mt-auto">
-          <div>
-            <p class="test-name">Maxi</p>
-            <p class="test-role">Alumno de clases privadas</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -309,74 +242,8 @@
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8" id="pricing-container"></div>
 
-      <div class="card-premium p-card reveal">
-        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Individual</p>
-        <div class="flex items-end gap-1 mb-2">
-          <span class="text-5xl lg:text-6xl font-bold text-ink">60</span>
-          <span class="text-2xl text-muted mb-1">€</span>
-        </div>
-        <p class="text-muted text-sm font-light mb-8">por hora</p>
-        <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Clase privada 1 a 1</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Horario flexible</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Todos los niveles</li>
-          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Descuento por pack</li>
-        </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
-      </div>
-
-      <div class="card-premium p-card reveal" style="transition-delay: 0.1s;">
-        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Pareja</p>
-        <div class="flex items-end gap-1 mb-2">
-          <span class="text-5xl lg:text-6xl font-bold text-ink">90</span>
-          <span class="text-2xl text-muted mb-1">€</span>
-        </div>
-        <p class="text-muted text-sm font-light mb-8">por hora</p>
-        <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Clase para 2 personas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Dinámica de pareja</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Horario flexible</li>
-          <li class="flex items-start gap-3 opacity-40"><span class="font-bold">–</span> Descuento por pack</li>
-        </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
-      </div>
-
-      <div class="card-premium p-card featured relative transform md:-translate-y-4 reveal" style="transition-delay: 0.2s;">
-        <span class="popular-badge absolute -top-3 right-5 md:right-8">Más popular</span>
-        <p class="font-bold tracking-widest uppercase mb-6" style="color:var(--red); font-size: 0.75rem;">Pack 5 horas</p>
-        <div class="flex items-end gap-1 mb-2">
-          <span class="text-5xl lg:text-6xl font-bold text-ink">250</span>
-          <span class="text-2xl text-muted mb-1">€</span>
-        </div>
-        <p class="text-muted text-sm font-light mb-8">pack · <span class="font-bold" style="color:var(--red);">50 €/h</span></p>
-        <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 5 clases privadas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Ahorra 50 € vs. sueltas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Seguimiento detallado</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Validez 3 meses</li>
-        </ul>
-        <a href="#contact" class="block w-full text-center py-3 text-white text-sm font-bold tracking-widest uppercase rounded mt-auto shadow-md transition" style="background:var(--red);">Empezar ahora</a>
-      </div>
-
-      <div class="card-premium p-card reveal" style="transition-delay: 0.3s;">
-        <p class="text-muted font-bold tracking-widest uppercase mb-6" style="font-size: 0.75rem;">Pack 10 horas</p>
-        <div class="flex items-end gap-1 mb-2">
-          <span class="text-5xl lg:text-6xl font-bold text-ink">500</span>
-          <span class="text-2xl text-muted mb-1">€</span>
-        </div>
-        <p class="text-muted text-sm font-light mb-8">pack · <span class="font-bold" style="color:var(--red);">50 €/h</span></p>
-        <ul class="text-muted space-y-4 mb-10 font-light flex-grow" style="font-size: 0.9rem;">
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> 10 clases privadas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Ahorra 100 € vs. sueltas</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Plan de progresión</li>
-          <li class="flex items-start gap-3"><span class="font-bold" style="color:var(--red);">✓</span> Validez 6 meses</li>
-        </ul>
-        <a href="#contact" class="block w-full text-center py-3 border-2 text-sm font-bold tracking-widest uppercase rounded mt-auto transition" style="border-color:var(--red); color:var(--red);">Reservar</a>
-      </div>
-
-    </div>
   </div>
 </section>
 
