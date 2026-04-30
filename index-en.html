@@ -44,30 +44,32 @@
     <a href="organizers-en.html" class="nav-link">Organizers</a>
     <a href="students-en.html" class="nav-pill">Students</a>
     
-    <div class="lang-switch">
-      <a href="index.html" class="text-white/40 hover:text-white">ES</a>
-      <span>|</span>
-      <a href="#" class="active">EN</a>
-      <span>|</span>
-      <span class="opacity-20 cursor-not-allowed" title="Coming Soon">FR</span>
+    <div class="lang-switch flex items-center gap-2 text-xs font-bold tracking-[0.15em] text-white">
+      <a href="index.html" class="text-white/40 hover:text-white transition-colors">ES</a>
+      <span class="text-white/20">|</span>
+      <a href="#" class="text-[#E34242] cursor-default">EN</a>
+      <span class="text-white/20">|</span>
+      <span class="text-white/20 cursor-not-allowed" title="Coming Soon">FR</span>
     </div>
   </div>
 
-  <button id="hbg" aria-label="Menu">
-    <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-  </button>
+  <div class="flex items-center gap-4 md:hidden">
+    <div class="flex items-center gap-2 text-xs font-bold tracking-[0.15em] text-white">
+      <a href="index.html" class="text-white/40 hover:text-white transition-colors">ES</a>
+      <span class="text-white/20">|</span>
+      <a href="#" class="text-[#E34242] cursor-default">EN</a>
+    </div>
+    
+    <button id="hbg" aria-label="Menu" class="text-white">
+      <svg id="hbg-open"  class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
 </nav>
 
 <div id="mob-menu">
   <button class="mob-close" id="mob-close" aria-label="Close">
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
-
-  <div class="lang-switch" style="margin-bottom: 1.5rem;">
-    <a href="index.html" class="text-white/40 hover:text-white" style="font-size: 1rem;">ES</a>
-    <span style="font-size: 1rem;">|</span>
-    <a href="#" class="active" style="font-size: 1rem;">EN</a>
-  </div>
 
   <a href="#about-strip"      class="mob-link" data-close>About Us</a>
   <a href="#offerings"        class="mob-link" data-close>Offerings</a>
@@ -76,8 +78,7 @@
   <a href="students-en.html"   class="mob-link" data-close style="color:var(--red);">Students →</a>
 </div>
 
-
-<section id="hero">
+  <section id="hero">
   <video id="hero-video" autoplay muted loop playsinline preload="auto"
     src="https://res.cloudinary.com/dgfomv52q/video/upload/v1776685148/lv_0_20260218165418_jegemt.mp4">
   </video>
