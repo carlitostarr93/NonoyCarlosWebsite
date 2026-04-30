@@ -71,29 +71,28 @@
       }
     ]
   },
-  "home": {
+ "home": {
     "reviews": [
       {
         "name": "Jennifer",
         "role": "Private class student",
         "badge": "Student · Superprof",
         "badgeClass": "badge-student",
-        "text": "\"Carlos is an excellent teacher. He knows how to adapt perfectly to my level and explains things clearly and warmly. Every class I learn something new and always leave with a greater desire to dance.\""
+        "text": "Excellent teacher! I have taken several private lessons with him and have improved a lot. He is very patient and attentive to technical details. He explains every step very clearly and always gives me useful exercises to keep practicing on my own at home. Highly recommended!"
       },
       {
         "name": "Masa & Polina",
         "role": "Bachazouk Referents",
         "badge": "Worldwide · Artists",
         "badgeClass": "badge-organizer",
-        "text": "\"Carlos and Nono represent the new generation of Bachata artists—driven, curious, and constantly evolving.\n\nThey are committed learners... With multiple Jack & Jill victories, they are undeniably one of the rising stars to watch.\""
+        "text": "Carlos and Nono represent the new generation of Bachata artists—driven, curious, and constantly evolving. They are committed learners, always pushing their understanding of technique, musicality, and teaching. With multiple Jack & Jill victories, they are undeniably one of the rising stars to watch."
       },
       {
         "name": "Maxi",
         "role": "Private class student",
         "badge": "Student · Superprof",
         "badgeClass": "badge-student",
-        "text": "\"Very dynamic and fun classes. He genuinely cares that you learn the technique well without losing the playful side of dancing. I highly recommend him for any level.\""
+        "text": "We met at a Vivaldi workshop. Seeing the way you danced, the smile you wore while dancing with everyone, and the way you taught, I thought: that is the person I want to learn from. And if anyone asks, I feel and know that I wasn’t wrong... Not 5... 7 stars out of 5."
       }
     ]
   }
-}
