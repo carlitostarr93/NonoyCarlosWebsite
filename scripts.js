@@ -199,9 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Lógica Multilingüe: Elegimos la columna de texto según el idioma
       let feedback = "";
       if (pageLang === "es") {
-        feedback = row[5] || "";       // Columna F: Español
+        feedback = row[6] || "";       // Columna F: Español
       } else if (pageLang === "en") {
-        feedback = row[6] || "";       // Columna G: Inglés
+        feedback = row[5] || "";       // Columna G: Inglés
       } else if (pageLang === "fr") {
         feedback = row[7] || "";       // Columna H: Francés
       }
