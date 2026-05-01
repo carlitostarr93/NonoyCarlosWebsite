@@ -105,7 +105,7 @@ function renderPricing(pricing) {
 
 
 /* ==========================================================================
-   2. LÓGICA DE INTERFAZ E INTERACCIONES (TU CÓDIGO ORIGINAL)
+   2. LÓGICA DE INTERFAZ E INTERACCIONES
    ========================================================================== */
 
 /* ─── NAVBAR SCROLL ─── */
@@ -185,52 +185,64 @@ document.addEventListener("DOMContentLoaded", () => {
     const col2 = document.getElementById('reviews-col-2');
     if(!col1 || !col2) return; // Evitar errores si no estamos en la landing de organizers
 
-   rows.forEach((row, i) => {
-  // Ignoramos la primera fila (cabeceras) o filas vacías
-  if (i === 0 || row.length < 5) return; 
-  
-  // Índices de tu Excel
-  const name = row[2] || "";       // Columna C: Name
-  const role = row[3] || "";       // Columna D: Role
-  const eventName = row[4] || "";  // Columna E: Event Name
-  const feedback = row[5] || "";   // Columna F: Feedback
-  const img = row[7] || "";        // Columna H: Event Logo
+    // Detectamos el idioma actual del HTML (<html lang="es|en|fr">)
+    const pageLang = document.documentElement.lang || "es";
 
-  if (!feedback.trim()) return;
+    rows.forEach((row, i) => {
+      // Ignoramos la primera fila (cabeceras) o filas vacías
+      if (i === 0 || row.length < 5) return; 
+      
+      const name = row[2] || "";       // Columna C: Name
+      const role = row[3] || "";       // Columna D: Role
+      const eventName = row[4] || "";  // Columna E: Event Name
+      
+      // Lógica Multilingüe: Elegimos la columna de texto según el idioma
+      let feedback = "";
+      if (pageLang === "es") {
+        feedback = row[5] || "";       // Columna F: Español
+      } else if (pageLang === "en") {
+        feedback = row[6] || "";       // Columna G: Inglés
+      } else if (pageLang === "fr") {
+        feedback = row[7] || "";       // Columna H: Francés
+      }
 
-  const card = document.createElement('div'); 
-  card.className = 'peer-card reveal in';
-  
-  // Avatar limpio y elegante (Fondo blanco, sin bordes negros)
-  let avatar = `<div class="peer-avatar text-avatar" style="width: 50px; height: 50px; flex-shrink: 0; background: linear-gradient(135deg, var(--red), #8b0000); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">${name.substring(0,2).toUpperCase()}</div>`;
-  
-  if(img && img.trim() !== '') { 
-    const safeImg = img.trim().replace(/ /g, '%20'); 
-    avatar = `<div class="peer-avatar" style="width: 56px; height: 56px; flex-shrink: 0; border-radius: 50%; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center;"><img src="${safeImg}" alt="Logo" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;"></div>`; 
-  }
+      const img = row[8] || "";        // Columna I: Event Logo
 
-  // Estructura 100% DORADA (Premium)
-  card.innerHTML = `
-    <div class="peer-author" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-      ${avatar}
-      <div>
-        <p class="peer-name" style="font-weight: 700; color: #0A0A0A; font-size: 1.15rem; margin: 0; letter-spacing: -0.01em;">${name}</p>
-        <p class="peer-role" style="font-size: 0.75rem; color: #D4AF37; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: flex; align-items: center; gap: 0.3rem;">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
-          ${role} <span style="opacity: 0.4; margin: 0 2px;">|</span> ${eventName}
-        </p>
-      </div>
-    </div>
-    <p class="peer-text" style="margin-top: 0; color: #444; line-height: 1.7; font-size: 0.95rem; font-weight: 300;">${feedback.replace(/\n/g, '<br>')}</p>
-  `;
+      if (!feedback.trim()) return;
 
-  // Reparto de columnas
-  if(i % 2 !== 0) col1.appendChild(card); else col2.appendChild(card);
+      const card = document.createElement('div'); 
+      card.className = 'peer-card reveal in';
+      
+      // Avatar sin recortes, permite logos rectangulares
+      let avatar = `<div class="peer-avatar text-avatar" style="width: 50px; height: 50px; flex-shrink: 0; background: linear-gradient(135deg, var(--red), #8b0000); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">${name.substring(0,2).toUpperCase()}</div>`;
+      
+      if(img && img.trim() !== '') { 
+        const safeImg = img.trim().replace(/ /g, '%20'); 
+        avatar = `<div style="width: 60px; height: 60px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;"><img src="${safeImg}" alt="Logo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>`; 
+      }
+
+      // Estructura Premium de la Tarjeta (Dorado, sin estilos rotos)
+      card.innerHTML = `
+        <div class="peer-author" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+          ${avatar}
+          <div>
+            <p class="peer-name" style="font-weight: 700; color: #0A0A0A; font-size: 1.15rem; margin: 0; letter-spacing: -0.01em;">${name}</p>
+            <p class="peer-role" style="font-size: 0.75rem; color: #D4AF37; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: flex; align-items: center; gap: 0.3rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              ${role} <span style="opacity: 0.4; margin: 0 4px; color: #6B6B6B;">|</span> <span style="color: #6B6B6B;">${eventName}</span>
+            </p>
+          </div>
+        </div>
+        <p class="peer-text" style="margin-top: 0; color: #444; line-height: 1.7; font-size: 0.95rem; font-weight: 300;">${feedback.replace(/\n/g, '<br>')}</p>
+      `;
+
+      // Reparto de columnas
+      if(i % 2 !== 0) col1.appendChild(card); else col2.appendChild(card);
+    });
+  });
 });
-  }); // <-- ¡ESTE CIERRE DEL FETCH FALTABA!
-}); // <-- ¡ESTE CIERRE DEL DOMContentLoaded FALTABA!
 
 function parseCSV(s) {
   const r = []; let q = false; let row = 0, col = 0;
