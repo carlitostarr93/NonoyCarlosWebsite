@@ -185,16 +185,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const col2 = document.getElementById('reviews-col-2');
     if(!col1 || !col2) return; // Evitar errores si no estamos en la landing de organizers
 
-    rows.forEach((row, i) => {
-      if (row.length < 5) return;
-      const name = row[2], role = row[3], feedback = row[4], img = row[6]; if(!feedback) return;
-      const card = document.createElement('div'); card.className = 'peer-card reveal in';
-      let avatar = `<div class="peer-avatar text-avatar">${name.substring(0,2).toUpperCase()}</div>`;
-      if(img) { const safeImg = img.trim().replace(/ /g, '%20'); avatar = `<div class="peer-avatar"><img src="${safeImg}" alt="Avatar" loading="lazy"></div>`; }
-      card.innerHTML = `<div class="peer-author" style="margin-top: 0; margin-bottom: 1.25rem;">${avatar}<div><p class="peer-name">${name}</p><p class="peer-role"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="mr-1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>${role}</p></div></div><p class="peer-text" style="margin-top: 0;">${feedback.replace(/\n/g, '<br>')}</p>`;
-      if(i % 2 === 0) col1.appendChild(card); else col2.appendChild(card);
-    });
-  }).catch(e => console.log("No CSV found or not required on this page"));
+  rows.forEach((row, i) => {
+  // Ignoramos la primera fila (cabeceras) o filas vacías
+  if (i === 0 || row.length < 5) return; 
+  
+  // NUEVOS ÍNDICES SEGÚN TU EXCEL:
+  const name = row[2] || "";       // Columna C: Name
+  const role = row[3] || "";       // Columna D: Role
+  const eventName = row[4] || "";  // Columna E: Event Name
+  const feedback = row[5] || "";   // Columna F: Feedback
+  const img = row[7] || "";        // Columna H: Event Logo
+
+  if (!feedback.trim()) return; // Si no hay reseña, no crea tarjeta
+
+  const card = document.createElement('div'); 
+  card.className = 'peer-card reveal in';
+  card.style.width = "100%"; // Fuerza a ocupar todo el ancho de su columna
+  card.style.boxSizing = "border-box";
+  
+  // Crear el Avatar o Logo
+  let avatar = `<div class="peer-avatar text-avatar" style="width: 50px; height: 50px; flex-shrink: 0; background: var(--red); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">${name.substring(0,2).toUpperCase()}</div>`;
+  
+  if(img && img.trim() !== '') { 
+    const safeImg = img.trim().replace(/ /g, '%20'); 
+    avatar = `<div class="peer-avatar" style="width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 2px solid #eee; background: #000;"><img src="${safeImg}" alt="Logo" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;"></div>`; 
+  }
+
+  // Estructura Premium de la Tarjeta
+  card.innerHTML = `
+    <div class="peer-author" style="margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+      ${avatar}
+      <div>
+        <p class="peer-name" style="font-weight: 700; color: #0A0A0A; font-size: 1.15rem; margin: 0; letter-spacing: -0.01em;">${name}</p>
+        <p class="peer-role" style="font-size: 0.8rem; color: #6B6B6B; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
+          <span style="color: var(--red); font-size: 0.9rem;">★</span> ${role} <span style="opacity: 0.4; margin: 0 4px;">|</span> ${eventName}
+        </p>
+      </div>
+    </div>
+    <p class="peer-text" style="margin-top: 0; color: #444; line-height: 1.7; font-size: 0.95rem; font-weight: 300;">${feedback.replace(/\n/g, '<br>')}</p>
+  `;
+
+  // Repartir en dos columnas
+  if(i % 2 !== 0) col1.appendChild(card); else col2.appendChild(card);
 });
 
 function parseCSV(s) {
