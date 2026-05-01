@@ -110,3 +110,27 @@
 /* ─── BOOKING SECTION ─── */
 #booking { background: #fff; }
 #booking .sec-title { color: var(--ink); }
+
+
+/* FORZAR 2 COLUMNAS EN ESCRITORIO */
+#reviews-master-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+#reviews-col-1, #reviews-col-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    width: 100% !important;
+}
+
+/* En móviles, vuelve a 1 sola columna */
+@media (max-width: 768px) {
+    #reviews-master-container {
+        grid-template-columns: 1fr !important;
+    }
+}
