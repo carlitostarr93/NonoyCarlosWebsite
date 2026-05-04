@@ -178,7 +178,8 @@ initCarousel('bachata');
 
 /* ─── AUTOMATIZACIÓN DE RESEÑAS DESDE EXCEL/CSV (ORGANIZERS) ─── */
 document.addEventListener("DOMContentLoaded", () => {
-  const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv';
+  // AÑADIMOS EL TIMESTAMP PARA ROMPER EL CACHÉ Y CARGAR SIEMPRE LA ÚLTIMA VERSIÓN
+  const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYz9PnwW9Oe8V_rVL-B1msf-vh1DZX_W44eI3fFDfEDr_bfsSmbP9-hb_1ai26d4fZXoEXlV8q-QfO/pub?output=csv&t=' + new Date().getTime();
   fetch(csvUrl).then(r => r.text()).then(txt => {
     const rows = parseCSV(txt); rows.shift();
     const col1 = document.getElementById('reviews-col-1'); 
@@ -199,9 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Lógica Multilingüe: Elegimos la columna de texto según el idioma
       let feedback = "";
       if (pageLang === "es") {
-        feedback = row[6] || "";       // Columna F: Español
+        feedback = row[6] || "";       // Columna G: Español
       } else if (pageLang === "en") {
-        feedback = row[5] || "";       // Columna G: Inglés
+        feedback = row[5] || "";       // Columna F: Inglés
       } else if (pageLang === "fr") {
         feedback = row[7] || "";       // Columna H: Francés
       }
